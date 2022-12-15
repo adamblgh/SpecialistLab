@@ -36,6 +36,7 @@ export const Home = ({ setLoggedInUser }) => {
             <br />
             <br />
             <br />
+            <br />
 
           </Form>
         </div>
@@ -44,6 +45,7 @@ export const Home = ({ setLoggedInUser }) => {
         <div className="col-md-6">
         <Form className="login border p-3 shadow mt-1 rounded">
             <h3>Bejelentkezés</h3>
+            <br />
             <br />
             <br />
             <br />
