@@ -1,6 +1,71 @@
+
 .holder{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .title{
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Days One', sans-serif;
+    color: white;
+    font-size: 400%;
+    
 }
+.lineUp {
+    animation: 3s anim-lineUp ease-out;
+    color: white;
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  .lineUp2 {
+    animation: 4s anim-lineUp ease-out;
+    color: white;
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+body{
+    background-image: url('../public/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h1{
+    color: white;
+}
+Form{
+  color: black;
+  background-color: white;
+}
+.row
+{
+  margin-top: 125px!important;
+}
+
+
