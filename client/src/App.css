@@ -1,16 +1,15 @@
-
-.holder{
-    margin-top: 20px;
-}
-.title{
+.titleh1{
     font-family: 'Days One', sans-serif;
-    color: black;
-    font-size: 400%;
+    color: white;
+    font-size: 300%;
     text-align: left!important;
+}
+.box{
+  width: 1100px!important;
+  justify-content: center!important;
 }
 .lineUp {
     animation: 3s anim-lineUp ease-out;
-    color: black
   }
   @keyframes anim-lineUp {
     0% {
@@ -31,7 +30,6 @@
   }
   .lineUp2 {
     animation: 4s anim-lineUp ease-out;
-    color: black
   }
   @keyframes anim-lineUp {
     0% {
@@ -51,10 +49,18 @@
     }
   }
 body{
-    background-image: url('../public/bg.jpg');
+    /*background-image: url('../public/bg.jpg');*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 Form{
   color: black;
@@ -62,25 +68,28 @@ Form{
 }
 .row
 {
-  margin-top: 125px!important;
+  margin-top: 100px!important;
 }
 .panel{
   background-color: #ffffff;
   color: black;
+  box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
+  filter: grayscale(3);
+  transition: 1s;
+}
+.panel:hover{
   cursor: pointer;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2)
+  filter: none;
 }
 .kitoltes{
   padding-bottom: 300px;
 }
 .register{
   background-image: url("../public/register.png");
-  background-repeat: no-repeat;
   background-size: cover;
 }
 .login{
   background-image: url("../public/login.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
