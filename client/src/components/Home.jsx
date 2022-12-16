@@ -18,8 +18,8 @@ export const Home = ({ setLoggedInUser }) => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <video
+    <>
+    <video
         autoPlay
         loop
         muted
@@ -42,6 +42,9 @@ export const Home = ({ setLoggedInUser }) => {
           <h1 className="mt-2 titleh1 lineUp">
             SPECIALIST LAB™
           </h1>
+          <h6 className="mt-2 lineUp">
+            Minden szakember egy helyen!
+          </h6>
         </div>
         {/*PANELEK*/}
         <div className="col-md-8">
@@ -49,7 +52,7 @@ export const Home = ({ setLoggedInUser }) => {
             {/*REGISZTRÁCIÓ*/}
             <div className="col-md-6">
               <motion.div
-                whileHover={{ scale: [null, 1.03, 1.06, 1.1] }}
+                whileHover={{ scale: [null, 1.03, 1.06, 1.07] }}
                 transition={{ duration: 0.2 }}
                 onClick={() => navigate("/register")}
                 className="panel register p-3 mt-1 rounded"
@@ -61,7 +64,7 @@ export const Home = ({ setLoggedInUser }) => {
             {/*BEJELENTKEZÉS*/}
             <div className="col-md-6">
               <motion.div
-                whileHover={{ scale: [null, 1.03, 1.06, 1.1] }}
+                whileHover={{ scale: [null, 1.03, 1.06, 1.07] }}
                 transition={{ duration: 0.2 }}
                 className="panel login p-3 mt-1 rounded"
               >
@@ -71,6 +74,6 @@ export const Home = ({ setLoggedInUser }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
