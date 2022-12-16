@@ -1,7 +1,7 @@
 import mysql from "mysql";
 import bcrypt from "bcryptjs";
 import { configDB } from "../configDB.js";
-import { upload,removeFromCloud } from "../cloudinary.js";
+import { upload,removeFromCloud } from "../tmp/cloudinary.js";
 import fs from 'fs'
 import path from "path";
 
@@ -33,7 +33,7 @@ export const login=(request,response)=>{
                     response.send({username:username,id:result[0].id,email:result[0].email,avatar:result[0].avatar,avatar_id:result[0].avatar_id})
                 }
                 else{
-                    response.send({error:"Wrong password username pair!"})
+                    response.send({error:"Rossz felhasználónév és jelszó pár!"})
                 }
             })
         }
@@ -65,19 +65,19 @@ export const checkUsername=(request,response)=>{
 
 const saltRound=10
 export const register=(request,response)=>{
-    const {username,email,password} = request.body
+    const {username,password,email} = request.body
     bcrypt.hash(password,saltRound,(err,hashedPassword)=>{
         if(err){
             console.log('BCRYPT HIBA!',err)
         }
         else{
-            db.query('INSERT INTO users (username,email,password) values (?,?,?)',[username,email,hashedPassword],(err,result)=>{
+            db.query('INSERT INTO users (username,password,email) values (?,?,?)',[username,hashedPassword,email],(err,result)=>{
                 if(err){
                     console.log('HIBA AZ INSERT-NÉL!',err)
-                    response.send({msg:'Registration failed!',id:result.insertId})
+                    response.send({msg:'Regisztráció sikertelen!',id:result.insertId})
                 }
                 else
-                    response.send({msg:'Successful registration!',id:result.insertId})
+                    response.send({msg:'Sikeres regisztráció!',id:result.insertId})
             })
         }
     })
