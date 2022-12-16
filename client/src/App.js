@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import { Register } from "./components/Register";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ function App() {
       <div className="holder d-flex justify-content-center">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />}/>
         </Routes>
       </div>
     </QueryClientProvider>
