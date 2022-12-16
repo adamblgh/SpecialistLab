@@ -65,13 +65,13 @@ export const checkUsername=(request,response)=>{
 
 const saltRound=10
 export const register=(request,response)=>{
-    const {username,password,email} = request.body
+    const {username,password,email,name} = request.body
     bcrypt.hash(password,saltRound,(err,hashedPassword)=>{
         if(err){
             console.log('BCRYPT HIBA!',err)
         }
         else{
-            db.query('INSERT INTO users (username,password,email) values (?,?,?)',[username,hashedPassword,email],(err,result)=>{
+            db.query('INSERT INTO users (username,password,email,name) values (?,?,?,?)',[username,hashedPassword,email,name],(err,result)=>{
                 if(err){
                     console.log('HIBA AZ INSERT-NÉL!',err)
                     response.send({msg:'Regisztráció sikertelen!',id:result.insertId})
@@ -134,10 +134,10 @@ export const changePassword=(request,response)=>{
         else{
             db.query('update users SET password=? where username=?;',[hashedPassword,username],(err,result)=>{
                 if(err){
-                    response.send({msg:'Password not changed!'})
+                    response.send({msg:'Jelszót nem sikerült megváltoztatni!'})
                 }
                 else
-                    response.send({msg:'Successful changed password!'})
+                    response.send({msg:'Jelszót sikeresen megváltoztattad!'})
             })
         }
     })
