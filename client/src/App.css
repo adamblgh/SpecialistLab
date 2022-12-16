@@ -4,13 +4,13 @@
 }
 .title{
     font-family: 'Days One', sans-serif;
-    color: white;
+    color: black;
     font-size: 400%;
-    
+    text-align: left!important;
 }
 .lineUp {
     animation: 3s anim-lineUp ease-out;
-    color: white;
+    color: black
   }
   @keyframes anim-lineUp {
     0% {
@@ -31,7 +31,7 @@
   }
   .lineUp2 {
     animation: 4s anim-lineUp ease-out;
-    color: white;
+    color: black
   }
   @keyframes anim-lineUp {
     0% {
@@ -56,9 +56,6 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
-h1{
-    color: white;
-}
 Form{
   color: black;
   background-color: white;
@@ -68,11 +65,22 @@ Form{
   margin-top: 125px!important;
 }
 .panel{
-  background-color: white;
-  color : black;
+  background-color: #ffffff;
+  color: black;
   cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2)
 }
 .kitoltes{
   padding-bottom: 300px;
+}
+.register{
+  background-image: url("../public/register.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login{
+  background-image: url("../public/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 

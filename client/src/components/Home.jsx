@@ -20,20 +20,20 @@ export const Home = ({ setLoggedInUser }) => {
 
   return (
     <div>
-      <h1 className="mt-2 title lineUp text-center">
-        SPECIALIST <span className="kek">LAB™</span>
-      </h1>
-      <h6 className="mt-2 lineUp2  text-center">
-        Válasszon az alábbiak közül...
-      </h6>
+      <div className="col-12">
+      <h1 className="mt-2 title lineUp">
+        SPECIALIST LAB™
+      </h1>  
+      </div>
       <div className="row lineUp">
+      
         {/*REGISZTRÁCIÓ*/}
         <div className="col-md-6">
           <motion.div
             whileHover={{ scale: [null, 1.1] }}
             transition={{ duration: 1 }}
             onClick={asd}
-            className="panel border p-3 shadow mt-1 rounded"
+            className="panel register p-3 mt-1 rounded"
           >
             <h3 className="kitoltes">Regisztráció</h3>
           </motion.div>
@@ -44,7 +44,7 @@ export const Home = ({ setLoggedInUser }) => {
           <motion.div
             whileHover={{ scale: [null, 1.1] }}
             transition={{ duration: 1 }}
-            className="panel border p-3 shadow mt-1 rounded"
+            className="panel login p-3 mt-1 rounded"
           >
             <h3 className="kitoltes">Bejelentkezés</h3>
           </motion.div>
