@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Dec 16. 09:57
+-- Létrehozás ideje: 2022. Dec 16. 10:46
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.1.12
 
@@ -92,6 +92,7 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `avatar` varchar(256) NOT NULL,
+  `avatar_id` int(255) NOT NULL,
   `role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -99,8 +100,8 @@ CREATE TABLE `users` (
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `role`) VALUES
-(1, 'czk', 'czk123', 'czk@gmail.com', 'Czeczon Kristóf', 'users.png', 'admin');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `avatar_id`, `role`) VALUES
+(1, 'czk', 'czk123', 'czk@gmail.com', 'Czeczon Kristóf', 'users.png', 0, 'admin');
 
 -- --------------------------------------------------------
 
