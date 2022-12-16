@@ -67,5 +67,12 @@ Form{
 {
   margin-top: 125px!important;
 }
-
+.panel{
+  background-color: white;
+  color : black;
+  cursor: pointer;
+}
+.kitoltes{
+  padding-bottom: 300px;
+}
 
