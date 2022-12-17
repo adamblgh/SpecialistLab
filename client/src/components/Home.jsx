@@ -13,13 +13,14 @@ import {
 } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
+import logo from "../components/image/slab_logo.png";
 
 export const Home = ({ setLoggedInUser }) => {
   const navigate = useNavigate();
 
   return (
     <>
-    <video
+      <video
         autoPlay
         loop
         muted
@@ -36,15 +37,11 @@ export const Home = ({ setLoggedInUser }) => {
       >
         <source src={bg} type="video/mp4" />
       </video>
-      <div className="row box justify-content-center align-items-center">
+      <div className="row panelek box justify-content-center align-items-center">
         {/*CÍM*/}
         <div className="col-md-4">
-          <h1 className="mt-2 titleh1 lineUp">
-            SPECIALIST LAB™
-          </h1>
-          <h6 className="mt-2 lineUp">
-            Minden szakember egy helyen!
-          </h6>
+          <h1 className="mt-2 titleh1 lineUp">SPECIALIST LAB™</h1>
+          <h6 className="mt-2 lineUp">Minden szakember egy helyen!</h6>
         </div>
         {/*PANELEK*/}
         <div className="col-md-8">
@@ -52,8 +49,8 @@ export const Home = ({ setLoggedInUser }) => {
             {/*REGISZTRÁCIÓ*/}
             <div className="col-md-6">
               <motion.div
-                whileHover={{ scale: [null, 1.03, 1.06, 1.07] }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
                 onClick={() => navigate("/register")}
                 className="panel register p-3 mt-1 rounded"
               >
@@ -64,8 +61,8 @@ export const Home = ({ setLoggedInUser }) => {
             {/*BEJELENTKEZÉS*/}
             <div className="col-md-6">
               <motion.div
-                whileHover={{ scale: [null, 1.03, 1.06, 1.07] }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
                 className="panel login p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-center">Bejelentkezés</h3>
@@ -74,6 +71,47 @@ export const Home = ({ setLoggedInUser }) => {
           </div>
         </div>
       </div>
+      <footer>
+        <div className="d-flex text-center align-items-center justify-content-center">
+          {/*SOCIAL MEDIA*/}
+          <div className="col-md-4">
+            <ul>
+              <li>
+                <a target="_blank" href="#">
+                  {" "}
+                  <i class="fa fa-facebook" aria-hidden="true"></i>{" "}
+                </a>{" "}
+              </li>
+              <li>
+                <a target="_blank" href="#">
+                  {" "}
+                  <i class="fa fa-twitter" aria-hidden="true"></i>{" "}
+                </a>{" "}
+              </li>
+              <li>
+                <a target="_blank" href="https://github.com/adamblgh">
+                  {" "}
+                  <i class="fa fa-github" aria-hidden="true"></i>{" "}
+                </a>{" "}
+              </li>
+            </ul>
+          </div>
+          {/*NAME*/}
+          <div className="col-md-4">
+            <img
+              className="img-fluid logo"
+              src={logo}
+              type="image/png"
+              alt="Logo"
+            />
+            <span className="m-2">SPECIALIST LAB™</span>
+          </div>
+          {/*Date*/}
+          <div className="col-md-4 text-right align-items-center justify-content-center">
+            @2023 | Minden jog fenntartva!
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
