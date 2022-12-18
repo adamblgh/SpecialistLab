@@ -82,32 +82,28 @@ export const Register = () => {
 
       
 
-  
-
   return (
-    <Form className="login border p-3 shadow mt-1 rounded text-center">
+    <Form className="border p-3 shadow mt-1 rounded text-center registerformazas">
         <h3>Regisztráció</h3>
-      <FormGroup>
-        <Label for="username">Felhasználónév</Label>
-        <Input className={isValidU==null ? "" : (isValidU ? "is-valid" : "is-invalid")}
+
+        <FormGroup>
+        <Label for="username">Név</Label>
+        <Input id="name" className={isValidN==null ? "" : (isValidN ? "is-valid" : "is-invalid")}
             autoFocus
-            value={username} onChange={(e)=>setUsername(e.target.value)}
-            onBlur={handleCheckUsername}
-            onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('password').focus() : ''}
+            value={name} onChange={(e)=>setName(e.target.value)}
+            onBlur={handleCheckName}
+            onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('username').focus() : ''}
         />
-        <FormFeedback>Felhasználónév már létezik!</FormFeedback>
       </FormGroup>
 
       <FormGroup>
-        <Label for="password">Jelszó</Label>
-        <Input type="password" id="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
-            value={password} onChange={(e)=>setPassword(e.target.value)}
-            onBlur={handleCheckPassword}
+        <Label for="username">Felhasználónév</Label>
+        <Input id="username" className={isValidU==null ? "" : (isValidU ? "is-valid" : "is-invalid")}
+            value={username} onChange={(e)=>setUsername(e.target.value)}
+            onBlur={handleCheckUsername}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('email').focus() : ''}
-            
         />
-        <FormFeedback>Helytelen jelszó!</FormFeedback>
-        <FormText>A jelszónak legalább 6 karakter hosszúságúnak kell lennie!</FormText>
+        <FormFeedback>Felhasználónév már létezik!</FormFeedback>
       </FormGroup>
 
       <FormGroup>
@@ -115,23 +111,25 @@ export const Register = () => {
         <Input type="email" id="email" className={isValidE==null ? "" : (isValidE ? "is-valid" : "is-invalid")}
             value={email} onChange={(e)=>setEmail(e.target.value)}
             onBlur={handleCheckEmail}
-            onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('name').focus() : ''}
+            onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('password').focus() : ''}
             
         />
         <FormFeedback >Email-cím már használatban van!/Helytelen email-cím!</FormFeedback>
         <FormText>Email-címnek tartalmaznia kell egy @-ot!</FormText>
       </FormGroup>
 
-
       <FormGroup>
-        <Label for="username">Név</Label>
-        <Input id="name" className={isValidN==null ? "" : (isValidN ? "is-valid" : "is-invalid")}
-            autoFocus
-            value={name} onChange={(e)=>setName(e.target.value)}
-            onBlur={handleCheckName}
+        <Label for="password">Jelszó</Label>
+        <Input type="password" id="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
+            value={password} onChange={(e)=>setPassword(e.target.value)}
+            onBlur={handleCheckPassword}
+            
         />
+        <FormFeedback>Helytelen jelszó!</FormFeedback>
+        <FormText>A jelszónak legalább 6 karakter hosszúságúnak kell lennie!</FormText>
       </FormGroup>
 
+      
 
       <div>
         <Input type="button" className="btn btn-dark" 

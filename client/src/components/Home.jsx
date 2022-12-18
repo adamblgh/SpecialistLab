@@ -32,7 +32,7 @@ export const Home = ({ setLoggedInUser }) => {
             whileHover={{ scale: [null, 1.1] }}
             transition={{ duration: 1 }}
             onClick={()=>navigate('/register')}
-            className="panel border p-3 shadow mt-1 rounded"
+            className="panel register p-3 shadow mt-1 rounded"
           >
             <h3 className="kitoltes text-center">Regisztráció</h3>
           </motion.div>
