@@ -45,7 +45,7 @@ export const Register = () => {
 
     const mutationCheckEmail=useMutation(checkEmail,{
       onSuccess:(data)=>{
-        console.log(data.data.rowCount,data.data.username)
+        console.log(data.data.rowCount,data.data.email)
         if(data.data.rowCount==0)
           setIsValidE(true)
         else
@@ -58,7 +58,12 @@ export const Register = () => {
     }
 
     const handleCheckName = () =>{
-        name.length!=0 ? setIsValidN(true) : setIsValidN(false)
+        if(name.length>0){
+          setIsValidN(true)
+        }
+        else{
+          setIsValidN(false)
+        }
       }
 
     const mutationRegister=useMutation(register,{
@@ -68,6 +73,7 @@ export const Register = () => {
           setUsername('')
           setEmail('')
           setPassword('')
+          setName('')
           setIsValidU(null)
           setIsValidE(null)
           setIsValidP(null)
@@ -83,7 +89,7 @@ export const Register = () => {
       
 
   return (
-    <Form className="border p-3 shadow mt-1 rounded text-center registerformazas">
+    <Form className="border p-3 shadow mt-1 rounded text-center">
         <h3>Regisztráció</h3>
 
         <FormGroup>
@@ -108,7 +114,7 @@ export const Register = () => {
 
       <FormGroup>
         <Label for="email">Email</Label>
-        <Input type="email" id="email" className={isValidE==null ? "" : (isValidE ? "is-valid" : "is-invalid")}
+        <Input id="email" type="email" className={isValidE==null ? "" : (isValidE ? "is-valid" : "is-invalid")}
             value={email} onChange={(e)=>setEmail(e.target.value)}
             onBlur={handleCheckEmail}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('password').focus() : ''}
@@ -120,7 +126,7 @@ export const Register = () => {
 
       <FormGroup>
         <Label for="password">Jelszó</Label>
-        <Input type="password" id="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
+        <Input id="password" type="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
             value={password} onChange={(e)=>setPassword(e.target.value)}
             onBlur={handleCheckPassword}
             
@@ -134,7 +140,7 @@ export const Register = () => {
       <div>
         <Input type="button" className="btn btn-dark" 
         disabled={!isValidU || !isValidE || !isValidP}
-        onClick={()=>mutationRegister.mutate({username:username,email:email,password:password})}
+        onClick={()=>mutationRegister.mutate({name:name,username:username,email:email,password:password})}
         value="Regisztrálok"/>
       </div>
       <div className="msg">{msg}</div>

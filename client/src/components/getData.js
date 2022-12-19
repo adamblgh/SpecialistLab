@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let url=""
+let url='http://localhost:5000'
 
 export const checkUsername= async (formdata)=>{
     const response = await axios.post(url+'/auth/checkUsername',formdata)
