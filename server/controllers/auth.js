@@ -6,10 +6,10 @@ import fs from 'fs'
 import path from "path";
 import { response } from "express";
 import { request } from "http";
-
+ 
 const db=mysql.createConnection(configDB)
 //ideiglenes login:
-
+ 
 /*export const login=(request,response)=>{
     console.log(request.body)
     const {username,password} = request.body
@@ -20,7 +20,7 @@ const db=mysql.createConnection(configDB)
             response.send({rowCount:result[0].nr,username:username})
     })
 }*/
-
+ 
 export const login=(request,response)=>{
     console.log(request.body)
     const {username,password} = request.body
@@ -41,31 +41,31 @@ export const login=(request,response)=>{
         }
     })
 }
-
-
+ 
+ 
 export const checkEmail=(request,response)=>{
     console.log(request.body)
     const {email} = request.body
-    db.query('SELECT * FROM `users` where email=?',[email],(err,result)=>{
+    db.query('SELECT count(*) nr FROM `users` where email=?',[email],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else
-        response.send({rowCount:result[0],email:email})
+        response.send({rowCount:result[0].nr,email:email})
     })
 }
-
-
+ 
+ 
 export const checkUsername=(request,response)=>{
     console.log(request.body)
     const {username} = request.body
-    db.query('SELECT * FROM `users` where username=?',[username],(err,result)=>{
+    db.query('SELECT count(*) nr FROM `users` where username=?',[username],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else
-            response.send({rowCount:result[0],username:username})
+            response.send({rowCount:result[0].nr,username:username})
     })
 }
-
+ 
 const saltRound=10
 export const register=(request,response)=>{
     console.log(request.body)
@@ -87,7 +87,7 @@ export const register=(request,response)=>{
         }
     })
 }
-
+ 
 export const updateAvatar=async (request,response)=>{
     const {username,avatar_id}=request.body
     if(request.files){
@@ -107,14 +107,14 @@ export const updateAvatar=async (request,response)=>{
         })
     }
 }
-
+ 
 const removeTMPfiles = path =>{
     console.log("A törlendő temp file útvonala: ",path)
     fs.unlink(path, err =>{
         if(err) throw err
     })
 }
-
+ 
 export const deleteUser=(request,response)=>{
     console.log(request.body)
     const {username,avatar_id} = request.body
@@ -126,10 +126,10 @@ export const deleteUser=(request,response)=>{
             avatar_id && removeFromCloud(avatar_id)
             response.send({msg:"Sikeresen törölte a felhasználóját!",username:username})
         }
-            
+ 
     })
 }
-
+ 
 export const changePassword=(request,response)=>{
     const {password,username} = request.body
     bcrypt.hash(password,saltRound,(err,hashedPassword)=>{
@@ -147,4 +147,3 @@ export const changePassword=(request,response)=>{
         }
     })
 }
-
