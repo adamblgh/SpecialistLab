@@ -1,91 +1,78 @@
-import React,{useState,} from "react";
-import {useMutation} from 'react-query'
+import React,{useState} from "react";
 import { checkUsername,login } from "./getData";
+import {useMutation} from 'react-query';
 import {Form,FormGroup,Input,Label,FormFeedback,Button} from "reactstrap";
 import {useNavigate} from 'react-router-dom'
  
 export const Login = ({setLoggedInUser}) => {
-    const [username,setUsername] = useState('')
-    const [password,setpassword] = useState('')
-    const [email,setEmail] = useState(null)
-    const [isValidU,setIsValidU] = useState(null)
-    const [isValidP,setIsValidP] = useState(null)
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [isValidU, setIsValidU] = useState(null)
+    const [isValidP, setIsValidP] = useState(null)
     const navigate=useNavigate()
  
     const mutationCheckUsername=useMutation(checkUsername,{
       onSuccess:(data)=>{
-        console.log('szerver oldalrol',data.data.rowCount,data.data.username)
-        if(data.data.rowCount ==  0)
-         setIsValidU(false)
+        console.log(data.data.rowCount,data.data.username)
+        if(data.data.rowCount==0)
+          setIsValidU(false)
         else
-        setIsValidU(true)
- 
- 
- 
- 
-        }
- 
- 
- 
- 
+          setIsValidU(true)
+      }
     })
  
-    const handleCheckUsername = ()=>{
+    const handleCheckUsername = () =>{
       if(username)
         mutationCheckUsername.mutate({username:username})
       else
-      setIsValidU(false)
+        setIsValidU(false)
     }
  
- 
- 
     const mutationLogin=useMutation(login,{
-      onSuccess:(data)=>{
-        console.log(data)
-        if(data.data.rowCount ==0)
-        setIsValidP(false)
-        else {setIsValidP(true)
-          setLoggedInUser(data.data.username)
-        navigate('/')}
- 
- 
- 
+      onSuccess:(data) =>{
+        console.log(data.data)
+        if(data.data?.error)
+          setIsValidP(false)
+        else{
+          setIsValidP(true)
+          const {username,email,id,avatar,avatar_id,role} = data.data
+          /*setLoggedInUser({username:username,id:id,email:email,avatar:avatar,avatar_id:avatar_id,role:role})*/
+          navigate('/')
+        }
+         
       }
     })
  
   return (
-    <Form className="border p-3 shadow mt-1">
-        <h3>Login form</h3>
+    <Form className="text-center border p-3 shadow mt-1 rounded">
+        <h3>Bejelentkezés</h3>
       <FormGroup>
-        <Label for="username">Felhasználónév:</Label>
-        <Input className={isValidU==null ?"" : (isValidU ? "is-valid" : "is-invalid")}
-          autoFocus
+        <Label for="username">Felhasználónév</Label>
+        <Input className={isValidU==null ? "" : (isValidU ? "is-valid" : "is-invalid")}
+            autoFocus
             value={username} onChange={(e)=>setUsername(e.target.value)}
             onBlur={handleCheckUsername}
-            onKeyPress={(e)=>e.key=="Enter"? document.getElementById("password").focus() : ''}
-            />
-        <FormFeedback>Nem létező Felhasználónév!</FormFeedback>
+            onKeyPress={(e)=>e.key=='Enter' ? document.getElementById("password").focus() : ''}
+        />
+        <FormFeedback>Helytelen felhasználónév!</FormFeedback>
       </FormGroup>
+ 
       <FormGroup>
-        <Label for="password">Jelszó:</Label>
-        <Input  type="password" className={isValidP==null ?"" : (isValidP ? "is-valid" : "is-invalid")} 
-        id="password"
-            value={password} onChange={(e)=>setpassword(e.target.value)}
-            onKeyPress={(e)=>e.key=="Enter"? document.getElementById("login").focus() : ''}
- 
-              />
-        <FormFeedback >Helytelen jelszó!</FormFeedback>
+        <Label for="password">Jelszó</Label>
+        <Input type="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
+            id="password"
+            value={password} onChange={(e)=>setPassword(e.target.value)}
+            onKeyPress={(e)=>e.key=='Enter' ? document.getElementById("login").focus() : ''}
+        />
+        <FormFeedback>Helytelen jelszó!</FormFeedback>
       </FormGroup>
+ 
       <div>
-  <Button disabled={!isValidU || !password} color="dark"
-  id="login"
-  onClick={()=>mutationLogin.mutate({username:username,password:password})}
-  >Login
- 
-  </Button>
- 
-</div>
+        <Button disabled={!isValidU || !password} color="dark"
+        id="login"
+        onClick={()=>mutationLogin.mutate({username:username, password:password})}
+        >Bejelentkezés</Button>
+      </div>
     </Form>
- 
   );
 };
