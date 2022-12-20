@@ -100,6 +100,7 @@ export const Register = () => {
             onBlur={handleCheckName}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('username').focus() : ''}
         />
+        <FormFeedback>Név kitöltése kötelező!</FormFeedback>
       </FormGroup>
 
       <FormGroup>
