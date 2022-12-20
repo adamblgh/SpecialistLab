@@ -14,7 +14,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="d-flex justify-content-center">
+      <div className="container-fluid">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
