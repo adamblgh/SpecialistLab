@@ -1,14 +1,16 @@
 import mysql from "mysql";
 import bcrypt from "bcryptjs";
 import { configDB } from "../configDB.js";
-import { upload,removeFromCloud } from "../tmp/cloudinary.js";
+import { upload,removeFromCloud } from "../cloudinary.js";
 import fs from 'fs'
 import path from "path";
+import { response } from "express";
+import { request } from "http";
 
 const db=mysql.createConnection(configDB)
 //ideiglenes login:
 
-/*export const login=(request,response)=>{
+export const login=(request,response)=>{
     console.log(request.body)
     const {username,password} = request.body
     db.query('SELECT count(*) nr FROM `users` where username=? and password=?',[username,password],(err,result)=>{
@@ -17,28 +19,9 @@ const db=mysql.createConnection(configDB)
         else
             response.send({rowCount:result[0].nr,username:username})
     })
-}*/
-
-export const login=(request,response)=>{
-    console.log(request.body)
-    const {username,password} = request.body
-    db.query('SELECT id,password,email,avatar,avatar_id FROM `users` where username=?',[username],(err,result)=>{
-        if(err)
-            console.log('HIBA!',err)
-        else{
-            bcrypt.compare(password, result[0].password,(err,resultCompare)=>{
-                if(err)
-                    response.send({error:"ServerERROR!",err})
-                if(resultCompare){
-                    response.send({username:username,id:result[0].id,email:result[0].email,avatar:result[0].avatar,avatar_id:result[0].avatar_id})
-                }
-                else{
-                    response.send({error:"Rossz felhasználónév és jelszó pár!"})
-                }
-            })
-        }
-    })
 }
+
+
 
 export const checkEmail=(request,response)=>{
     console.log(request.body)
@@ -64,14 +47,16 @@ export const checkUsername=(request,response)=>{
 }
 
 const saltRound=10
+
 export const register=(request,response)=>{
-    const {username,password,email,name} = request.body
+    console.log(request.body)
+    const {name,username,email,password} = request.body
     bcrypt.hash(password,saltRound,(err,hashedPassword)=>{
         if(err){
             console.log('BCRYPT HIBA!',err)
         }
         else{
-            db.query('INSERT INTO users (username,password,email,name) values (?,?,?,?)',[username,hashedPassword,email,name],(err,result)=>{
+            db.query('INSERT INTO users (name,username,email,password) values (?,?,?,?)',[name,username,email,password],(err,result)=>{
                 if(err){
                     console.log('HIBA AZ INSERT-NÉL!',err)
                     response.send({msg:'Regisztráció sikertelen!',id:result.insertId})
@@ -142,3 +127,25 @@ export const changePassword=(request,response)=>{
         }
     })
 }
+
+/*export const login=(request,response)=>{
+    //,email,avatar,avatar_id
+    console.log(request.body)
+    const {username,password} = request.body
+    db.query('SELECT id,password FROM `users` where username=?',[username],(err,result)=>{
+        if(err)
+            console.log('HIBA!',err)
+        else{
+            bcrypt.compare(password, result[0].password,(err,resultCompare)=>{
+                if(err)
+                    response.send({error:"ServerERROR!",err})
+                if(resultCompare){
+                    response.send({username:username,id:result[0].id,email:result[0].email,avatar:result[0].avatar,avatar_id:result[0].avatar_id})
+                }
+                else{
+                    response.send({error:"Rossz felhasználónév és jelszó pár!"})
+                }
+            })
+        }
+    })
+}*/
