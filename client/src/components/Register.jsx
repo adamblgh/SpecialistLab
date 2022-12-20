@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import { checkUsername,checkEmail,register } from "./getData";
 import {Form,FormGroup,Input,Label,FormFeedback,Button,FormText} from "reactstrap";
 import { validate } from 'react-email-validator';
-
+ 
 export const Register = () => {
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
@@ -17,7 +17,7 @@ export const Register = () => {
     const [isValidN,setIsValidN] = useState(null)
     const [success,setSuccess] = useState(null)
     const [msg,setMsg] = useState("")
-
+ 
     const mutationCheckUsername=useMutation(checkUsername,{
       onSuccess:(data)=>{
         console.log(data.data.rowCount,data.data.username)
@@ -27,14 +27,14 @@ export const Register = () => {
           setIsValidU(false)
       }
     })
-
+ 
     const handleCheckUsername = () =>{
       if(username)
         mutationCheckUsername.mutate({username:username})
       else
         setIsValidU(false)
     }
-
+ 
     const handleCheckEmail = () =>{
       if(validate(email))
         mutationCheckEmail.mutate({email:email})
@@ -42,7 +42,7 @@ export const Register = () => {
         setIsValidE(false)
       }
     }
-
+ 
     const mutationCheckEmail=useMutation(checkEmail,{
       onSuccess:(data)=>{
         console.log(data.data.rowCount,data.data.email)
@@ -52,11 +52,11 @@ export const Register = () => {
           setIsValidE(false)
       }
     })
-
+ 
     const handleCheckPassword = () =>{
       password.length<6 ? setIsValidP(false) : setIsValidP(true)
     }
-
+ 
     const handleCheckName = () =>{
         if(name.length>0){
           setIsValidN(true)
@@ -65,7 +65,7 @@ export const Register = () => {
           setIsValidN(false)
         }
       }
-
+ 
     const mutationRegister=useMutation(register,{
       onSuccess:(data)=>{
         if(data.data?.id){
@@ -85,13 +85,13 @@ export const Register = () => {
         setMsg(data.data.msg)
       }
       })
-
-      
-
+ 
+ 
+ 
   return (
     <Form className="border p-3 shadow mt-1 rounded text-center">
         <h3>Regisztráció</h3>
-
+ 
         <FormGroup>
         <Label for="username">Név</Label>
         <Input id="name" className={isValidN==null ? "" : (isValidN ? "is-valid" : "is-invalid")}
@@ -102,7 +102,7 @@ export const Register = () => {
         />
         <FormFeedback>Név kitöltése kötelező!</FormFeedback>
       </FormGroup>
-
+ 
       <FormGroup>
         <Label for="username">Felhasználónév</Label>
         <Input id="username" className={isValidU==null ? "" : (isValidU ? "is-valid" : "is-invalid")}
@@ -112,32 +112,32 @@ export const Register = () => {
         />
         <FormFeedback>Felhasználónév már létezik!</FormFeedback>
       </FormGroup>
-
+ 
       <FormGroup>
         <Label for="email">Email</Label>
         <Input id="email" type="email" className={isValidE==null ? "" : (isValidE ? "is-valid" : "is-invalid")}
             value={email} onChange={(e)=>setEmail(e.target.value)}
             onBlur={handleCheckEmail}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('password').focus() : ''}
-            
+ 
         />
         <FormFeedback >Email-cím már használatban van!/Helytelen email-cím!</FormFeedback>
         <FormText>Email-címnek tartalmaznia kell egy @-ot!</FormText>
       </FormGroup>
-
+ 
       <FormGroup>
         <Label for="password">Jelszó</Label>
         <Input id="password" type="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
             value={password} onChange={(e)=>setPassword(e.target.value)}
             onBlur={handleCheckPassword}
-            
+ 
         />
         <FormFeedback>Helytelen jelszó!</FormFeedback>
         <FormText>A jelszónak legalább 6 karakter hosszúságúnak kell lennie!</FormText>
       </FormGroup>
-
-      
-
+ 
+ 
+ 
       <div>
         <Input type="button" className="btn btn-dark" 
         disabled={!isValidU || !isValidE || !isValidP}
