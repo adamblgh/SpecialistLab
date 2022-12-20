@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useMutation } from "react-query";
 import { Register } from "./Register";
+import {Login} from "./Login"
 import { validate } from "react-email-validator";
 import {
   Form,
@@ -37,17 +38,17 @@ export const Home = ({ setLoggedInUser }) => {
       >
         <source src={bg} type="video/mp4" />
       </video>
-      <div className="row panelek box justify-content-center align-items-center">
+      <div className="panelek" >
         {/*CÍM*/}
-        <div className="col-md-4">
+        <div className="title">
           <h1 className="mt-2 titleh1 lineUp">SPECIALIST LAB™</h1>
           <h6 className="mt-2 lineUp">Minden szakember egy helyen!</h6>
         </div>
         {/*PANELEK*/}
-        <div className="col-md-8">
-          <div className="row lineUp">
+    
+          <div className="lineUp">
             {/*REGISZTRÁCIÓ*/}
-            <div className="col-md-6">
+            <div style={{marginRight:5,minWidth:250}}>
               <motion.div
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
@@ -59,22 +60,23 @@ export const Home = ({ setLoggedInUser }) => {
             </div>
 
             {/*BEJELENTKEZÉS*/}
-            <div className="col-md-6">
+            <div style={{marginLeft:5,minWidth:250}}>
               <motion.div
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
+                onClick={() => navigate("/login")}
                 className="panel login p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-center">Bejelentkezés</h3>
               </motion.div>
             </div>
           </div>
-        </div>
+    
       </div>
       <footer>
-        <div className="d-flex text-center align-items-center justify-content-center">
+        <div className="d-flex flex-wrap text-center align-items-center justify-content-center">
           {/*SOCIAL MEDIA*/}
-          <div className="col-md-4">
+          <div className="col">
             <ul>
               <li>
                 <a target="_blank" href="#">
@@ -97,7 +99,7 @@ export const Home = ({ setLoggedInUser }) => {
             </ul>
           </div>
           {/*NAME*/}
-          <div className="col-md-4">
+          <div className="col">
             <img
               className="img-fluid logo"
               src={logo}
