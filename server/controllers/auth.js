@@ -46,11 +46,11 @@ export const login=(request,response)=>{
 export const checkEmail=(request,response)=>{
     console.log(request.body)
     const {email} = request.body
-    db.query('SELECT count(*) nr FROM `users` where email=?',[email],(err,result)=>{
+    db.query('SELECT FROM `users` where email=?',[email],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else
-        response.send({rowCount:result[0].nr,email:email})
+        response.send({rowCount:result[0],email:email})
     })
 }
 
@@ -58,11 +58,11 @@ export const checkEmail=(request,response)=>{
 export const checkUsername=(request,response)=>{
     console.log(request.body)
     const {username} = request.body
-    db.query('SELECT count(*) nr FROM `users` where username=?',[username],(err,result)=>{
+    db.query('SELECT FROM `users` where username=?',[username],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else
-            response.send({rowCount:result[0].nr,username:username})
+            response.send({rowCount:result[0],username:username})
     })
 }
 
