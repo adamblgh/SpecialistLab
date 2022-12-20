@@ -43,6 +43,7 @@ export const Home = ({ setLoggedInUser }) => {
           <motion.div
             whileHover={{ scale: [null, 1.1] }}
             transition={{ duration: 1 }}
+            onClick={()=>navigate('/login')}
             className="panel login p-3 mt-1 rounded"
           >
             <h3 className="kitoltes text-center">Bejelentkezés</h3>

@@ -55,6 +55,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    
 }
 Form{
   color: black;
@@ -83,4 +84,3 @@ Form{
   background-repeat: no-repeat;
   background-size: cover;
 }
-
