@@ -46,7 +46,7 @@ export const login=(request,response)=>{
 export const checkEmail=(request,response)=>{
     console.log(request.body)
     const {email} = request.body
-    db.query('SELECT FROM `users` where email=?',[email],(err,result)=>{
+    db.query('SELECT * FROM `users` where email=?',[email],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else
@@ -58,7 +58,7 @@ export const checkEmail=(request,response)=>{
 export const checkUsername=(request,response)=>{
     console.log(request.body)
     const {username} = request.body
-    db.query('SELECT FROM `users` where username=?',[username],(err,result)=>{
+    db.query('SELECT * FROM `users` where username=?',[username],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else
