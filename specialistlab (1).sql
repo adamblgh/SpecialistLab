@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Dec 13. 11:15
--- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 8.0.10
+-- Létrehozás ideje: 2022. Dec 16. 10:46
+-- Kiszolgáló verziója: 10.4.27-MariaDB
+-- PHP verzió: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `description` varchar(50) NOT NULL,
   `subcateg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -38,8 +38,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `description`, `subcateg_id`) VALUES
-(2, 'építőipar', 1),
-(3, 'festő-mázoló', 2);
+(4, 'építőipar', 1);
 
 -- --------------------------------------------------------
 
@@ -52,7 +51,7 @@ CREATE TABLE `ratings` (
   `user_id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
   `rating` int(5) NOT NULL,
-  `description` varchar(125) COLLATE utf8_hungarian_ci NOT NULL
+  `description` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -60,7 +59,7 @@ CREATE TABLE `ratings` (
 --
 
 INSERT INTO `ratings` (`id`, `user_id`, `worker_id`, `rating`, `description`) VALUES
-(3, 1, 1, 3, 'Egész jó munkát végzett megvagyok vele elégedve, ár érték arányban egész jó!');
+(1, 1, 1, 3, 'Elég jól dolgozik megvagyok vele elégedve tudom ajánlani!');
 
 -- --------------------------------------------------------
 
@@ -70,7 +69,7 @@ INSERT INTO `ratings` (`id`, `user_id`, `worker_id`, `rating`, `description`) VA
 
 CREATE TABLE `subcategory` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL
+  `description` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -78,8 +77,7 @@ CREATE TABLE `subcategory` (
 --
 
 INSERT INTO `subcategory` (`id`, `description`) VALUES
-(1, 'ács'),
-(2, 'mázoló');
+(1, 'ács');
 
 -- --------------------------------------------------------
 
@@ -89,19 +87,21 @@ INSERT INTO `subcategory` (`id`, `description`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `avatar` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
-  `role` varchar(10) COLLATE utf8_hungarian_ci NOT NULL
+  `username` varchar(20) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `avatar` varchar(256) NOT NULL,
+  `avatar_id` int(255) NOT NULL,
+  `role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `name`, `avatar`, `role`) VALUES
-(1, 'czk', 'czk@gmail.com', 'Czeczon Kristóf', 'user.png', 'admin');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `avatar_id`, `role`) VALUES
+(1, 'czk', 'czk123', 'czk@gmail.com', 'Czeczon Kristóf', 'users.png', 0, 'admin');
 
 -- --------------------------------------------------------
 
@@ -112,9 +112,9 @@ INSERT INTO `users` (`id`, `username`, `email`, `name`, `avatar`, `role`) VALUES
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `about_me` varchar(1024) COLLATE utf8_hungarian_ci NOT NULL,
-  `contact` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `about_me` varchar(1024) NOT NULL,
+  `contact` varchar(256) NOT NULL,
   `subcateg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -123,7 +123,7 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `user_id`, `name`, `about_me`, `contact`, `subcateg_id`) VALUES
-(1, 1, 'Czeczon Kristóf', 'Nagyon jó szakember vagyok régóta dolgozok benne', '06206578552', 1);
+(1, 1, 'Czeczon Kristóf', 'Régóta a szakmában vagyok válasszon engem, ár érték arányban elég jó vagyok', 'czk@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,7 @@ INSERT INTO `workers` (`id`, `user_id`, `name`, `about_me`, `contact`, `subcateg
 CREATE TABLE `worker_images` (
   `id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
-  `image` varchar(256) COLLATE utf8_hungarian_ci NOT NULL
+  `image` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -142,7 +142,7 @@ CREATE TABLE `worker_images` (
 --
 
 INSERT INTO `worker_images` (`id`, `worker_id`, `image`) VALUES
-(1, 1, '');
+(2, 1, 'users.png');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -198,19 +198,19 @@ ALTER TABLE `worker_images`
 -- AUTO_INCREMENT a táblához `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `users`
@@ -228,7 +228,7 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT a táblához `worker_images`
 --
 ALTER TABLE `worker_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Megkötések a kiírt táblákhoz
