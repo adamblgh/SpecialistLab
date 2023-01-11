@@ -77,21 +77,21 @@ export const Home = ({ setLoggedInUser }) => {
         <div className="d-flex text-center align-items-center justify-content-center">
           {/*SOCIAL MEDIA*/}
           <div className="col">
-            <ul>
-              <li>
-                <a target="_blank" href="#">
+            <ul className="ulfooter">
+              <li className="lifooter">
+                <a className="afooter" target="_blank" href="#">
                   {" "}
                   <i class="fa fa-facebook" aria-hidden="true"></i>{" "}
                 </a>{" "}
               </li>
-              <li>
-                <a target="_blank" href="#">
+              <li className="lifooter">
+                <a className="afooter" target="_blank" href="#">
                   {" "}
                   <i class="fa fa-twitter" aria-hidden="true"></i>{" "}
                 </a>{" "}
               </li>
-              <li>
-                <a target="_blank" href="https://github.com/adamblgh">
+              <li className="lifooter">
+                <a className="afooter" target="_blank" href="https://github.com/adamblgh">
                   {" "}
                   <i class="fa fa-github" aria-hidden="true"></i>{" "}
                 </a>{" "}
