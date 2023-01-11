@@ -19,7 +19,6 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
 
   const toggle = () => setIsOpen(!isOpen);
 
-export const Home=()=>{
   return (
     <div>
       <Navbar expand="sm" dark color='dark' fixed='top'>
