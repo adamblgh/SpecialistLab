@@ -54,10 +54,12 @@ padding:10px;
 background-color: #ffffff;
 color: black;
 cursor: pointer;
+margin: 20px;
 box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
 }
 .kitoltes{
 padding-bottom: 300px;
+padding-left: 150px;
 }
 .register{
 background-image: url("../public/register.png");
