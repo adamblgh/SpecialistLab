@@ -1,8 +1,8 @@
 import "./App.css";
-import { Home } from "./components/Home";
+import { Welcome } from "./components/Welcome";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login"
-import { Search } from "./components/Search";
+import { Home } from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -17,10 +17,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="container-fluid">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </div>
     </QueryClientProvider>

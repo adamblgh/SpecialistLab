@@ -1,119 +1,94 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useMutation } from "react-query";
-import { Register } from "./Register";
-import {Login} from "./Login"
-import { validate } from "react-email-validator";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  FormFeedback,
-  Button,
-} from "reactstrap";
-import { useNavigate } from "react-router-dom";
-import bg from "../components/background/bg.mp4";
-import logo from "../components/image/slab_logo.png";
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+} from 'reactstrap';
 
-export const Home = ({ setLoggedInUser }) => {
-  const navigate = useNavigate();
+export const Home=({loggedInUser,setLoggedInUser})=> {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <>
-      <video
-        autoPlay
-        loop
-        muted
-        style={{
-          position: "absolute",
-          width: "100%",
-          left: "50%",
-          top: "50%",
-          height: "100%",
-          objectFit: "cover",
-          transform: "translate(-50%, -50%)",
-          zIndex: "-1",
-        }}
-      >
-        <source src={bg} type="video/mp4" />
-      </video>
-      <div className="panelek" >
-        {/*CÍM*/}
-        <div className="title">
-          <h1 className="mt-2 titleh1 lineUp">SPECIALIST LAB™</h1>
-          <h6 className="mt-2 lineUp">Minden szakember egy helyen!</h6>
-        </div>
-        {/*PANELEK*/}
-    
-          <div className="lineUp">
-            {/*REGISZTRÁCIÓ*/}
-            <div style={{marginRight:5,minWidth:250}}>
-              <motion.div
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/register")}
-                className="panel register p-3 mt-1 rounded"
-              >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
-              </motion.div>
-            </div>
+    <div>
+      <Navbar expand="sm" dark color='dark' fixed='top'>
+        <NavbarBrand href="/">🚀</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink to='/' className="nav-link active" aria-current="page">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to='about' className="nav-link">About</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to='contact' className="nav-link">Contact</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to='products' className="nav-link">Products</NavLink>
+            </NavItem>
+            {loggedInUser?.role=='admin' && 
+            (
+              <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Admin Panel
+              </DropdownToggle>
+              <DropdownMenu end>
+                <DropdownItem>Users</DropdownItem>
+                <DropdownItem>Products</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                <NavItem>
+                  <NavLink to='books'>Books</NavLink>
+                </NavItem>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            )
+            }
 
-            {/*BEJELENTKEZÉS*/}
-            <div style={{marginLeft:5,minWidth:250}}>
-              <motion.div
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/login")}
-                className="panel login p-3 mt-1 rounded"
-              >
-                <h3 className="kitoltes text-left">Bejelentkezés</h3>
-              </motion.div>
-            </div>
-          </div>
-    
-      </div>
-      <footer>
-        <div className="d-flex text-center align-items-center justify-content-center">
-          {/*SOCIAL MEDIA*/}
-          <div className="col">
-            <ul className="ulfooter">
-              <li className="lifooter">
-                <a className="afooter" target="_blank" href="#">
-                  {" "}
-                  <i class="fa fa-facebook" aria-hidden="true"></i>{" "}
-                </a>{" "}
-              </li>
-              <li className="lifooter">
-                <a className="afooter" target="_blank" href="#">
-                  {" "}
-                  <i class="fa fa-twitter" aria-hidden="true"></i>{" "}
-                </a>{" "}
-              </li>
-              <li className="lifooter">
-                <a className="afooter" target="_blank" href="https://github.com/adamblgh">
-                  {" "}
-                  <i class="fa fa-github" aria-hidden="true"></i>{" "}
-                </a>{" "}
-              </li>
-            </ul>
-          </div>
-          {/*NAME*/}
-          <div className="col">
-            <img
-              className="img-fluid logo"
-              src={logo}
-              type="image/png"
-              alt="Logo"
-            />
-            <span className="m-2">SPECIALIST LAB™</span>
-          </div>
-          {/*Date*/}
-          <div className="col-md-4">
-            @2023 | Minden jog fenntartva!
-          </div>
-        </div>
-      </footer>
-    </>
+            </Nav>
+
+            {loggedInUser ?.username?
+            (
+            <Nav navbar>
+            <NavItem className="nav-link d-flex align-items-center">
+              <NavLink to="userProfile" className="nav-link">
+              <img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />
+              <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
+              </NavLink>
+          </NavItem>
+          <NavItem className='d-flex align-items-center'>
+            <NavLink to="/">
+            <span className='btn text-info' onClick={()=>setLoggedInUser({})}>Logout</span>
+            </NavLink>
+          </NavItem>
+            </Nav>
+            )
+            :
+            (
+            <Nav navbar>
+            <NavItem>
+            <NavLink to="login" className="nav-link">Login</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="register" className="nav-link">Register</NavLink>
+          </NavItem>
+            </Nav>)
+          }
+        </Collapse>
+      </Navbar>
+    </div>
   );
-};
+}
