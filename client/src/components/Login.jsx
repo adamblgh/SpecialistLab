@@ -27,6 +27,10 @@ export const Login = ({setLoggedInUser}) => {
       else
         setIsValidU(false)
     }
+    
+    const handleCheckPassword = () =>{
+      password.length<6 ? setIsValidP(false) : setIsValidP(true)
+    }
  
     const mutationLogin=useMutation(login,{
       onSuccess:(data) =>{
@@ -36,12 +40,18 @@ export const Login = ({setLoggedInUser}) => {
         else{
           setIsValidP(true)
           const {username,email,id,avatar,avatar_id,role} = data.data
+          console.log(data.data)
           /*setLoggedInUser({username:username,id:id,email:email,avatar:avatar,avatar_id:avatar_id,role:role})*/
-          navigate('/')
         }
          
       }
     })
+
+    const handleClickLoginFunctions = () => {
+      mutationLogin.mutate({username:username, password:password})
+      navigate('/search')
+    }
+
  
   return (
     <Form className="text-center border p-3 shadow mt-1 rounded">
@@ -62,15 +72,16 @@ export const Login = ({setLoggedInUser}) => {
         <Input type="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
             id="password"
             value={password} onChange={(e)=>setPassword(e.target.value)}
+            onBlur={handleCheckPassword}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById("login").focus() : ''}
         />
         <FormFeedback>Helytelen jelszó!</FormFeedback>
       </FormGroup>
  
       <div>
-        <Button disabled={!isValidU || !password} color="dark"
+        <Button disabled={!isValidU || !isValidP} color="dark"
         id="login"
-        onClick={()=>mutationLogin.mutate({username:username, password:password})}
+        onClick={handleClickLoginFunctions}
         >Bejelentkezés</Button>
       </div>
     </Form>
