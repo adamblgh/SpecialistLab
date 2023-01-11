@@ -49,7 +49,7 @@ export const Login = ({setLoggedInUser}) => {
 
     const handleClickLoginFunctions = () => {
       mutationLogin.mutate({username:username, password:password})
-      navigate('/search')
+      navigate('/home')
     }
 
  
