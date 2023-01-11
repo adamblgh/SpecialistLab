@@ -2,6 +2,7 @@ import "./App.css";
 import { Home } from "./components/Home";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login"
+import { Search } from "./components/Search";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </div>
     </QueryClientProvider>

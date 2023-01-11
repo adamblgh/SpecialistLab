@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Search() {
+export const Search=()=>{
   return (
-    <div>Search</div>
+    <h1 className='text-center'>Search komponens</h1>
   )
 }
