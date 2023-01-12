@@ -45,75 +45,31 @@ export const Welcome = ({ setLoggedInUser }) => {
           <h6 className="mt-2 lineUp">Minden szakember egy helyen!</h6>
         </div>
         {/*PANELEK*/}
-    
-          <div className="lineUp">
+        <div className="loginregister">
             {/*REGISZTRÁCIÓ*/}
-            <div style={{marginRight:5,minWidth:250}}>
               <motion.div
+                style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/register")}
-                className="panel register p-3 mt-1 rounded"
+                className="panel lineUp register p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-left">Regisztráció</h3>
               </motion.div>
-            </div>
 
             {/*BEJELENTKEZÉS*/}
-            <div style={{marginLeft:5,minWidth:250}}>
-              <motion.div
+            <motion.div
+                style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/login")}
-                className="panel login p-3 mt-1 rounded"
+                className="panel lineUp login p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-left">Bejelentkezés</h3>
               </motion.div>
-            </div>
-          </div>
+        </div>
     
       </div>
-      <footer>
-        <div className="d-flex text-center align-items-center justify-content-center">
-          {/*SOCIAL MEDIA*/}
-          <div className="col">
-            <ul className="ulfooter">
-              <li className="lifooter">
-                <a className="afooter" target="_blank" href="#">
-                  {" "}
-                  <i class="fa fa-facebook" aria-hidden="true"></i>{" "}
-                </a>{" "}
-              </li>
-              <li className="lifooter">
-                <a className="afooter" target="_blank" href="#">
-                  {" "}
-                  <i class="fa fa-twitter" aria-hidden="true"></i>{" "}
-                </a>{" "}
-              </li>
-              <li className="lifooter">
-                <a className="afooter" target="_blank" href="https://github.com/adamblgh">
-                  {" "}
-                  <i class="fa fa-github" aria-hidden="true"></i>{" "}
-                </a>{" "}
-              </li>
-            </ul>
-          </div>
-          {/*NAME*/}
-          <div className="col">
-            <img
-              className="img-fluid logo"
-              src={logo}
-              type="image/png"
-              alt="Logo"
-            />
-            <span className="m-2">SPECIALIST LAB™</span>
-          </div>
-          {/*Date*/}
-          <div className="col-md-4">
-            @2023 | Minden jog fenntartva!
-          </div>
-        </div>
-      </footer>
     </>
   );
 };
