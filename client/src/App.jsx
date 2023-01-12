@@ -1,8 +1,10 @@
 import "./App.css";
 import { Welcome } from "./components/Welcome";
 import { Register } from "./components/Register";
-import { Login } from "./components/Login"
+import { Login } from "./components/Login";
 import { Home } from "./components/Home";
+import { Ad } from "./components/Ad";
+import { About } from "./components/About";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -21,6 +23,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/ad" element={<Ad />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </QueryClientProvider>
