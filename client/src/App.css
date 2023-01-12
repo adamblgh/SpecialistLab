@@ -50,12 +50,23 @@ align-items: center;
 padding:10px;
 /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */                         /*2soros=850px 1soros=900px*/
 }
+.loginregister{
+  display: flex;
+  justify-content: center;
+}
 .panel{
+  
 background-color: #ffffff;
 color: black;
 cursor: pointer;
-margin: 10px;
+margin: 15px;
 box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
+}
+@media only screen and (max-width: 700px) {
+  .loginregister{
+    width: 60%;
+    height: 40%;
+  }
 }
 .kitoltes{
 padding-bottom: 300px;
