@@ -11,6 +11,9 @@
   flex-wrap:wrap;
   justify-content: center;
 }
+.title{
+  margin-bottom: 50px;
+}
 @keyframes anim-lineUp {
   0% {
     opacity: 0;
@@ -40,7 +43,10 @@ Form{
 color: black;
 background-color: white;
 }
-
+.footerlogo{
+  width: 30px!important;
+  height: 30px!important;
+}
 .panelek{
 margin-top: 100px!important;
 display:flex;
@@ -48,6 +54,7 @@ flex-wrap: wrap;
 justify-content: space-around;
 align-items: center;
 padding:10px;
+margin-bottom: 100px;
 /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */                         /*2soros=850px 1soros=900px*/
 }
 
