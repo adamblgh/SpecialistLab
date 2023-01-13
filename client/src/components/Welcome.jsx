@@ -63,6 +63,20 @@ export const Welcome = ({ setLoggedInUser }) => {
         </div>
     
       </div>
+      <footer>
+        <div className="row justify-content-center text-center align-items-center">
+          <div className="col-md-4">
+
+          </div>
+          <div className="col-md-4">
+            <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
+            <span>SPECIALIST LAB™</span>
+          </div>
+          <div className="col-md-4">
+          <span>Hungary @2023</span>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
