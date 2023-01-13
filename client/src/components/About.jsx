@@ -22,7 +22,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
   return (
     <>
     <div>
-      <Navbar expand="sm" dark color='dark' fixed='top'>
+      <Navbar expand="sm" dark color='dark'  fixed='top'>
         <NavbarBrand>
             <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
         </NavbarBrand>
@@ -87,28 +87,6 @@ export const About=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
     </div>
-    {/*<div className="container">
-      <h1 className='text-center'>Rólunk</h1>
-      <h5 className='text-center'>Projekt tagok</h5>
-      <div className="row">
-        <div className="col-md-4">
-          <img className='img-fluid kep' src="czeczike.jpg" alt="Czeczike" />
-        </div>
-        <div className="col-md-8">Czeczike</div>
-      </div>
-      <div className="row">
-        <div className="col-md-4">
-          <img className='img-fluid kep' src="somika.jpg" alt="Somika" />
-        </div>
-        <div className="col-md-8">Somika</div>
-      </div>
-      <div className="row">
-        <div className="col-md-4">
-          <img className='img-fluid kep' src="adika.jpg" alt="Ádika" />
-        </div>
-        <div className="col-md-8">Ádika</div>
-      </div>
-        </div>*/}
       <div className="container">
         <h1 className='text-center'>Projekttagok</h1>
         <div className="row mt-3">

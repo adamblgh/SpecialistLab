@@ -201,6 +201,11 @@ background: #26c4ff;
   margin-top: 75px;
 }
 .kep{
-  max-height: 300px;
-  max-width: 300px;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  min-height: 333px;
+  max-height: 333px;
+  max-width: 400px;
+  min-width: 400px;
 }
