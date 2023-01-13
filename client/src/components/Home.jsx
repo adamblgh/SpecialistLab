@@ -22,21 +22,20 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
   return (
     <div>
       <Navbar expand="sm" dark color='dark' fixed='top'>
-        <NavbarBrand href="/">🚀</NavbarBrand>
+        <NavbarBrand>
+            <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/' className="nav-link active" aria-current="page">Home</NavLink>
+              <NavLink to='/home' className="nav-link active" aria-current="page">Főoldal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='about' className="nav-link">About</NavLink>
+              <NavLink to='/about' className="nav-link">Rólunk</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='contact' className="nav-link">Contact</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to='products' className="nav-link">Products</NavLink>
+              <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
@@ -60,7 +59,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
 
             </Nav>
 
-            {loggedInUser ?.username?
+            {loggedInUser?.username?
             (
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
@@ -79,11 +78,8 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
             :
             (
             <Nav navbar>
-            <NavItem>
-            <NavLink to="login" className="nav-link">Login</NavLink>
-          </NavItem>
           <NavItem>
-            <NavLink to="register" className="nav-link">Register</NavLink>
+            <NavLink to="/" className="nav-link">Kijelentkezés</NavLink>
           </NavItem>
             </Nav>)
           }
