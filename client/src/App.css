@@ -50,10 +50,7 @@ align-items: center;
 padding:10px;
 /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */                         /*2soros=850px 1soros=900px*/
 }
-.loginregister{
-  display: flex;
-  justify-content: center;
-}
+
 .panel{
   
 background-color: #ffffff;
@@ -62,15 +59,17 @@ cursor: pointer;
 margin: 15px;
 box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width: 700px) {
   .loginregister{
     width: 60%;
     height: 40%;
+    display: flex;
+    justify-content: center;
   }
 }
 .kitoltes{
 padding-bottom: 300px;
-padding-right: 150px;
+padding-right: 70px;
 }
 .register{
 background-image: url("../public/register.png");

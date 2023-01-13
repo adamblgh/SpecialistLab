@@ -54,7 +54,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 onClick={() => navigate("/register")}
                 className="panel lineUp register p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
+                <h3 className="kitoltes text-left loginregister">Regisztráció</h3>
               </motion.div>
 
             {/*BEJELENTKEZÉS*/}
@@ -65,7 +65,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 onClick={() => navigate("/login")}
                 className="panel lineUp login p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Bejelentkezés</h3>
+                <h3 className="kitoltes text-left loginregister">Bejelentkezés</h3>
               </motion.div>
         </div>
     
