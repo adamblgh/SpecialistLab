@@ -20,6 +20,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
+    <>
     <div>
       <Navbar expand="sm" dark color='dark' fixed='top'>
         <NavbarBrand>
@@ -86,5 +87,10 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
     </div>
+    <div className="container">
+      <h1 className='text-center'>Főoldal</h1>
+      <h3 className='text-center'>Válasszon kategóriát...</h3>
+    </div>
+    </>
   );
 }

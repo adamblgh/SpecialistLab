@@ -197,3 +197,10 @@ background: #0894c8;
 .ulfooter .lifooter:hover:nth-of-type(5)::after{
 background: #26c4ff;
 }
+.container{
+  margin-top: 75px;
+}
+.kep{
+  max-height: 300px;
+  max-width: 300px;
+}
