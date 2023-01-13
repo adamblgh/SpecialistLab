@@ -26,13 +26,6 @@ export const Welcome = ({ setLoggedInUser }) => {
         loop
         muted
         style={{
-          position: "absolute",
-          width: "100%",
-          left: "50%",
-          top: "50%",
-          height: "100%",
-          objectFit: "cover",
-          transform: "translate(-50%, -50%)",
           zIndex: "-1",
         }}
       >
@@ -54,7 +47,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 onClick={() => navigate("/register")}
                 className="panel lineUp register p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
+                <h3 className="kitoltes text-left loginregister">Regisztráció</h3>
               </motion.div>
 
             {/*BEJELENTKEZÉS*/}
@@ -65,7 +58,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 onClick={() => navigate("/login")}
                 className="panel lineUp login p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Bejelentkezés</h3>
+                <h3 className="kitoltes text-left loginregister">Bejelentkezés</h3>
               </motion.div>
         </div>
     
