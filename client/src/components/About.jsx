@@ -110,8 +110,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
       </div>
         </div>*/}
       <div className="container">
-        <h1 className='text-center'>Rólunk</h1>
-        <h5 className='text-center mt-3'>Projekttagok</h5>
+        <h1 className='text-center'>Projekttagok</h1>
         <div className="row mt-3">
           <div className="col-md-4">
             <img className='img-fluid kep' src="czeczike.jpg" alt="Czeczon" />
