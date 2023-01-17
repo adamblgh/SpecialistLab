@@ -5,6 +5,7 @@ import { Login } from "./components/Login";
 import { Home } from "./components/Home";
 import { Ad } from "./components/Ad";
 import { About } from "./components/About";
+import { Profile } from "./components/Profile";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/ad" element={<Ad />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </QueryClientProvider>

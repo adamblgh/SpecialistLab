@@ -19,6 +19,17 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleUpdateAvatar = () => {
+    const formdata = new FormData()
+    /*formdata.append("selFile", selFile)*/
+    formdata.append("username", loggedInUser.username)
+    formdata.append("avatar_id", loggedInUser.avatar_id)
+    /*setIsUploading(true)
+    mutationAvatar.mutate(formdata)*/
+  };
+
+
+
   return (
     <>
     <div>
@@ -79,6 +90,9 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
             :
             (
             <Nav navbar>
+          <NavItem>
+            <NavLink to="/profile" className="nav-link">Profil</NavLink>
+          </NavItem>
           <NavItem>
             <NavLink to="/" className="nav-link">Kijelentkezés</NavLink>
           </NavItem>
