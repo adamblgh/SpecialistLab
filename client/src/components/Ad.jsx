@@ -22,7 +22,7 @@ export const Ad=({loggedInUser,setLoggedInUser})=> {
   return (
     <>
     <div>
-      <Navbar expand="sm" dark color='dark' fixed='top'>
+      <Navbar expand="sm" light color='light' fixed='top'>
         <NavbarBrand>
             <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
         </NavbarBrand>
