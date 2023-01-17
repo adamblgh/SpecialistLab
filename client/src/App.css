@@ -14,6 +14,12 @@
 .title{
   margin-bottom: 50px;
 }
+.container{
+  background-color: #00AFF0;
+}
+.container-fluid{
+  padding: 0!important;
+}
 @keyframes anim-lineUp {
   0% {
     opacity: 0;
