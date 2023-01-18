@@ -46,9 +46,8 @@ Form{
 color: black;
 background-color: white;
 }
-.app{
-  background-color: #00AFF0;
-  margin-top: 0!important;
+.bg{
+  background-color: dodgerblue;
 }
 .footerlogo{
   width: 30px!important;
