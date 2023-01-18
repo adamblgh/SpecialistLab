@@ -41,7 +41,7 @@ export const Login = ({setLoggedInUser}) => {
           setIsValidP(true)
           const {username,email,id,avatar,avatar_id,role} = data.data
           console.log(data.data)
-          /*setLoggedInUser({username:username,id:id,email:email,avatar:avatar,avatar_id:avatar_id,role:role})*/
+          setLoggedInUser({username:username,id:id,email:email,avatar:avatar,avatar_id:avatar_id,role:role})
         }
          
       }

@@ -64,14 +64,14 @@ export const About=({loggedInUser,setLoggedInUser})=> {
             (
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
-              <NavLink to="userProfile" className="nav-link">
-              <img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />
+              <NavLink to="/profile" className="nav-link">
+              {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
               <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
               </NavLink>
           </NavItem>
           <NavItem className='d-flex align-items-center'>
             <NavLink to="/">
-            <span className='btn text-info' onClick={()=>setLoggedInUser({})}>Logout</span>
+            <span className='btn text-info' onClick={()=>setLoggedInUser({})}>Kijelentkezés</span>
             </NavLink>
           </NavItem>
             </Nav>
@@ -79,9 +79,6 @@ export const About=({loggedInUser,setLoggedInUser})=> {
             :
             (
             <Nav navbar>
-          <NavItem>
-            <NavLink to="/profile" className="nav-link">Profil</NavLink>
-          </NavItem>
           <NavItem>
             <NavLink to="/" className="nav-link">Kijelentkezés</NavLink>
           </NavItem>

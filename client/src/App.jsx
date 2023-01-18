@@ -24,10 +24,10 @@ function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser}/>}/>
-          <Route path="/home" element={<Home />} />
-          <Route path="/ad" element={<Ad />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/home" element={<Home loggedInUser={loggedInUser}/>} />
+          <Route path="/ad" element={<Ad loggedInUser={loggedInUser}/>} />
+          <Route path="/about" element={<About loggedInUser={loggedInUser}/>} />
+          <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} />
         </Routes>
       </div>
     </QueryClientProvider>
