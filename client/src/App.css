@@ -80,6 +80,14 @@ box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
     justify-content: center;
   }
 }
+@media only screen and (max-width: 800px) {
+  .col-md-4{
+    width: 60%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+  }
+}
 .kitoltes{
 padding-bottom: 300px;
 padding-right: 70px;
@@ -94,7 +102,7 @@ background-image: url("../public/login.jpg");
 background-size: cover;
 }
 footer{
-position: fixed;
+  position: fixed;
 left: 0;
 bottom: 0;
 height: 80px;
@@ -109,107 +117,7 @@ font-size: 15px;
 max-width: 30px;
 max-height: 30px;
 }
-.ulfooter{
-position: absolute;
-top: 35%;  width: 50%;  text-align: left;
-transform: translate(0,-50%);  
-}
-.ulfooter .lifooter{
-list-style: none;
-display: inline-block;
-position: relative;
-width: 35px;  height: 35px;
-margin: 0 25px;
-transform: rotate(-25deg) skewX(20deg);
-box-shadow: none;
-transition: .9s;
-}
-.ulfooter .lifooter::before{
-content: '';
-position: absolute;
-top: 0;  left: -15px;
-width: 15px;   height: 100%;
-background: #0c0c0c;
-transform-origin: right;
-transform: skewY(-45deg);
-transition: .5s;
-}
-.ulfooter .lifooter::after{
-content: '';
-position: absolute;
-bottom: -14.7px;  left: 0;
-width: 100%;   height: 15px;
-background: #242424;
-transform-origin: top;
-transform: skewX(-45deg);
-transition: .5s;
-}
-.ulfooter .lifooter .afooter{
-display: inline-block;
-position: relative;
-text-decoration: none;  
-color: #ffffff;   background: rgb(92, 92, 92);
-width: 100%;  height: 100%;   line-height: 32px;
-font-size: 20px;
-transition: .5s;
-text-align: center;
-}
-.ulfooter .lifooter:hover{
-transform: translateY(-10px) rotate(-25deg) skewX(20deg);
-box-shadow: -60px 60px 30px rgb(0 0 0 / 50%);
-}
-.ulfooter .lifooter:hover a{
-color: #fff;
-}
-.ulfooter .lifooter:hover:nth-of-type(1) a{
-background: #3866ca;
-}
-.ulfooter .lifooter:hover:nth-of-type(1)::before{
-background: #3b5999;
-}
-.ulfooter .lifooter:hover:nth-of-type(1)::after{
-background: #5173bd;
-}
 
-.ulfooter .lifooter:hover:nth-of-type(2) a{
-background: #55acee;
-}
-.ulfooter .lifooter:hover:nth-of-type(2)::before{
-background: #369ae7;
-}
-.ulfooter .lifooter:hover:nth-of-type(2)::after{
-background: #7eb8e5;
-}
-
-.ulfooter .lifooter:hover:nth-of-type(3) a{
-background: #67017b;
-}
-.ulfooter .lifooter:hover:nth-of-type(3)::before{
-background: #500060;
-}
-.ulfooter .lifooter:hover:nth-of-type(3)::after{
-background: #8b00a6;
-}
-
-.ulfooter .lifooter:hover:nth-of-type(4) a{
-background: #0077B5;
-}
-.ulfooter .lifooter:hover:nth-of-type(4)::before{
-background: #005c8c;
-}
-.ulfooter .lifooter:hover:nth-of-type(4)::after{
-background: #2498d4;
-}
-
-.ulfooter .lifooter:hover:nth-of-type(5) a{
-background: #00AFF0;
-}
-.ulfooter .lifooter:hover:nth-of-type(5)::before{
-background: #0894c8;
-}
-.ulfooter .lifooter:hover:nth-of-type(5)::after{
-background: #26c4ff;
-}
 .container{
   margin-top: 75px;
 }
