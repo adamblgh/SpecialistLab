@@ -16,13 +16,14 @@ const queryClient = new QueryClient();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  console.log('loggedInUser:',loggedInUser)
   return (
     <QueryClientProvider client={queryClient}>
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser}/>}/>
           <Route path="/home" element={<Home />} />
           <Route path="/ad" element={<Ad />} />
           <Route path="/about" element={<About />} />

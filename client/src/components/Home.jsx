@@ -16,7 +16,6 @@ import {
 
 export const Home=({loggedInUser,setLoggedInUser})=> {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   const handleUpdateAvatar = () => {
