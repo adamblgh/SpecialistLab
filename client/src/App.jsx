@@ -17,7 +17,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="container-fluid">
+      <div className="container-fluid app">
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
