@@ -19,7 +19,7 @@ function App() {
   console.log('loggedInUser:',loggedInUser)
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="container-fluid">
+      <div className="container-fluid app">
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
