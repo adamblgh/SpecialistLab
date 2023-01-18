@@ -71,12 +71,12 @@ export const Welcome = ({ setLoggedInUser }) => {
               <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>
 
           </div>
-          <div className="col-md-4 d-flex justify-content-center align-items-center ">
+          <div className="col-md-4 d-flex mid justify-content-center align-items-center ">
             <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
             <span>SPECIALIST LAB™</span>
           </div>
-          <div className="col-md-4 d-flex justify-content-end">
-          <span>Hungary @2023</span>
+          <div className="col-md-4 end">
+          <div>Hungary @2023</div>
           </div>
         </div>
       </footer>
