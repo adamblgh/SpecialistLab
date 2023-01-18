@@ -80,6 +80,9 @@ export const About=({loggedInUser,setLoggedInUser})=> {
             (
             <Nav navbar>
           <NavItem>
+            <NavLink to="/profile" className="nav-link">Profil</NavLink>
+          </NavItem>
+          <NavItem>
             <NavLink to="/" className="nav-link">Kijelentkezés</NavLink>
           </NavItem>
             </Nav>)

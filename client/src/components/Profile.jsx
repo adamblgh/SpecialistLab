@@ -14,7 +14,7 @@ import {
   NavbarText,
 } from 'reactstrap';
 
-export const Ad=({loggedInUser,setLoggedInUser})=> {
+export const Profile=({loggedInUser,setLoggedInUser})=> {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -22,7 +22,7 @@ export const Ad=({loggedInUser,setLoggedInUser})=> {
   return (
     <>
     <div>
-      <Navbar expand="sm" light color='light' fixed='top'>
+      <Navbar expand="sm" dark color='dark' fixed='top'>
         <NavbarBrand>
             <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
         </NavbarBrand>
@@ -36,7 +36,7 @@ export const Ad=({loggedInUser,setLoggedInUser})=> {
               <NavLink to='/about' className="nav-link">Rólunk</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/ad' className="nav-link active" aria-current="page">Hirdetések</NavLink>
+              <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
@@ -79,8 +79,8 @@ export const Ad=({loggedInUser,setLoggedInUser})=> {
             :
             (
             <Nav navbar>
-          <NavItem>
-            <NavLink to="/profile" className="nav-link">Profil</NavLink>
+        <NavItem>
+            <NavLink to="/profile" className="nav-link active" aria-current="page">Profil</NavLink>
           </NavItem>
           <NavItem>
             <NavLink to="/" className="nav-link">Kijelentkezés</NavLink>
@@ -91,9 +91,8 @@ export const Ad=({loggedInUser,setLoggedInUser})=> {
       </Navbar>
     </div>
     <div className='container'>
-      <h1 className='text-center'>Hirdetések</h1>
+      <h1 className='text-center'>Profil</h1>
     </div>
     </>
   );
 }
-
