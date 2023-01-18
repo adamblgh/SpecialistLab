@@ -24,7 +24,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
     <div>
       <Navbar expand="sm" light color='light'  fixed='top'>
         <NavbarBrand>
-            <img className='img-fluid ml-2' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
+            <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

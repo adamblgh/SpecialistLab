@@ -14,11 +14,8 @@
 .title{
   margin-bottom: 50px;
 }
-.container{
-  background-color: #00AFF0;
-}
-.container-fluid{
-  padding: 0!important;
+h1{
+  padding-top: 30px!important;
 }
 @keyframes anim-lineUp {
   0% {
@@ -48,6 +45,10 @@ left: 0;
 Form{
 color: black;
 background-color: white;
+}
+.app{
+  background-color: #00AFF0;
+  margin-top: 0!important;
 }
 .footerlogo{
   width: 30px!important;
@@ -119,7 +120,7 @@ max-height: 30px;
 }
 
 .container{
-  margin-top: 75px;
+  margin-top: 60px;
 }
 .kep{
   border-radius: 20px;
