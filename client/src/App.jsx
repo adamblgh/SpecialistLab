@@ -21,14 +21,19 @@ function App() {
       <div className="container-fluid app">
         <Routes>
           <Route path="/" element={<Welcome />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/ad" element={<Ad />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
+      <div className="bg">
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/ad" element={<Ad />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>  
+      </div>
+      
     </QueryClientProvider>
   );
 }
