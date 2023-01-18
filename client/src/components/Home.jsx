@@ -31,8 +31,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
 
   return (
     <>
-    <div className='bg'>
-      <Navbar expand="sm" light color='light' fixed='top'>
+    <Navbar expand="sm" light color='light' fixed='top'>
         <NavbarBrand>
             <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
         </NavbarBrand>
@@ -96,7 +95,6 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
           }
         </Collapse>
       </Navbar>
-    </div>
     <div className="container">
       <h1 className='text-center'>Főoldal</h1>
       <h3 className='text-center'>Válasszon kategóriát...</h3>
