@@ -2,8 +2,10 @@ import React,{useState} from "react";
 import { useMutation } from "react-query";
 import {useNavigate} from "react-router-dom";
 import { checkUsername,checkEmail,register } from "./getData";
-import {Form,FormGroup,Input,Label,FormFeedback,Button,FormText} from "reactstrap";
+import {Form,FormGroup,Input,Label,FormFeedback,Button,FormText, ButtonGroup} from "reactstrap";
 import { validate } from 'react-email-validator';
+import bg from "../components/background/bg.mp4";
+
  
 export const Register = () => {
     const navigate = useNavigate()
@@ -89,6 +91,18 @@ export const Register = () => {
  
  
   return (
+    <>
+    <video
+        autoPlay
+        loop
+        muted
+        style={{
+          zIndex: "-1",
+        }}
+      >
+        <source src={bg} type="video/mp4" />
+      </video>
+    <div className="reglogpanel">
     <Form className="border p-3 shadow mt-1 rounded text-center">
         <h3>Regisztráció</h3>
  
@@ -149,5 +163,7 @@ export const Register = () => {
       onClick={()=>navigate('/login')}
       >Jelentkezz be</div>}
     </Form>
+    </div>
+    </>
   );
 };
