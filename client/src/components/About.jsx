@@ -80,7 +80,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
             (
             <Nav navbar>
           <NavItem>
-            <NavLink to="/" className="nav-link">Kijelentkezés</NavLink>
+            <NavLink to="/login" className="nav-link">Bejelentkezés</NavLink>
           </NavItem>
             </Nav>)
           }

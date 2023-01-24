@@ -147,3 +147,15 @@ export const changePassword=(request,response)=>{
         }
     })
 }
+
+export const getCity=(request, response) =>{
+    const {name,postal_code} = request.body
+    db.query('SELECT * FROM cities WHERE name LIKE ?'),[name,postal_code],(err,result) =>{
+        if(err){
+            console.log("hiba")
+        }
+        else{
+            response.send({msg:"Sikeres városválasztás",name:name,postal_code:postal_code})
+        }
+    }
+}
