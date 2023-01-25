@@ -158,3 +158,10 @@ max-height: 30px;
 Form{
   max-width: 500px!important;
 }
+.bejelentkezes{
+  height: 150px!important;
+  width: 450px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

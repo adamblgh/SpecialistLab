@@ -91,7 +91,7 @@ export const Login = ({setLoggedInUser}) => {
         <FormFeedback>Helytelen jelszó!</FormFeedback>
       </FormGroup>
  
-      <div>
+      <div className="bejelentkezes">
         <Button disabled={!isValidU || !isValidP} color="dark"
         id="login"
         onClick={handleClickLoginFunctions}
