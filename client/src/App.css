@@ -1,3 +1,4 @@
+
 .titleh1,h6{
   font-family: 'Days One', sans-serif;
   color: white;
@@ -46,8 +47,14 @@ Form{
 color: black;
 background-color: white;
 }
+.reglogpanel{
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
 .bg{
   background-color: dodgerblue;
+  margin-top: -5px!important;
 }
 .footerlogo{
   width: 30px!important;
@@ -97,7 +104,8 @@ box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
 }
 @media only screen and (max-width:767px){
   footer{
-    height: 125px;
+    height: 122px;
+
   }
 }
 
@@ -145,4 +153,8 @@ max-height: 30px;
 .fa-brands{
   margin-top: 15px;
   margin-right: 25px;
+}
+
+Form{
+  max-width: 500px!important;
 }

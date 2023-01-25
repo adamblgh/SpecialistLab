@@ -2,7 +2,8 @@ import React,{useState} from "react";
 import { checkUsername,login } from "./getData";
 import {useMutation} from 'react-query';
 import {Form,FormGroup,Input,Label,FormFeedback,Button} from "reactstrap";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import bg from "../components/background/bg.mp4";
  
 export const Login = ({setLoggedInUser}) => {
     const [username, setUsername] = useState("")
@@ -54,7 +55,19 @@ export const Login = ({setLoggedInUser}) => {
 
  
   return (
-    <Form className="text-center border p-3 shadow mt-1 rounded">
+    <>
+    <video
+        autoPlay
+        loop
+        muted
+        style={{
+          zIndex: "-1",
+        }}
+      >
+        <source src={bg} type="video/mp4" />
+      </video>
+      <div className="reglogpanel">
+    <Form className="text-center formlog border p-3 shadow mt-1 rounded">
         <h3>Bejelentkezés</h3>
       <FormGroup>
         <Label for="username">Felhasználónév</Label>
@@ -85,5 +98,7 @@ export const Login = ({setLoggedInUser}) => {
         >Bejelentkezés</Button>
       </div>
     </Form>
+    </div>
+    </>
   );
 };
