@@ -106,11 +106,9 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
           }
         </Collapse>
       </Navbar>
-      <div className="container">
-        <div className='text-center'>
-          <h1>Főoldal</h1>
-        </div>
-      </div>
+    <div className="container">
+      <h1 className='text-center homekateg'>Válasszon kategóriát...</h1>
+    </div>
     </>
   );
 }
