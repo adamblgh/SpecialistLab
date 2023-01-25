@@ -20,23 +20,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="container-fluid app">
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-        </Routes>
-      </div>
-      <div>
       <Routes>
+        <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<Home loggedInUser={loggedInUser}/>} />
         <Route path="/ad" element={<Ad loggedInUser={loggedInUser}/>} />
         <Route path="/about" element={<About loggedInUser={loggedInUser}/>} />
-        <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} />
-      </Routes>  
-      </div>
-      <div className="loginandregister">
-      <Routes>
+        <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} /> 
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser}/>}/>
-      </Routes>  
+        <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser}/>}/> 
+      </Routes>
       </div>
       
     </QueryClientProvider>

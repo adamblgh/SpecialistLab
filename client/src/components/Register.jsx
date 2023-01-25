@@ -87,6 +87,10 @@ export const Register = () => {
         setMsg(data.data.msg)
       }
       })
+
+      const backClick = () => {
+        navigate('/')
+      }
  
  
  
@@ -153,7 +157,7 @@ export const Register = () => {
  
  
       <div>
-        <Input type="button" className="btn btn-dark" 
+        <Input type="button" className="btn btn-primary" 
         disabled={!isValidU || !isValidE || !isValidP}
         onClick={()=>mutationRegister.mutate({name:name,username:username,email:email,password:password})}
         value="Regisztrálok"/>
@@ -162,6 +166,9 @@ export const Register = () => {
       {success && <div className="btn btn-outline-dark mt-2"
       onClick={()=>navigate('/login')}
       >Jelentkezz be</div>}
+      <div>
+        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Vissza"/>
+      </div>
     </Form>
     </div>
     </>

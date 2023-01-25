@@ -106,27 +106,11 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
           }
         </Collapse>
       </Navbar>
-    <div className="container">
-      <h1 className='text-center'>Főoldal</h1>
-      <h3 className='text-center'>Válasszon kategóriát...</h3>
-      <div>
-        <div className="row">
-        <form action="">
-          <label for="kategoria" className='p-2'>Válasszon kategóriát:</label>
-          <select id="kategória">
-            <option value="1">asd</option>
-            <option value="2">asdasdas</option>
-          </select>
-        </form>
-        <form action="">
-          <label for="telepules" className='p-2'>Válasszon települést:</label>
-          <select id="település">
-            
-          </select>
-        </form>
+      <div className="container">
+        <div className='text-center'>
+          <h1>Főoldal</h1>
         </div>
       </div>
-    </div>
     </>
   );
 }
