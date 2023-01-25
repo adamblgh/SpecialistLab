@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import bg from "../components/background/bg.mp4";
 import {
   Collapse,
   Navbar,
@@ -21,6 +22,16 @@ export const About=({loggedInUser,setLoggedInUser})=> {
 
   return (
     <>
+    <video
+        autoPlay
+        loop
+        muted
+        style={{
+          zIndex: "-1",
+        }}
+      >
+        <source src={bg} type="video/mp4" />
+      </video>
     <div>
       <Navbar expand="sm" light color='light'  fixed='top'>
         <NavbarBrand>
