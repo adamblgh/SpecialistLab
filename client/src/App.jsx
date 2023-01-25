@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<Welcome />} />
         </Routes>
       </div>
-      <div className="bg">
+      <div>
       <Routes>
         <Route path="/home" element={<Home loggedInUser={loggedInUser}/>} />
         <Route path="/ad" element={<Ad loggedInUser={loggedInUser}/>} />
