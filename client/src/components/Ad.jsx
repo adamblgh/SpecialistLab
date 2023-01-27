@@ -124,18 +124,17 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           <h5 className="ml-3 mt-1 text-center"><span className="szam">999</span> találat</h5>  
         </div>
         
-
+{/*KÁRTYA*/}
         <div className="row ad p-3 mt-5">
               <h4>Festő</h4>
               <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
               </div>
-              <div className="row">
-                <div className="col-md-8 gomb"></div>
-                <div className="col-md-4 datum"></div>
-              </div>
+                <div className="col-md-8 gomb mt-5"></div>
+                <div className="col-md-4 datum mt-5">Január 27.</div>
         </div>
+{/*KÁRTYA*/}
         </div>
       </div>
       {/*<div className="container">

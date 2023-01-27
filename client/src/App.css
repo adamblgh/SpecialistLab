@@ -79,6 +79,10 @@ cursor: pointer;
 margin: 15px;
 box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
 }
+.datum{
+  opacity: 75%;
+  text-align: right;
+}
 .ad{
   background-color: white;
   color: black;
