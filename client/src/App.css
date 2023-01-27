@@ -186,3 +186,13 @@ Form{
 .homekateg{
   color: white;
 }
+.aboutfooter{
+  margin-bottom: 150px!important;
+}
+.nofixed{
+  background-color: white;
+  position:unset!important;
+  width: 100%!important;
+  left: 0!important;
+  bottom: 0!important;
+}

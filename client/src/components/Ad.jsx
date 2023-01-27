@@ -143,9 +143,59 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                 </div>
                 <div className="col-md-4 datum mt-5">Január 27.</div>
         </div>
+        <div className="row ad p-3 mt-5">
+              <h4>Festő</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+              </div>
+                <div className="col-md-8 gomb mt-5">
+                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+                </div>
+                <div className="col-md-4 datum mt-5">Január 27.</div>
+        </div>
+        <div className="row ad p-3 mt-5">
+              <h4>Festő</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+              </div>
+                <div className="col-md-8 gomb mt-5">
+                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+                </div>
+                <div className="col-md-4 datum mt-5">Január 27.</div>
+        </div>
+        <div className="row ad p-3 mt-5">
+              <h4>Festő</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+              </div>
+                <div className="col-md-8 gomb mt-5">
+                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+                </div>
+                <div className="col-md-4 datum mt-5">Január 27.</div>
+        </div>
 {/*KÁRTYA*/}
         </div>
       </div>
+      <footer className="nofixed">
+        <div className="row">
+          <div className="col-md-4">
+              <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
+              <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
+              <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>
+
+          </div>
+          <div className="col-md-4 d-flex mid justify-content-center align-items-center ">
+            <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
+            <span>SPECIALIST LAB™</span>
+          </div>
+          <div className="col-md-4 d-flex align-items-center end">
+          <div>Hungary @2023</div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
