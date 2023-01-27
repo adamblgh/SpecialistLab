@@ -168,15 +168,6 @@ max-height: 30px;
 .container{
   margin-top: 60px;
 }
-.kep{
-  border-radius: 20px;
-  border: 1px solid black;
-  padding: 10px;
-  min-height: 333px;
-  max-height: 333px;
-  max-width: 400px;
-  min-width: 400px;
-}
 .fa-brands{
   margin-top: 15px;
   margin-right: 25px;

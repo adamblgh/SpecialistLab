@@ -98,31 +98,6 @@ export const About=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
     </div>
-      {/*<div className="container">
-        <h1 className='text-center text-white'>Projekttagok</h1>
-        <div className="row mt-3">
-          <div className="col-md-4">
-            <img className='img-fluid kep' src="czeczike.jpg" alt="Czeczon" />
-          </div>
-          <div className="col-md-4">
-            <img className='img-fluid kep' src="somika.jpg" alt="Soma" />
-          </div>
-          <div className="col-md-4">
-            <img className='img-fluid kep' src="adika.jpg" alt="Ádám" />
-          </div>
-        </div>
-        <div className="row text-center">
-          <div className="col-md-4">
-            <h5>Czeczon Kristóf</h5>
-          </div>
-          <div className="col-md-4">
-            <h5>Ölvödi Soma</h5>
-          </div>
-          <div className="col-md-4">
-            <h5>Balogh Ádám</h5>
-          </div>
-        </div>
-        </div>*/}
         <div className="container-ad mt-5">
         <div className="tartalom">
         <h1 className="text-white text-center">Bemutatkozó</h1>
