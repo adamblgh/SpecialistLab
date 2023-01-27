@@ -81,7 +81,6 @@ export const Login = ({setLoggedInUser}) => {
             onBlur={handleCheckUsername}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById("password").focus() : ''}
         />
-        <FormFeedback>Helytelen felhasználónév!</FormFeedback>
       </FormGroup>
  
       <FormGroup>
@@ -92,7 +91,6 @@ export const Login = ({setLoggedInUser}) => {
             onBlur={handleCheckPassword}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById("login").focus() : ''}
         />
-        <FormFeedback>Helytelen jelszó!</FormFeedback>
       </FormGroup>
  
       <div>
