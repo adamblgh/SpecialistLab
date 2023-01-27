@@ -120,7 +120,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         <h1 className="text-white text-center">Építőipar munkák</h1>
         <br />
         <div className="talalat bg-white rounded-pill p-1 text-black">
-          <h5 className="ml-3 mt-1 text-center"><span className="szam">999</span> találat</h5>  
+          <h5 className="ml-3 mt-1 text-center"><span className="szam">999</span> találat</h5>
         </div>
         
 {/*KÁRTYA*/}
