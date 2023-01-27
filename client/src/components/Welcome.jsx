@@ -75,7 +75,7 @@ export const Welcome = ({ setLoggedInUser }) => {
             <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
             <span>SPECIALIST LAB™</span>
           </div>
-          <div className="col-md-4 end">
+          <div className="col-md-4 d-flex align-items-center end">
           <div>Hungary @2023</div>
           </div>
         </div>

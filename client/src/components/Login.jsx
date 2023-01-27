@@ -94,12 +94,12 @@ export const Login = ({setLoggedInUser}) => {
       </FormGroup>
  
       <div>
-        <Input type="button" className="btn btn-dark" disabled={!isValidU || !isValidP}
+        <Input type="button" className="btn btn-dark bejelentkezes" disabled={!isValidU || !isValidP}
         id="login"
         onClick={handleClickLoginFunctions} value="Bejelentkezés" />
       </div>
       <div>
-        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Vissza"/>
+        <Input type="button" className="btn btn-danger mt-2 bejelentkezes" onClick={backClick} value="Vissza"/>
       </div>
     </Form>
     </div>
