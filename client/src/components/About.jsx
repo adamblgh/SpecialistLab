@@ -98,8 +98,8 @@ export const About=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
     </div>
-      <div className="container">
-        <h1 className='text-center'>Projekttagok</h1>
+      {/*<div className="container">
+        <h1 className='text-center text-white'>Projekttagok</h1>
         <div className="row mt-3">
           <div className="col-md-4">
             <img className='img-fluid kep' src="czeczike.jpg" alt="Czeczon" />
@@ -122,7 +122,41 @@ export const About=({loggedInUser,setLoggedInUser})=> {
             <h5>Balogh Ádám</h5>
           </div>
         </div>
-      </div>
+        </div>*/}
+        <div className="container-ad mt-5">
+        <div className="tartalom">
+        <h1 className="text-white text-center">Bemutatkozó</h1>
+  
+        <div className="row ad p-3 mt-5">
+              <h4>Czeczon Kristóf</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kocsér</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                
+                    </div>
+                    <div className="col-md-4"><img className='img-fluid' src="czeczike.jpg" alt="Czeczon" /></div>
+                  </div>
+                  <div className="row ad p-3 mt-5">
+              <h4>Ölvödi Soma</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                
+                    </div>
+                    <div className="col-md-4"><img className='img-fluid' src="somika.jpg" alt="Soma" /></div>
+                  </div>
+                  <div className="row ad p-3 mt-5">
+              <h4>Balogh Ádám</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                
+                    </div>
+                    <div className="col-md-4"><img className='img-fluid' src="adika.jpg" alt="Ádám" /></div>
+                  </div>
+                </div>
+            </div>
+      
     </>
   );
 }
