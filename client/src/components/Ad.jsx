@@ -116,12 +116,19 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           </Collapse>
         </Navbar>
       </div>
-      <div className="container-ad mt-5">
-        <div className="tartalom">
+      <div className="container-ad border mt-5">
+        <div className="tartalom border ">
         <h1 className="text-white text-center">Építőipar munkák</h1>
         <br />
-        <div className="talalat bg-white rounded-pill p-1 text-black">
+        <div className="row">
+        <div className="col-md-2 talalat bg-white rounded-pill p-1 text-black">
           <h5 className="ml-3 mt-1 text-center"><span className="szam">999</span> találat</h5>  
+        </div>
+        <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+
+        </div> 
+        
+
         </div>
         
 {/*KÁRTYA*/}
@@ -131,30 +138,14 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
               <div className="col-md-8">
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
               </div>
-                <div className="col-md-8 gomb mt-5"></div>
+                <div className="col-md-8 gomb mt-5">
+                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+                </div>
                 <div className="col-md-4 datum mt-5">Január 27.</div>
         </div>
 {/*KÁRTYA*/}
         </div>
       </div>
-      {/*<div className="container">
-        <h1 className="text-center">Hirdetések</h1>
-        <div className="hirdetesek">
-          <div class="card text-center">
-            <div class="card-header">Munkakör</div>
-            <div class="card-body">
-              <h5 class="card-title">Hely</h5>
-              <p class="card-text">
-                Ide jön a leírás
-              </p>
-              <a href="#" class="btn btn-primary">
-                Érdekel
-              </a>
-            </div>
-            <div class="card-footer text-muted">Dátum</div>
-          </div>
-        </div>
-        </div>*/}
     </>
   );
 };
