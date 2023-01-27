@@ -83,6 +83,9 @@ box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
   opacity: 75%;
   text-align: right;
 }
+.varosok{
+  border-radius: 30px!important;
+}
 .ad{
   background-color: white;
   color: black;

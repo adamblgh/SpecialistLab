@@ -33,8 +33,10 @@ export const Register = () => {
     const handleCheckUsername = () =>{
       if(username)
         mutationCheckUsername.mutate({username:username})
-      else
+      else{
         setIsValidU(false)
+      }
+        
     }
  
     const handleCheckEmail = () =>{
@@ -91,6 +93,7 @@ export const Register = () => {
       const backClick = () => {
         navigate('/')
       }
+
  
  
  
@@ -128,7 +131,7 @@ export const Register = () => {
             onBlur={handleCheckUsername}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('email').focus() : ''}
         />
-        <FormFeedback>Felhasználónév már létezik!</FormFeedback>
+        <FormFeedback>{username.length==0? "Felhasználónév kitöltése kötelező!" : "Felhasználónév már létezik!"}</FormFeedback>
       </FormGroup>
  
       <FormGroup>
@@ -139,7 +142,7 @@ export const Register = () => {
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('password').focus() : ''}
  
         />
-        <FormFeedback >Email-cím már használatban van!/Helytelen email-cím!</FormFeedback>
+        <FormFeedback>{email.length==0? "Email-cím kitöltése kötelező!" : "Helytelen email-cím!"}</FormFeedback>
         <FormText>Email-címnek tartalmaznia kell egy @-ot!</FormText>
       </FormGroup>
  
@@ -150,7 +153,7 @@ export const Register = () => {
             onBlur={handleCheckPassword}
  
         />
-        <FormFeedback>Helytelen jelszó!</FormFeedback>
+        <FormFeedback>Jelszó kitöltése kötelező!</FormFeedback>
         <FormText>A jelszónak legalább 6 karakter hosszúságúnak kell lennie!</FormText>
       </FormGroup>
  

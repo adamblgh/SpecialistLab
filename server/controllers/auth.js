@@ -3,9 +3,9 @@ import bcrypt from "bcryptjs";
 import { configDB } from "../configDB.js";
 import { upload,removeFromCloud } from "../cloudinary.js";
 import fs from 'fs'
-import path from "path";
+/*import path from "path";
 import { response } from "express";
-import { request } from "http";
+import { request } from "http";*/
  
 const db=mysql.createConnection(configDB)
 //ideiglenes login:
@@ -148,14 +148,3 @@ export const changePassword=(request,response)=>{
     })
 }
 
-export const getCity=(request, response) =>{
-    const {name,postal_code} = request.body
-    db.query('SELECT * FROM cities WHERE name LIKE ?'),[name,postal_code],(err,result) =>{
-        if(err){
-            console.log("hiba")
-        }
-        else{
-            response.send({msg:"Sikeres városválasztás",name:name,postal_code:postal_code})
-        }
-    }
-}
