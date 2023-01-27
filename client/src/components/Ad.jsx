@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import {
@@ -13,11 +13,32 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
+  Form,
+  FormGroup,
+  Input,
+  Label
 } from "reactstrap";
+import { useQuery } from "react-query";
+import { getCities } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  const {data,status} = useQuery("cities",getCities)
+  status == "success" && console.log(data.data)
+
+
+  const handleSelect = (event) =>{
+    console.log("Klikk volt",event.target)
+    console.log(event.target.value)
+    if(event.target.value!=0){
+      console.log("remove")
+      document.getElementById("deletedSelect").remove()
+    }
+  }
+
+  
 
   return (
     <>
@@ -115,16 +136,19 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           </Collapse>
         </Navbar>
       </div>
-      <div className="container-ad border mt-5">
-        <div className="tartalom border ">
+      <div className="container-ad mt-5">
+        <div className="tartalom">
         <h1 className="text-white text-center">Építőipar munkák</h1>
         <br />
         <div className="row">
-        <div className="col-md-2 talalat bg-white rounded-pill p-1 text-black">
+        <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
           <h5 className="ml-3 mt-1 text-center"><span className="szam">999</span> találat</h5>  
         </div>
         <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
-
+          <Input className="varosok" type="select" name="select" id="exampleSelect" onChange={handleSelect}>
+            <option value="0" id="deletedSelect">Összes</option>
+            {status == "success" && data.data.map(obj =><option key={obj.id} id={obj.id} >{obj.name}</option>)}
+          </Input>
         </div> 
         
 
