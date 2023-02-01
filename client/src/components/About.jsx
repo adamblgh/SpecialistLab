@@ -131,7 +131,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
                   </div>
                 </div>
             </div>
-            <footer>
+            <footer className="nofixed">
         <div className="row">
           <div className="col-md-4">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
