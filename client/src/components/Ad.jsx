@@ -1,6 +1,7 @@
 import React, { useState,useRef } from "react";
 import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
+import logo from "../components/image/slab_logo.png";
 import {
   Collapse,
   Navbar,
@@ -142,7 +143,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         <br />
         <div className="row">
         <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
-          <h5 className="ml-3 mt-1 text-center"><span className="szam">999</span> találat</h5>  
+          <h5 className="ml-3 mt-1 text-center"><span className="szam">0</span> találat</h5>  
         </div>
         <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
           <Input className="varosok" type="select" name="select" id="exampleSelect" onChange={handleSelect}>
@@ -156,49 +157,110 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         
 {/*KÁRTYA*/}
         <div className="row ad p-3 mt-5">
-              <h4>Festő</h4>
-              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
-              <div className="col-md-8">
-                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-              </div>
-                <div className="col-md-8 gomb mt-5">
-                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+          <div className="col-md-10 bal-ad">
+            <h4>Festő</h4>
+                <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+                <div className="col-md-8">
+                  <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 </div>
-                <div className="col-md-4 datum mt-5">Január 27.</div>
+          </div>
+
+          <div className="col-md-2 mt-2 jobb">
+            <img className="img-fluid cegavatarlogo" src={logo} alt="" />
+          </div>
+
+
+
+
+          <div className="row mt-3">
+            <div className="col-md-8">
+            <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+            </div>
+            <div className="col-md-4">
+            <p className="datum">Febr. 1.</p>
+            </div>
+          </div>
+                
         </div>
         <div className="row ad p-3 mt-5">
-              <h4>Festő</h4>
-              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
-              <div className="col-md-8">
-                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-              </div>
-                <div className="col-md-8 gomb mt-5">
-                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+          <div className="col-md-10 bal-ad">
+            <h4>Festő</h4>
+                <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+                <div className="col-md-8">
+                  <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 </div>
-                <div className="col-md-4 datum mt-5">Január 27.</div>
+          </div>
+
+          <div className="col-md-2 jobb">
+            <img className="img-fluid" src={logo} alt="" />
+          </div>
+
+
+
+
+          <div className="row mt-3">
+            <div className="col-md-8">
+            <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+            </div>
+            <div className="col-md-4">
+            <p className="datum">Febr. 1.</p>
+            </div>
+          </div>
+                
         </div>
         <div className="row ad p-3 mt-5">
-              <h4>Festő</h4>
-              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
-              <div className="col-md-8">
-                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-              </div>
-                <div className="col-md-8 gomb mt-5">
-                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+          <div className="col-md-10 bal-ad">
+            <h4>Festő</h4>
+                <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+                <div className="col-md-8">
+                  <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 </div>
-                <div className="col-md-4 datum mt-5">Január 27.</div>
+          </div>
+
+          <div className="col-md-2 jobb">
+            <img className="img-fluid" src={logo} alt="" />
+          </div>
+
+
+
+
+          <div className="row mt-3">
+            <div className="col-md-8">
+            <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+            </div>
+            <div className="col-md-4">
+            <p className="datum">Febr. 1.</p>
+            </div>
+          </div>
+                
         </div>
         <div className="row ad p-3 mt-5">
-              <h4>Festő</h4>
-              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
-              <div className="col-md-8">
-                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-              </div>
-                <div className="col-md-8 gomb mt-5">
-                  <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+          <div className="col-md-10 bal-ad">
+            <h4>Festő</h4>
+                <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+                <div className="col-md-8">
+                  <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 </div>
-                <div className="col-md-4 datum mt-5">Január 27.</div>
+          </div>
+
+          <div className="col-md-2 jobb">
+            <img className="img-fluid" src={logo} alt="" />
+          </div>
+
+
+
+
+          <div className="row mt-3">
+            <div className="col-md-8">
+            <input type="button" value="Állás megtekintése" className="btn btn-primary" />
+            </div>
+            <div className="col-md-4">
+            <p className="datum">Febr. 1.</p>
+            </div>
+          </div>
+                
         </div>
+
 {/*KÁRTYA*/}
         </div>
       </div>
