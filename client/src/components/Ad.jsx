@@ -221,7 +221,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
 
           </div>
           <div className="col-md-4 d-flex mid justify-content-center align-items-center ">
-            <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
+            <img className="img-fluid footerlogo" src="slab_logo.png" alt="Logo" />
             <span>SPECIALIST LAB™</span>
           </div>
           <div className="col-md-4 d-flex align-items-center end">

@@ -99,7 +99,7 @@ export const Profile=({loggedInUser,setLoggedInUser})=> {
       </Navbar>
     </div>
     <div className='container'>
-      <h1 className='text-center'>Profil</h1>
+      <h1 className='text-center text-white'>Profil</h1>
     </div>
     </>
   );
