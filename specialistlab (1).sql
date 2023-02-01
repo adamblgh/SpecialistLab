@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Dec 16. 10:46
--- Kiszolgáló verziója: 10.4.27-MariaDB
--- PHP verzió: 8.1.12
+-- Létrehozás ideje: 2023. Feb 01. 12:33
+-- Kiszolgáló verziója: 10.4.21-MariaDB
+-- PHP verzió: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL,
+  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `subcateg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -51,7 +51,7 @@ CREATE TABLE `ratings` (
   `user_id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
   `rating` int(5) NOT NULL,
-  `description` varchar(125) NOT NULL
+  `description` varchar(125) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -69,7 +69,7 @@ INSERT INTO `ratings` (`id`, `user_id`, `worker_id`, `rating`, `description`) VA
 
 CREATE TABLE `subcategory` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL
+  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -87,13 +87,13 @@ INSERT INTO `subcategory` (`id`, `description`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `avatar` varchar(256) NOT NULL,
-  `avatar_id` int(255) NOT NULL,
-  `role` varchar(10) NOT NULL
+  `username` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
+  `password` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `avatar` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
+  `avatar_id` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `role` varchar(10) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -101,7 +101,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `avatar_id`, `role`) VALUES
-(1, 'czk', 'czk123', 'czk@gmail.com', 'Czeczon Kristóf', 'users.png', 0, 'admin');
+(1, 'czk', 'czk123', 'czk@gmail.com', 'Czeczon Kristóf', 'users.png', '0', 'admin'),
+(2, 'admin', '$2a$10$XgtEgpqd65Zb/7RFwv3kx.wBvwRdAx25Rm0ImYzOcLJlnav9w0bCW', 'admin@gmail.com', 'admin', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -112,9 +113,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `a
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `about_me` varchar(1024) NOT NULL,
-  `contact` varchar(256) NOT NULL,
+  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `about_me` varchar(1024) COLLATE utf8_hungarian_ci NOT NULL,
+  `contact` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   `subcateg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -134,7 +135,7 @@ INSERT INTO `workers` (`id`, `user_id`, `name`, `about_me`, `contact`, `subcateg
 CREATE TABLE `worker_images` (
   `id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
-  `image` varchar(256) NOT NULL
+  `image` varchar(256) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -216,7 +217,7 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `workers`
