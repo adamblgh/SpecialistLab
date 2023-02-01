@@ -1,7 +1,5 @@
 
-:root{
-  --bs-gutter-x:0!important;
-}
+
 
 .titleh1,h6{
   font-family: 'Days One', sans-serif;
@@ -203,4 +201,13 @@ Form{
   left: 0!important;
   bottom: 0!important;
   margin-top: 30px;
+}
+@media only screen and (max-width:767px){
+  footer{
+    padding: 0!important;
+
+  }
+  .helyez{
+    padding-top: 13px!important;
+  }
 }

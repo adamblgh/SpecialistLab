@@ -208,64 +208,12 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           </div>
                 
         </div>
-        <div className="row ad p-3 mt-5">
-          <div className="col-md-10 bal-ad">
-            <h4>Festő</h4>
-                <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
-                <div className="col-md-8">
-                  <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-                </div>
-          </div>
-
-          <div className="col-md-2 jobb">
-            <img className="img-fluid" src={logo} alt="" />
-          </div>
-
-
-
-
-          <div className="row mt-3">
-            <div className="col-md-8">
-            <input type="button" value="Állás megtekintése" className="btn btn-primary" />
-            </div>
-            <div className="col-md-4">
-            <p className="datum">Febr. 1.</p>
-            </div>
-          </div>
-                
-        </div>
-        <div className="row ad p-3 mt-5">
-          <div className="col-md-10 bal-ad">
-            <h4>Festő</h4>
-                <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
-                <div className="col-md-8">
-                  <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-                </div>
-          </div>
-
-          <div className="col-md-2 jobb">
-            <img className="img-fluid" src={logo} alt="" />
-          </div>
-
-
-
-
-          <div className="row mt-3">
-            <div className="col-md-8">
-            <input type="button" value="Állás megtekintése" className="btn btn-primary" />
-            </div>
-            <div className="col-md-4">
-            <p className="datum">Febr. 1.</p>
-            </div>
-          </div>
-                
-        </div>
-
+        
 {/*KÁRTYA*/}
         </div>
       </div>
       <footer className="nofixed">
-        <div className="row">
+        <div className="row helyez">
           <div className="col-md-4">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
