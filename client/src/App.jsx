@@ -22,7 +22,7 @@ function App() {
       <div className="container-fluid gx-0 app">
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home loggedInUser={loggedInUser}/>} />
+        <Route path="/home" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
         <Route path="/ad" element={<Ad loggedInUser={loggedInUser}/>} />  
         <Route path="/about" element={<About loggedInUser={loggedInUser}/>} />
         <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} /> 
