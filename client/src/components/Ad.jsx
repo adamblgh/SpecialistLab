@@ -156,7 +156,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         </div>
         
 {/*KÁRTYA*/}
-        <div className="row ad p-3 mt-5">
+<div className="row ad p-3 mt-5">
           <div className="col-md-10 bal-ad">
             <h4>Festő</h4>
                 <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
