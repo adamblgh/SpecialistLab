@@ -104,6 +104,23 @@ export const Login = ({setLoggedInUser}) => {
       </div>
     </Form>
     </div>
+    <footer>
+        <div className="row">
+          <div className="col-md-4">
+              <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
+              <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
+              <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>
+
+          </div>
+          <div className="col-md-4 d-flex mid justify-content-center align-items-center ">
+            <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
+            <span>SPECIALIST LAB™</span>
+          </div>
+          <div className="col-md-4 d-flex align-items-center end">
+          <div>Hungary @2023</div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
