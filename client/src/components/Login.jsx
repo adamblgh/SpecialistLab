@@ -4,12 +4,14 @@ import {useMutation} from 'react-query';
 import {Form,FormGroup,Input,Label,FormFeedback,Button} from "reactstrap";
 import {useNavigate} from 'react-router-dom';
 import bg from "../components/background/bg.mp4";
+import { useEffect } from "react";
  
-export const Login = ({setLoggedInUser}) => {
+export const Login = ({loggedInUser,setLoggedInUser}) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [isValidU, setIsValidU] = useState(null)
     const [isValidP, setIsValidP] = useState(null)
+    const [isValidCredentials, setIsValidCredentials] = useState(true)
     const navigate=useNavigate()
  
     const mutationCheckUsername=useMutation(checkUsername,{
@@ -30,9 +32,9 @@ export const Login = ({setLoggedInUser}) => {
         setIsValidU(false)
     }
     
-    const handleCheckPassword = () =>{
+    /*const handleCheckPassword = () =>{
       password.length<6 ? setIsValidP(false) : setIsValidP(true)
-    }
+    }*/
  
     const mutationLogin=useMutation(login,{
       onSuccess:(data) =>{
@@ -49,9 +51,18 @@ export const Login = ({setLoggedInUser}) => {
       }
     })
 
+    useEffect(()=>{
+      if(loggedInUser?.id){
+        setIsValidCredentials(true)
+        navigate('/home')
+      }
+      else{
+        setIsValidCredentials(false)
+      }
+    },[loggedInUser])
+
     const handleClickLoginFunctions = () => {
-      mutationLogin.mutate({username:username, password:password})
-      navigate('/home')
+      mutationLogin.mutate({username:username, password:password}) 
     }
 
     const backClick = () => {
@@ -89,13 +100,13 @@ export const Login = ({setLoggedInUser}) => {
         <Input type="password" className={isValidP==null ? "" : (isValidP ? "is-valid" : "is-invalid")}
             id="password"
             value={password} onChange={(e)=>setPassword(e.target.value)}
-            onBlur={handleCheckPassword}
+            /*onBlur={handleCheckPassword}*/
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById("login").focus() : ''}
         />
       </FormGroup>
- 
+        
       <div>
-        <Input type="button" className="btn btn-dark bejelentkezes" disabled={!isValidU || !isValidP}
+        <Input type="button" className="btn btn-dark bejelentkezes" disabled={!isValidU}
         id="login"
         onClick={handleClickLoginFunctions} value="Bejelentkezés" />
       </div>
