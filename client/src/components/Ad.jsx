@@ -186,7 +186,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         </div>
       </div>
       <footer className="nofixed">
-        <div className="row helyez">
+        <div className="row gx-0 helyez">
           <div className="col-md-4">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
