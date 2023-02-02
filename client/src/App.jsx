@@ -27,7 +27,7 @@ function App() {
         <Route path="/about" element={<About loggedInUser={loggedInUser}/>} />
         <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} /> 
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser}/>}/> 
+        <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/> 
       </Routes>
       </div>
       
