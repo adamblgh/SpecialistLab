@@ -47,3 +47,10 @@ export const getCities = async ()=>{
     const response = await axios.get(url+'/cities')
     return response
 }
+
+export const getCountId = async ({queryKey})=>{
+    const [_, selCity] = queryKey
+    console.log(selCity)
+    const response = await axios.get(url+`/cities/countId/${selCity}`)
+    return response
+}
