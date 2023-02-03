@@ -206,9 +206,13 @@ Form{
 @media only screen and (max-width:767px){
   footer{
     padding: 0!important;
+   
+    justify-content: center;
+    align-items: center;
+    width: 100%!important;
 
   }
   .helyez{
-    padding-top: 13px!important;
+    padding-top: 13px !important;
   }
 }

@@ -132,7 +132,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
                 </div>
             </div>
             <footer className="nofixed">
-        <div className="row">
+        <div className="row w-100 helyez gx-0">
           <div className="col-md-4">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
