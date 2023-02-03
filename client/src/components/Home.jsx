@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import bg from "../components/background/bg.mp4";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
 import {
   Collapse,
   Navbar,
@@ -29,7 +32,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
   };
 
 
-
+  const navigate = useNavigate();
   return (
     <>
     <video
@@ -111,6 +114,53 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
       </Navbar>
     <div className="container">
       <h1 className='text-center homekateg'>Válasszon kategóriát...</h1>
+      <br />
+      <div className="row">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
+        <div className="col-md-3">
+        <motion.div
+                style={{marginRight:5,minWidth:250}}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
+                onClick={() => navigate("/")}
+                className="panel lineUp p-3 mt-1 rounded"
+              >
+                <h3 className="kitoltes text-left">Regisztráció</h3>
+              </motion.div>
+        </div>
+        <div className="col-md-3">
+        <motion.div
+                style={{marginRight:5,minWidth:250}}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
+                onClick={() => navigate("/")}
+                className="panel lineUp p-3 mt-1 rounded"
+              >
+                <h3 className="kitoltes text-left">Regisztráció</h3>
+              </motion.div>
+        </div>
+        <div className="col-md-3">
+        <motion.div
+                style={{marginRight:5,minWidth:250}}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
+                onClick={() => navigate("/")}
+                className="panel lineUp p-3 mt-1 rounded"
+              >
+                <h3 className="kitoltes text-left">Regisztráció</h3>
+              </motion.div>
+        </div>
+        <div className="col-md-3">
+        <motion.div
+                style={{marginRight:5,minWidth:250}}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
+                onClick={() => navigate("/")}
+                className="panel lineUp p-3 mt-1 rounded"
+              >
+                <h3 className="kitoltes text-left">Regisztráció</h3>
+              </motion.div>
+        </div>
+      </div>
     </div>
     <footer>
         <div className="row">

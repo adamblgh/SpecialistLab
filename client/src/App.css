@@ -1,6 +1,3 @@
-
-
-
 .titleh1,h6{
   font-family: 'Days One', sans-serif;
   color: white;
@@ -215,4 +212,7 @@ Form{
   .helyez{
     padding-top: 13px !important;
   }
+}
+.reglogpanel{
+  margin-top: 5px!important;
 }
