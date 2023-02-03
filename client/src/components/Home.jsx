@@ -58,6 +58,9 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
             <NavItem>
               <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink to='/adupload' className="nav-link">Hirdetés-feladás</NavLink>
+            </NavItem>
             {loggedInUser?.role=='admin' && 
             (
               <UncontrolledDropdown nav inNavbar>
