@@ -21,22 +21,26 @@ import {
 } from "reactstrap";
 import { useQuery } from "react-query";
 import { getCities } from "./getData.js";
+import { getCountId } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser }) => {
+  const [selCity,setSelCity] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
-  const {data,status} = useQuery("cities",getCities)
-  status == "success" && console.log(data.data)
+  const {data:dataCities,status:statusCities} = useQuery("cities",getCities)
+  statusCities == "success" && console.log(dataCities.data)
+  
+  const {data:dataCounted,status:statusCounted} = useQuery(["countedCities",selCity],getCountId)
+  statusCounted == "success" && console.log(dataCounted.data[0].nr)
+
+
 
 
   const handleSelect = (event) =>{
+    setSelCity(event.target.value)
     console.log("Klikk volt",event.target)
     console.log(event.target.value)
-    if(event.target.value!=0){
-      console.log("remove")
-      document.getElementById("deletedSelect").remove()
-    }
   }
 
   
@@ -143,12 +147,12 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         <br />
         <div className="row">
         <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
-          <h5 className="ml-3 mt-1 text-center"><span className="szam">0</span> találat</h5>  
+          <h5 className="ml-3 mt-1 text-center"><span className="szam">{statusCounted == "success" && (dataCounted.data[0].nr)}</span> találat</h5>  
         </div>
         <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
           <Input className="varosok" type="select" name="select" id="exampleSelect" onChange={handleSelect}>
             <option value="0" id="deletedSelect">Összes</option>
-            {status == "success" && data.data.map(obj =><option key={obj.id} id={obj.id} >{obj.name}</option>)}
+            {statusCities == "success" && dataCities.data.map(obj =><option key={obj.id} id={obj.id} value={obj.id}>{obj.name}</option>)}
           </Input>
         </div> 
         
