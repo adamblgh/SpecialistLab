@@ -121,10 +121,10 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/newadcomp")}
                 className="panel lineUp p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
+                <h3 className="kitoltes text-left">Cégként</h3>
               </motion.div>
         </div>
         <div className="col-md-6">
@@ -132,10 +132,10 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/newadpers")}
                 className="panel lineUp p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
+                <h3 className="kitoltes text-left">Magánszemélyként</h3>
               </motion.div>
         </div>
       </div>

@@ -7,6 +7,8 @@ import { Ad } from "./components/Ad";
 import { About } from "./components/About";
 import { Profile } from "./components/Profile";
 import { AdUpload } from "./components/AdUpload";
+import { NewAdComp } from "./components/NewAdComp";
+import { NewAdPers } from "./components/NewAdPers";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -28,8 +30,10 @@ function App() {
         <Route path="/about" element={<About loggedInUser={loggedInUser}/>} />
         <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} /> 
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
+        <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
         <Route path="/adupload" element={< AdUpload loggedInUser={loggedInUser}/>} />
+        <Route path="/newadcomp" element={< NewAdComp loggedInUser={loggedInUser}/>} />
+        <Route path="/newadpers" element={< NewAdPers loggedInUser={loggedInUser}/>} />
       </Routes>
       </div>
       
