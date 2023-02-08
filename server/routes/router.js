@@ -10,3 +10,4 @@ router.route('/checkUsername').post(checkUsername);
 router.route('/updateAvatar').put(updateAvatar);
 router.route('/deleteUser').delete(deleteUser);
 router.route('/changePassword').put(changePassword);
+

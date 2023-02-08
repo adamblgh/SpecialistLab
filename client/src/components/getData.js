@@ -38,7 +38,19 @@ export const changePassword= async (formdata)=>{
     return await response
 }
 
-export const getBooks = async ()=>{
+/*export const getBooks = async ()=>{
     const response = await axios.get(url+'/admin/books')
     return await response
+}*/
+
+export const getCities = async ()=>{
+    const response = await axios.get(url+'/cities')
+    return response
+}
+
+export const getCountId = async ({queryKey})=>{
+    const [_, selCity] = queryKey
+    console.log(selCity)
+    const response = await axios.get(url+`/cities/countId/${selCity}`)
+    return response
 }

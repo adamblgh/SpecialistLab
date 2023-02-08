@@ -2,8 +2,10 @@ import React,{useState} from "react";
 import { useMutation } from "react-query";
 import {useNavigate} from "react-router-dom";
 import { checkUsername,checkEmail,register } from "./getData";
-import {Form,FormGroup,Input,Label,FormFeedback,Button,FormText} from "reactstrap";
+import {Form,FormGroup,Input,Label,FormFeedback,Button,FormText, ButtonGroup} from "reactstrap";
 import { validate } from 'react-email-validator';
+import bg from "../components/background/bg.mp4";
+
  
 export const Register = () => {
     const navigate = useNavigate()
@@ -31,8 +33,10 @@ export const Register = () => {
     const handleCheckUsername = () =>{
       if(username)
         mutationCheckUsername.mutate({username:username})
-      else
+      else{
         setIsValidU(false)
+      }
+        
     }
  
     const handleCheckEmail = () =>{
@@ -85,10 +89,27 @@ export const Register = () => {
         setMsg(data.data.msg)
       }
       })
+
+      const backClick = () => {
+        navigate('/')
+      }
+
  
  
  
   return (
+    <>
+    <video
+        autoPlay
+        loop
+        muted
+        style={{
+          zIndex: "-1",
+        }}
+      >
+        <source src={bg} type="video/mp4" />
+      </video>
+    <div className="reglogpanel">
     <Form className="border p-3 shadow mt-1 rounded text-center">
         <h3>Regisztráció</h3>
  
@@ -110,7 +131,7 @@ export const Register = () => {
             onBlur={handleCheckUsername}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('email').focus() : ''}
         />
-        <FormFeedback>Felhasználónév már létezik!</FormFeedback>
+        <FormFeedback>{username.length==0? "Felhasználónév kitöltése kötelező!" : "Felhasználónév már létezik!"}</FormFeedback>
       </FormGroup>
  
       <FormGroup>
@@ -121,7 +142,7 @@ export const Register = () => {
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('password').focus() : ''}
  
         />
-        <FormFeedback >Email-cím már használatban van!/Helytelen email-cím!</FormFeedback>
+        <FormFeedback>{email.length==0? "Email-cím kitöltése kötelező!" : "Helytelen email-cím!"}</FormFeedback>
         <FormText>Email-címnek tartalmaznia kell egy @-ot!</FormText>
       </FormGroup>
  
@@ -132,14 +153,14 @@ export const Register = () => {
             onBlur={handleCheckPassword}
  
         />
-        <FormFeedback>Helytelen jelszó!</FormFeedback>
+        <FormFeedback>Jelszó kitöltése kötelező!</FormFeedback>
         <FormText>A jelszónak legalább 6 karakter hosszúságúnak kell lennie!</FormText>
       </FormGroup>
  
  
  
       <div>
-        <Input type="button" className="btn btn-dark" 
+        <Input type="button" className="btn btn-primary" 
         disabled={!isValidU || !isValidE || !isValidP}
         onClick={()=>mutationRegister.mutate({name:name,username:username,email:email,password:password})}
         value="Regisztrálok"/>
@@ -148,6 +169,28 @@ export const Register = () => {
       {success && <div className="btn btn-outline-dark mt-2"
       onClick={()=>navigate('/login')}
       >Jelentkezz be</div>}
+      <div>
+        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Vissza"/>
+      </div>
     </Form>
+    </div>
+    <footer>
+        <div className="row">
+          <div className="col-md-4">
+              <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
+              <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
+              <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>
+
+          </div>
+          <div className="col-md-4 d-flex mid justify-content-center align-items-center ">
+            <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
+            <span>SPECIALIST LAB™</span>
+          </div>
+          <div className="col-md-4 d-flex align-items-center end">
+          <div>Hungary @2023</div>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };

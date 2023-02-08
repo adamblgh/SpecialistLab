@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import bg from "../components/background/bg.mp4";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-
 import {
   Collapse,
   Navbar,
@@ -18,21 +15,11 @@ import {
   NavbarText,
 } from 'reactstrap';
 
-export const Home=({loggedInUser,setLoggedInUser})=> {
+export const About=({loggedInUser,setLoggedInUser})=> {
   const [isOpen, setIsOpen] = useState(false);
+
   const toggle = () => setIsOpen(!isOpen);
 
-  const handleUpdateAvatar = () => {
-    const formdata = new FormData()
-    /*formdata.append("selFile", selFile)*/
-    formdata.append("username", loggedInUser.username)
-    formdata.append("avatar_id", loggedInUser.avatar_id)
-    /*setIsUploading(true)
-    mutationAvatar.mutate(formdata)*/
-  };
-
-
-  const navigate = useNavigate();
   return (
     <>
     <video
@@ -45,7 +32,8 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
       >
         <source src={bg} type="video/mp4" />
       </video>
-    <Navbar expand="sm" light color='light' fixed='top'>
+    <div>
+      <Navbar expand="sm" light color='light'  fixed='top'>
         <NavbarBrand>
             <img className='img-fluid' style={{width:"35px",height:"35px"}} alt='SpecialistLab_Logo' src='slab_logo.png'></img>
         </NavbarBrand>
@@ -53,10 +41,10 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/home' className="nav-link active" aria-current="page">Főoldal</NavLink>
+              <NavLink to='/home' className="nav-link">Főoldal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/about' className="nav-link">Rólunk</NavLink>
+              <NavLink to='/about' className="nav-link active" aria-current="page">Rólunk</NavLink>
             </NavItem>
             <NavItem>
               <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
@@ -112,58 +100,42 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
           }
         </Collapse>
       </Navbar>
-    <div className="container">
-      <h1 className='text-center homekateg'>Válasszon kategóriát...</h1>
-      <br />
-      <div className="row">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
-        <div className="col-md-3">
-        <motion.div
-                style={{marginRight:5,minWidth:250}}
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
-                className="panel lineUp p-3 mt-1 rounded"
-              >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
-              </motion.div>
-        </div>
-        <div className="col-md-3">
-        <motion.div
-                style={{marginRight:5,minWidth:250}}
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
-                className="panel lineUp p-3 mt-1 rounded"
-              >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
-              </motion.div>
-        </div>
-        <div className="col-md-3">
-        <motion.div
-                style={{marginRight:5,minWidth:250}}
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
-                className="panel lineUp p-3 mt-1 rounded"
-              >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
-              </motion.div>
-        </div>
-        <div className="col-md-3">
-        <motion.div
-                style={{marginRight:5,minWidth:250}}
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
-                className="panel lineUp p-3 mt-1 rounded"
-              >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
-              </motion.div>
-        </div>
-      </div>
     </div>
-    <footer>
-        <div className="row">
+        <div className="container-ad mt-5 aboutfooter">
+        <div className="tartalom">
+        <h1 className="text-white text-center">Bemutatkozó</h1>
+  
+        <div className="row ad p-3 mt-5">
+              <h4>Czeczon Kristóf</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kocsér</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                
+                    </div>
+                    <div className="col-md-4"><img className='img-fluid' src="czeczike.jpg" alt="Czeczon" /></div>
+                  </div>
+                  <div className="row ad p-3 mt-5">
+              <h4>Ölvödi Soma</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                
+                    </div>
+                    <div className="col-md-4"><img className='img-fluid' src="somika.jpg" alt="Soma" /></div>
+                  </div>
+                  <div className="row ad p-3 mt-5">
+              <h4>Balogh Ádám</h4>
+              <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
+              <div className="col-md-8">
+                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                
+                    </div>
+                    <div className="col-md-4"><img className='img-fluid' src="adika.jpg" alt="Ádám" /></div>
+                  </div>
+                </div>
+            </div>
+            <footer className="nofixed">
+        <div className="row w-100 helyez gx-0">
           <div className="col-md-4">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
@@ -179,6 +151,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
           </div>
         </div>
       </footer>
+      
     </>
   );
 }

@@ -11,6 +11,12 @@
   flex-wrap:wrap;
   justify-content: center;
 }
+.title{
+  margin-bottom: 50px;
+}
+h1{
+  padding-top: 30px!important;
+}
 @keyframes anim-lineUp {
   0% {
     opacity: 0;
@@ -30,8 +36,8 @@
 }
 video {
 object-fit: cover;
-width: 100vw;
-height: 100vh;
+width: 100%;
+height: 100%;
 position: fixed;
 top: 0;
 left: 0;
@@ -40,24 +46,103 @@ Form{
 color: black;
 background-color: white;
 }
-
+.reglogpanel{
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+.bg{
+  background-color: dodgerblue;
+  margin-top: -5px!important;
+}
+.footerlogo{
+  width: 30px!important;
+  height: 30px!important;
+  margin-right: 10px!important;
+}
 .panelek{
-margin-top: 70px!important;
+margin-top: 100px!important;
 display:flex;
 flex-wrap: wrap;
 justify-content: space-around;
 align-items: center;
 padding:10px;
+margin-bottom: 100px;
 /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */                         /*2soros=850px 1soros=900px*/
 }
+
 .panel{
+  
 background-color: #ffffff;
 color: black;
 cursor: pointer;
+margin: 15px;
 box-shadow: 0px 0px 10px 8px rgba(255, 255, 255, 0.2);
 }
+.datum{
+  opacity: 75%;
+  text-align: right;
+}
+.varosok{
+  border-radius: 30px!important;
+}
+.ad{
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+  max-width: 750px;
+}
+.hely{
+  padding-right: 2px;
+  padding-left: 2px;
+}
+.talalat{
+  max-width: 150px;
+  margin-right: 10px!important;
+}
+.hirdetoszoveg{
+  text-align: justify;
+}
+.tartalom{
+  max-width: 750px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 700px) {
+  .loginregister{
+    width: 60%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .col-md-4{
+    width: 60%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+}
+@media only screen and (min-width:767px){
+  .end{
+    display: flex;
+    justify-content: end;
+  }
+}
+@media only screen and (max-width:767px){
+  footer{
+    height: 122px;
+
+  }
+}
+
 .kitoltes{
 padding-bottom: 300px;
+padding-right: 70px;
+width: 270px;
 }
 .register{
 background-image: url("../public/register.png");
@@ -68,10 +153,9 @@ background-image: url("../public/login.jpg");
 background-size: cover;
 }
 footer{
-position: fixed;
+  position: fixed;
 left: 0;
 bottom: 0;
-height: 80px;
 width: 100%;
 background-color: rgb(255, 255, 255);
 color: rgb(0, 0, 0);
@@ -83,104 +167,52 @@ font-size: 15px;
 max-width: 30px;
 max-height: 30px;
 }
-ul{
-position: absolute;
-top: 35%;  width: 50%;  text-align: left;
-transform: translate(0,-50%);  
+
+.container{
+  margin-top: 60px;
 }
-ul li{
-list-style: none;
-display: inline-block;
-position: relative;
-width: 35px;  height: 35px;
-margin: 0 25px;
-transform: rotate(-25deg) skewX(20deg);
-box-shadow: none;
-transition: .9s;
-}
-ul li::before{
-content: '';
-position: absolute;
-top: 0;  left: -15px;
-width: 15px;   height: 100%;
-background: #0c0c0c;
-transform-origin: right;
-transform: skewY(-45deg);
-transition: .5s;
-}
-ul li::after{
-content: '';
-position: absolute;
-bottom: -14.7px;  left: 0;
-width: 100%;   height: 15px;
-background: #242424;
-transform-origin: top;
-transform: skewX(-45deg);
-transition: .5s;
-}
-ul li a{
-display: inline-block;
-position: relative;
-text-decoration: none;  
-color: #ffffff;   background: rgb(92, 92, 92);
-width: 100%;  height: 100%;   line-height: 32px;
-font-size: 20px;
-transition: .5s;
-text-align: center;
-}
-ul li:hover{
-transform: translateY(-10px) rotate(-25deg) skewX(20deg);
-box-shadow: -60px 60px 30px rgb(0 0 0 / 50%);
-}
-ul li:hover a{
-color: #fff;
-}
-ul li:hover:nth-of-type(1) a{
-background: #3866ca;
-}
-ul li:hover:nth-of-type(1)::before{
-background: #3b5999;
-}
-ul li:hover:nth-of-type(1)::after{
-background: #5173bd;
+.fa-brands{
+  margin-top: 15px;
+  margin-right: 25px;
 }
 
-ul li:hover:nth-of-type(2) a{
-background: #55acee;
+Form{
+  max-width: 500px!important;
 }
-ul li:hover:nth-of-type(2)::before{
-background: #369ae7;
+.bejelentkezes{
+  height: 40px!important;
+  width: 350px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-ul li:hover:nth-of-type(2)::after{
-background: #7eb8e5;
+.homekateg{
+  color: white;
 }
+.aboutfooter{
+  margin-bottom: 150px!important;
+}
+.nofixed{
+  background-color: white;
+  position:unset!important;
+  width: 100%!important;
+  left: 0!important;
+  bottom: 0!important;
+  margin-top: 88px;
+}
+@media only screen and (max-width:767px){
+  footer{
+    padding: 0!important;
+   
+    justify-content: center;
+    align-items: center;
+    width: 100%!important;
 
-ul li:hover:nth-of-type(3) a{
-background: #67017b;
+  }
+  .helyez{
+    padding-top: 13px !important;
+  }
 }
-ul li:hover:nth-of-type(3)::before{
-background: #500060;
-}
-ul li:hover:nth-of-type(3)::after{
-background: #8b00a6;
-}
-
-ul li:hover:nth-of-type(4) a{
-background: #0077B5;
-}
-ul li:hover:nth-of-type(4)::before{
-background: #005c8c;
-}
-ul li:hover:nth-of-type(4)::after{
-background: #2498d4;
-}
-
-ul li:hover:nth-of-type(5) a{
-background: #00AFF0;
-}
-ul li:hover:nth-of-type(5)::before{
-background: #0894c8;
-}
-ul li:hover:nth-of-type(5)::after{
-background: #26c4ff;
+.reglogpanel{
+  margin-top: 5px!important;
 }

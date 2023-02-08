@@ -3,9 +3,9 @@ import bcrypt from "bcryptjs";
 import { configDB } from "../configDB.js";
 import { upload,removeFromCloud } from "../cloudinary.js";
 import fs from 'fs'
-import path from "path";
+/*import path from "path";
 import { response } from "express";
-import { request } from "http";
+import { request } from "http";*/
  
 const db=mysql.createConnection(configDB)
 //ideiglenes login:
@@ -22,16 +22,18 @@ const db=mysql.createConnection(configDB)
 }*/
  
 export const login=(request,response)=>{
-    console.log(request.body)
+    /*console.log(request.body)*/
     const {username,password} = request.body
     db.query('SELECT id,password,email,avatar,avatar_id FROM `users` where username=?',[username],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else{
+            console.log(result)
             bcrypt.compare(password, result[0].password,(err,resultCompare)=>{
                 if(err)
                     response.send({error:"ServerERROR!",err})
                 if(resultCompare){
+                    //console.log("password:",password, result[0].password)
                     response.send({username:username,id:result[0].id,email:result[0].email,avatar:result[0].avatar,avatar_id:result[0].avatar_id})
                 }
                 else{
@@ -147,3 +149,4 @@ export const changePassword=(request,response)=>{
         }
     })
 }
+
