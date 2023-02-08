@@ -147,7 +147,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           </Collapse>
         </Navbar>
       </div>
-      <div className="container-ad mt-5">
+      <div className="container-ad mt-5 hirdetes">
         <div className="tartalom">
           <h1 className="text-white text-center">Építőipar munkák</h1>
           <br />
@@ -217,6 +217,8 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
             </div>
           </div>
           {/*KÁRTYA*/}
+          
+          
         </div>
       </div>
       <footer className="nofixed">
