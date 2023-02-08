@@ -31,7 +31,7 @@ export const Register = () => {
     })
  
     const handleCheckUsername = () =>{
-      if(username)
+      if(username.length>0)
         mutationCheckUsername.mutate({username:username})
       else{
         setIsValidU(false)
@@ -65,9 +65,6 @@ export const Register = () => {
         if(name.length>0){
           setIsValidN(true)
         }
-        else{
-          setIsValidN(false)
-        }
       }
  
     const mutationRegister=useMutation(register,{
@@ -91,7 +88,7 @@ export const Register = () => {
       })
 
       const backClick = () => {
-        navigate('/')
+        navigate('/login')
       }
 
  
@@ -121,7 +118,6 @@ export const Register = () => {
             onBlur={handleCheckName}
             onKeyPress={(e)=>e.key=='Enter' ? document.getElementById('username').focus() : ''}
         />
-        <FormFeedback>Név kitöltése kötelező!</FormFeedback>
       </FormGroup>
  
       <FormGroup>
@@ -161,7 +157,7 @@ export const Register = () => {
  
       <div>
         <Input type="button" className="btn btn-primary" 
-        disabled={!isValidU || !isValidE || !isValidP}
+        disabled={!isValidU || !isValidE || !isValidP || !isValidN}
         onClick={()=>mutationRegister.mutate({name:name,username:username,email:email,password:password})}
         value="Regisztrálok"/>
       </div>
@@ -170,7 +166,7 @@ export const Register = () => {
       onClick={()=>navigate('/login')}
       >Jelentkezz be</div>}
       <div>
-        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Vissza"/>
+        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Már van fiókod?"/>
       </div>
     </Form>
     </div>
