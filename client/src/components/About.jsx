@@ -112,7 +112,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 
                     </div>
-                    <div className="col-md-4"><img className='img-fluid' src="czeczike.jpg" alt="Czeczon" /></div>
+                    <div className="col-md-4"><img className='img-fluid kepek' src="czeczike.jpg" alt="Czeczon" /></div>
                   </div>
                   <div className="row ad p-3 mt-5">
               <h4>Ölvödi Soma</h4>
@@ -121,7 +121,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 
                     </div>
-                    <div className="col-md-4"><img className='img-fluid' src="somika.jpg" alt="Soma" /></div>
+                    <div className="col-md-4"><img className='img-fluid kepek' src="somika.jpg" alt="Soma" /></div>
                   </div>
                   <div className="row ad p-3 mt-5">
               <h4>Balogh Ádám</h4>
@@ -130,7 +130,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
                 
                     </div>
-                    <div className="col-md-4"><img className='img-fluid' src="adika.jpg" alt="Ádám" /></div>
+                    <div className="col-md-4"><img className='img-fluid kepek' src="adika.jpg" alt="Ádám" /></div>
                   </div>
                 </div>
             </div>

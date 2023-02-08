@@ -200,7 +200,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
             </div>
 
             <div className="col-md-2 mt-2 jobb">
-              <img className="img-fluid cegavatarlogo" src={logo} alt="" />
+              <img className="img-fluid cegkep cegavatarlogo" src={logo} alt="" />
             </div>
 
             <div className="row mt-3">
