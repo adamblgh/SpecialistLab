@@ -124,7 +124,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 onClick={() => navigate("/")}
                 className="panel lineUp p-3 mt-1 rounded"
               >
-                <h3 className="kitoltes text-left">Regisztráció</h3>
+                <h3 className="kitoltes text-left">Építőipar</h3>
               </motion.div>
         </div>
         <div className="col-md-3">
