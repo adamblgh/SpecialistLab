@@ -53,7 +53,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/home' className="nav-link active" aria-current="page">Főoldal</NavLink>
+              <NavLink to='/home' className="nav-link">Főoldal</NavLink>
             </NavItem>
             <NavItem>
               <NavLink to='/about' className="nav-link">Rólunk</NavLink>
@@ -62,7 +62,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
               <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/adupload' className="nav-link">Hirdetés-feladás</NavLink>
+              <NavLink to='/adupload' className="nav-link active" aria-current="page">Hirdetés-feladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
