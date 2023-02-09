@@ -109,7 +109,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
               <h4>Czeczon Kristóf</h4>
               <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kocsér</span></p>
               <div className="col-md-8">
-                <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
+                <p className="hirdetoszoveg">Czeczon Kristóf vagyok 20 éves, Kocséron élek. Régen fociztam, manapság szabadidőmet barátaimmal töltöm vagy kocsikázok. Szeretem a szoftverfejlesztést, a weblap készítés tetszik a legjobban! Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!</p>
                 
                     </div>
                     <div className="col-md-4"><img className='img-fluid kepek' src="czeczike.jpg" alt="Czeczon" /></div>
