@@ -157,24 +157,28 @@ background-size: cover;
   background-position: center;
         background-size: 280px;
         padding-right: 115px!important;
+        background-repeat: no-repeat;
   }
   .vendeglatas{
     background-image: url("../src/components/image/vendeglatas.jpg");
     background-position: center;
         background-size: 330px;
         padding-right: 70px!important;
+        background-repeat: no-repeat;
     }
     .logisztika{
       background-image: url("../src/components/image/logisztika.jpg");
       background-position: center;
         background-size: 310px;
         padding-right: 100px!important;
+        background-repeat: no-repeat;
       }
       .egeszsegugy{
         background-image: url("../src/components/image/egeszsegugy.jpg");
         background-position: center;
         background-size: 310px;
         padding-right: 65px!important;
+        background-repeat: no-repeat;
         }
 
 .cimke{
