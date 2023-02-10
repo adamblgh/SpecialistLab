@@ -113,7 +113,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
       <div className="container">
-      <h1 className='text-center homekateg'>Hogyan szeretne hirdetni?</h1>
+      <h1 className='sitetitle p-3 text-white text-center homekateg'>Hogyan szeretne hirdetni?</h1>
       <br />
       <div className="row">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
         <div className="col-md-6">

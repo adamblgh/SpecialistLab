@@ -132,7 +132,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
         </Collapse>
       </Navbar>
       <div className="container">
-        <h1 className="text-center homekateg">Válasszon kategóriát...</h1>
+        <h1 className="sitetitle p-3 text-white text-center homekateg">Válasszon kategóriát...</h1>
         <br />
         <div className="row">
           {" "}
