@@ -135,7 +135,6 @@ box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);
 @media only screen and (max-width:767px){
   footer{
     height: 122px;
-
   }
 }
 
@@ -157,24 +156,28 @@ background-size: cover;
   background-position: center;
         background-size: 280px;
         padding-right: 115px!important;
+        background-repeat: no-repeat;
   }
   .vendeglatas{
     background-image: url("../src/components/image/vendeglatas.jpg");
     background-position: center;
         background-size: 330px;
         padding-right: 70px!important;
+        background-repeat: no-repeat;
     }
     .logisztika{
       background-image: url("../src/components/image/logisztika.jpg");
       background-position: center;
         background-size: 310px;
         padding-right: 100px!important;
+        background-repeat: no-repeat;
       }
       .egeszsegugy{
         background-image: url("../src/components/image/egeszsegugy.jpg");
         background-position: center;
         background-size: 310px;
         padding-right: 65px!important;
+        background-repeat: no-repeat;
         }
 
 .cimke{
@@ -273,5 +276,21 @@ Form{
   .cegkep{
     height: 300px;
     width: 300px;
+  }
+}
+@media only screen and (max-width:767px){
+  .cegkep{
+    height: 300px;
+    width: 300px;
+  }
+}
+@media only screen and (max-width:1200px){
+  .kategkartya{
+    margin-left: 60px!important;
+    margin-top: 40px!important;
+    margin-right: 60px!important;
+  }
+  .igazit{
+    margin-bottom: 90px;
   }
 }

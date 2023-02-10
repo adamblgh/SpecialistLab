@@ -216,6 +216,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
               </div>
             </div>
           </div>
+          
           {/*KÁRTYA*/}
           
           
