@@ -1,14 +1,15 @@
-.titleh1,h6{
-  font-family: 'Days One', sans-serif;
+.titleh1,
+h6 {
+  font-family: "Days One", sans-serif;
   color: white;
   font-size: 250%;
-  text-align: left!important;
+  text-align: left !important;
 }
 .lineUp {
   animation: 3s anim-lineUp ease-out;
 
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: center;
 }
 .nev{
@@ -21,8 +22,8 @@
 .title{
   margin-bottom: 50px;
 }
-h1{
-  padding-top: 30px!important;
+h1 {
+  padding-top: 30px !important;
 }
 @keyframes anim-lineUp {
   0% {
@@ -42,82 +43,81 @@ h1{
   }
 }
 video {
-object-fit: cover;
-width: 100%;
-height: 100%;
-position: fixed;
-top: 0;
-left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-Form{
-color: black;
-background-color: white;
+Form {
+  color: black;
+  background-color: white;
 }
-.reglogpanel{
+.reglogpanel {
   margin-top: 80px;
   display: flex;
   justify-content: center;
 }
-.bg{
+.bg {
   background-color: dodgerblue;
-  margin-top: -5px!important;
+  margin-top: -5px !important;
 }
-.footerlogo{
-  width: 30px!important;
-  height: 30px!important;
-  margin-right: 10px!important;
+.footerlogo {
+  width: 30px !important;
+  height: 30px !important;
+  margin-right: 10px !important;
 }
-.panelek{
-margin-top: 100px!important;
-display:flex;
-flex-wrap: wrap;
-justify-content: space-around;
-align-items: center;
-padding:10px;
-margin-bottom: 100px;
-/*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */                         /*2soros=850px 1soros=900px*/
+.panelek {
+  margin-top: 100px !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 100px;
+  /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */ /*2soros=850px 1soros=900px*/
 }
 
-.panel{
-  
-background-color: #ffffff;
-color: black;
-cursor: pointer;
-margin: 15px;
-box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);
+.panel {
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer;
+  margin: 15px;
+  box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);
 }
-.datum{
+.datum {
   opacity: 75%;
   text-align: right;
 }
-.varosok{
-  border-radius: 30px!important;
+.varosok {
+  border-radius: 30px !important;
 }
-.ad{
+.ad {
   background-color: white;
   color: black;
   border-radius: 15px;
   max-width: 750px;
 }
-.hely{
+.hely {
   padding-right: 2px;
   padding-left: 2px;
 }
-.talalat{
+.talalat {
   max-width: 150px;
-  margin-right: 10px!important;
+  margin-right: 10px !important;
 }
-.hirdetoszoveg{
+.hirdetoszoveg {
   text-align: justify;
 }
-.tartalom{
+.tartalom {
   max-width: 750px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 @media only screen and (min-width: 700px) {
-  .loginregister{
+  .loginregister {
     width: 60%;
     height: 40%;
     display: flex;
@@ -125,7 +125,7 @@ box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);
   }
 }
 @media only screen and (max-width: 767px) {
-  .col-md-4{
+  .col-md-4 {
     width: 60%;
     height: 40%;
     display: flex;
@@ -133,171 +133,169 @@ box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);
     margin: 10px;
   }
 }
-@media only screen and (min-width:767px){
-  .end{
+@media only screen and (min-width: 767px) {
+  .end {
     display: flex;
     justify-content: end;
   }
 }
-@media only screen and (max-width:767px){
-  footer{
+@media only screen and (max-width: 767px) {
+  footer {
     height: 122px;
   }
 }
 
-.kitoltes{
-padding-bottom: 300px;
-padding-right: 70px;
-width: 270px;
+.kitoltes {
+  padding-bottom: 300px;
+  padding-right: 70px;
+  width: 270px;
 }
-.register{
-background-image: url("../public/register.png");
-background-size: cover;
+.register {
+  background-image: url("../public/register.png");
+  background-size: cover;
 }
-.login{
-background-image: url("../public/login.jpg");
-background-size: cover;
+.login {
+  background-image: url("../public/login.jpg");
+  background-size: cover;
 }
-.epitoipar{
+.epitoipar {
   background-image: url("../src/components/image/epitoipar.jpg");
   background-position: center;
-        background-size: 280px;
-        padding-right: 115px!important;
-        background-repeat: no-repeat;
-  }
-  .vendeglatas{
-    background-image: url("../src/components/image/vendeglatas.jpg");
-    background-position: center;
-        background-size: 330px;
-        padding-right: 70px!important;
-        background-repeat: no-repeat;
-    }
-    .logisztika{
-      background-image: url("../src/components/image/logisztika.jpg");
-      background-position: center;
-        background-size: 310px;
-        padding-right: 100px!important;
-        background-repeat: no-repeat;
-      }
-      .egeszsegugy{
-        background-image: url("../src/components/image/egeszsegugy.jpg");
-        background-position: center;
-        background-size: 310px;
-        padding-right: 65px!important;
-        background-repeat: no-repeat;
-        }
+  background-size: 280px;
+  padding-right: 115px !important;
+  background-repeat: no-repeat;
+}
+.vendeglatas {
+  background-image: url("../src/components/image/vendeglatas.jpg");
+  background-position: center;
+  background-size: 330px;
+  padding-right: 70px !important;
+  background-repeat: no-repeat;
+}
+.logisztika {
+  background-image: url("../src/components/image/logisztika.jpg");
+  background-position: center;
+  background-size: 310px;
+  padding-right: 100px !important;
+  background-repeat: no-repeat;
+}
+.egeszsegugy {
+  background-image: url("../src/components/image/egeszsegugy.jpg");
+  background-position: center;
+  background-size: 310px;
+  padding-right: 65px !important;
+  background-repeat: no-repeat;
+}
 
-.cimke{
+.cimke {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-footer{
+footer {
   position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-padding: 25px;
-font-family: 'Days One', sans-serif;
-font-size: 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 25px;
+  font-family: "Days One", sans-serif;
+  font-size: 15px;
 }
-.logo{
-max-width: 30px;
-max-height: 30px;
+.logo {
+  max-width: 30px;
+  max-height: 30px;
 }
 
-.container{
+.container {
   margin-top: 60px;
 }
-.fa-brands{
+.fa-brands {
   margin-top: 15px;
   margin-right: 25px;
 }
 
-Form{
-  max-width: 500px!important;
+Form {
+  max-width: 500px !important;
 }
-.bejelentkezes{
-  height: 40px!important;
-  width: 350px!important;
+.bejelentkezes {
+  height: 40px !important;
+  width: 350px !important;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.homekateg{
+.homekateg {
   color: white;
 }
-.aboutfooter{
-  margin-bottom: 150px!important;
+.aboutfooter {
+  margin-bottom: 150px !important;
 }
-.nofixed{
+.nofixed {
   background-color: white;
-  position:unset!important;
-  width: 100%!important;
-  left: 0!important;
-  bottom: 0!important;
+  position: unset !important;
+  width: 100% !important;
+  left: 0 !important;
+  bottom: 0 !important;
   margin-top: 88px;
 }
-@media only screen and (max-width:767px){
-  footer{
-    padding: 0!important;
-   
+@media only screen and (max-width: 767px) {
+  footer {
+    padding: 0 !important;
+
     justify-content: center;
     align-items: center;
-    width: 100%!important;
-
+    width: 100% !important;
   }
-  .helyez{
+  .helyez {
     padding-top: 13px !important;
   }
 }
-.reglogpanel{
-  margin-top: 5px!important;
+.reglogpanel {
+  margin-top: 5px !important;
 }
-@media only screen and (min-width:529px){
-  .hirdetes{
+@media only screen and (min-width: 529px) {
+  .hirdetes {
     min-height: 721px;
-
   }
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
 }
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background: hsl(0 75% 0 / 1);
   border-radius: 100vw;
-  margin-block: .5em;
+  margin-block: 0.5em;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: rgb(0, 0, 0);
   border-radius: 100vw;
 }
-@media only screen and (max-width:767px){
-  .kepek{
+@media only screen and (max-width: 767px) {
+  .kepek {
     height: 400px;
     width: 400px;
   }
 }
-@media only screen and (max-width:767px){
-  .cegkep{
+@media only screen and (max-width: 767px) {
+  .cegkep {
     height: 300px;
     width: 300px;
   }
 }
-@media only screen and (max-width:767px){
-  .cegkep{
+@media only screen and (max-width: 767px) {
+  .cegkep {
     height: 300px;
     width: 300px;
   }
 }
-@media only screen and (max-width:1200px){
-  .kategkartya{
-    margin-left: 60px!important;
-    margin-top: 40px!important;
-    margin-right: 60px!important;
+@media only screen and (max-width: 1200px) {
+  .kategkartya {
+    margin-left: 60px !important;
+    margin-top: 40px !important;
+    margin-right: 60px !important;
   }
-  .igazit{
+  .igazit {
     margin-bottom: 90px;
   }
 }
