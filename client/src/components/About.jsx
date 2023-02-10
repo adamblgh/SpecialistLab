@@ -123,7 +123,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
       </div>
       <div className="container-ad mt-5 aboutfooter">
         <div className="tartalom">
-          <h1 className="text-white text-center">Bemutatkozó</h1>
+          <h1 className="sitetitle p-3 text-white text-center">A Specialist Lab csapata</h1>
 
           <div className="row ad p-3 mt-5">
           <h4 className="nev bg-primary">Czeczon Kristóf</h4>

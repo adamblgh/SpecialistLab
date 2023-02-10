@@ -149,7 +149,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
       </div>
       <div className="container-ad mt-5 hirdetes">
         <div className="tartalom">
-          <h1 className="text-white text-center">Építőipar munkák</h1>
+          <h1 className="sitetitle p-3 text-white text-center">Építőipar munkák</h1>
           <br />
           <div className="row">
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
@@ -184,7 +184,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           {/*KÁRTYA*/}
           <div className="row ad p-3 mt-5">
             <div className="col-md-10 bal-ad">
-              <h4>Festő</h4>
+              <h4 className="bg-primary p-2">Festő</h4>
               <p className="mt-4">
                 <i class="fa-solid fa-location-dot"></i>
                 <span> Kecskemét</span>
