@@ -32,18 +32,18 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
     "cities",
     getCities
   );
-  statusCities == "success" && console.log(dataCities.data);
+  //statusCities == "success" && console.log(dataCities.data);
 
   const { data: dataCounted, status: statusCounted } = useQuery(
     ["countedCities", selCity],
     getCountId
   );
-  statusCounted == "success" && console.log(dataCounted.data[0].nr);
+  //statusCounted == "success" && console.log(dataCounted.data[0].nr);
 
   const handleSelect = (event) => {
     setSelCity(event.target.value);
-    console.log("Klikk volt", event.target);
-    console.log(event.target.value);
+    //console.log("Klikk volt", event.target);
+    //console.log(event.target.value);
   };
 
   return (
