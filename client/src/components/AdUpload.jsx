@@ -62,7 +62,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
               <NavLink to='/hirdetesek' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/hirdetes-feladas' className="nav-link active" aria-current="page">Hirdetés-feladás</NavLink>
+              <NavLink to='/hirdetes-feladas' className="nav-link active" aria-current="page">Hirdetésfeladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (

@@ -92,7 +92,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
               </NavItem>
               <NavItem>
                 <NavLink to="/hirdetes-feladas" className="nav-link">
-                  Hirdetés-feladás
+                  Hirdetésfeladás
                 </NavLink>
               </NavItem>
               {loggedInUser?.role == "admin" && (

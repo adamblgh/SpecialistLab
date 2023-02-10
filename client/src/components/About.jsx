@@ -50,7 +50,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
               <NavLink to='/hirdetesek' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/hirdetes-feladas' className="nav-link">Hirdetés-feladás</NavLink>
+              <NavLink to='/hirdetes-feladas' className="nav-link">Hirdetésfeladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
