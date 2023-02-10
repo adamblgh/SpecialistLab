@@ -14,12 +14,12 @@ import {
   DropdownItem,
   NavbarText,
 } from 'reactstrap';
-
+ 
 export const About=({loggedInUser,setLoggedInUser})=> {
   const [isOpen, setIsOpen] = useState(false);
-
+ 
   const toggle = () => setIsOpen(!isOpen);
-
+ 
   return (
     <>
     <video
@@ -41,16 +41,16 @@ export const About=({loggedInUser,setLoggedInUser})=> {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/home' className="nav-link">Főoldal</NavLink>
+              <NavLink to='/kezdolap' className="nav-link">Főoldal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/about' className="nav-link active" aria-current="page">Rólunk</NavLink>
+              <NavLink to='/rolunk' className="nav-link active" aria-current="page">Rólunk</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
+              <NavLink to='/hirdetesek' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/adupload' className="nav-link">Hirdetés-feladás</NavLink>
+              <NavLink to='/hirdetes-feladas' className="nav-link">Hirdetésfeladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
@@ -71,14 +71,14 @@ export const About=({loggedInUser,setLoggedInUser})=> {
             </UncontrolledDropdown>
             )
             }
-
+ 
             </Nav>
-
+ 
             {loggedInUser?.username?
             (
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
-              <NavLink to="/profile" className="nav-link">
+              <NavLink to="/profil" className="nav-link">
               {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
               <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
               </NavLink>
@@ -104,13 +104,13 @@ export const About=({loggedInUser,setLoggedInUser})=> {
         <div className="container-ad mt-5 aboutfooter">
         <div className="tartalom">
         <h1 className="text-white text-center">Bemutatkozó</h1>
-  
+ 
         <div className="row ad p-3 mt-5">
               <h4>Czeczon Kristóf</h4>
               <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kocsér</span></p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">Czeczon Kristóf vagyok 20 éves, Kocséron élek. Régen fociztam, manapság szabadidőmet barátaimmal töltöm vagy kocsikázok. Szeretem a szoftverfejlesztést, a weblap készítés tetszik a legjobban! Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!</p>
-                
+ 
                     </div>
                     <div className="col-md-4"><img className='img-fluid kepek' src="czeczike.jpg" alt="Czeczon" /></div>
                   </div>
@@ -119,7 +119,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
               <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-                
+ 
                     </div>
                     <div className="col-md-4"><img className='img-fluid kepek' src="somika.jpg" alt="Soma" /></div>
                   </div>
@@ -128,7 +128,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
               <p className="mt-4"><i class="fa-solid fa-location-dot"></i><span>  Kecskemét</span></p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium deleniti dolor officiis, maiores excepturi id vel doloremque fugit aut magni quibusdam est, suscipit maxime? Alias qui quae a adipisci.</p>
-                
+ 
                     </div>
                     <div className="col-md-4"><img className='img-fluid kepek' src="adika.jpg" alt="Ádám" /></div>
                   </div>
@@ -140,7 +140,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
               <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>
-
+ 
           </div>
           <div className="col-md-4 d-flex mid justify-content-center align-items-center ">
             <img className="img-fluid footerlogo mr-3" src="slab_logo.png" alt="Logo" />
@@ -151,7 +151,7 @@ export const About=({loggedInUser,setLoggedInUser})=> {
           </div>
         </div>
       </footer>
-      
+ 
     </>
   );
 }

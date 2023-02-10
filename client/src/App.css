@@ -11,6 +11,13 @@
   flex-wrap:wrap;
   justify-content: center;
 }
+.nev{
+  max-width: 200px!important;
+  margin-left: 20px;
+  padding: 5px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
 .title{
   margin-bottom: 50px;
 }
