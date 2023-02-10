@@ -161,13 +161,13 @@ export const Register = () => {
         onClick={()=>mutationRegister.mutate({name:name,username:username,email:email,password:password})}
         value="Regisztrálok"/>
       </div>
+      <div>
+        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Már van fiókod?"/>
+      </div>
       <div className="msg">{msg}</div>
       {success && <div className="btn btn-outline-dark mt-2"
       onClick={()=>navigate('/login')}
       >Jelentkezz be</div>}
-      <div>
-        <Input type="button" className="btn btn-danger mt-2" onClick={backClick} value="Már van fiókod?"/>
-      </div>
     </Form>
     </div>
     <footer>

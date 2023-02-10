@@ -53,16 +53,16 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/home' className="nav-link active" aria-current="page">Főoldal</NavLink>
+              <NavLink to='/kezdolap' className="nav-link active" aria-current="page">Főoldal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/about' className="nav-link">Rólunk</NavLink>
+              <NavLink to='/rolunk' className="nav-link">Rólunk</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
+              <NavLink to='/hirdetesek' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/adupload' className="nav-link">Hirdetés-feladás</NavLink>
+              <NavLink to='/hirdetes-feladas' className="nav-link">Hirdetés-feladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
@@ -90,7 +90,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
             (
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
-              <NavLink to="/profile" className="nav-link">
+              <NavLink to="/profil" className="nav-link">
               {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
               <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
               </NavLink>
@@ -121,7 +121,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/epitoipar")}
                 className="panel kitoltes lineUp rounded epitoipar"
               >
                 <h3 className="text-left text-white p-2 bg-primary cimke">Építőipar</h3>
@@ -132,7 +132,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/vendeglatas")}
                 className="panel kitoltes lineUp rounded vendeglatas"
               >
                 <h3 className="text-left text-white p-2 bg-primary cimke">Vendéglátás</h3>
@@ -143,7 +143,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/logisztika")}
                 className="panel kitoltes lineUp rounded logisztika"
               >
                 <h3 className="text-left text-white p-2 bg-primary cimke">Logisztika</h3>
@@ -154,7 +154,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/egeszsegugy")}
                 className="panel kitoltes lineUp rounded egeszsegugy"
               >
                 <h3 className="text-left text-white p-2 bg-primary cimke">Egészségügy</h3>

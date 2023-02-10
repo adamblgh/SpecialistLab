@@ -54,7 +54,7 @@ export const Login = ({loggedInUser,setLoggedInUser}) => {
     useEffect(()=>{
       if(loggedInUser?.id){
         setIsValidCredentials(true)
-        navigate('/home')
+        navigate('/kezdolap')
       }
       else{
         setIsValidCredentials(false)

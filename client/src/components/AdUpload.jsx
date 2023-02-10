@@ -53,16 +53,16 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/home' className="nav-link">Főoldal</NavLink>
+              <NavLink to='/kezdolap' className="nav-link">Főoldal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/about' className="nav-link">Rólunk</NavLink>
+              <NavLink to='/rolunk' className="nav-link">Rólunk</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
+              <NavLink to='/hirdetesek' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/adupload' className="nav-link active" aria-current="page">Hirdetés-feladás</NavLink>
+              <NavLink to='/hirdetes-feladas' className="nav-link active" aria-current="page">Hirdetés-feladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
@@ -90,7 +90,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
             (
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
-              <NavLink to="/profile" className="nav-link">
+              <NavLink to="/profil" className="nav-link">
               {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
               <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
               </NavLink>
@@ -121,7 +121,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/newadcomp")}
+                onClick={() => navigate("/ceghirdetes")}
                 className="panel lineUp p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-left">Cégként</h3>
@@ -132,7 +132,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/newadpers")}
+                onClick={() => navigate("/maganhirdetes")}
                 className="panel lineUp p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-left">Magánszemélyként</h3>
