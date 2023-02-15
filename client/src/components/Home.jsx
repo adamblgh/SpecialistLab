@@ -193,7 +193,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
       </div>
       <footer>
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-4 mt-2">
             <a target="_blank" href="https://github.com/adamblgh/Specialistlab">
               <i class="fa-brands fa-2xl fa-github"></i>
             </a>
