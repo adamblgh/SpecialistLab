@@ -122,7 +122,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/ceghirdetes")}
-                className="panel lineUp p-3 mt-1 rounded"
+                className="panel lineUp p-3 mt-1 rounded ceg"
               >
                 <h3 className="kitoltes text-left">Cégként</h3>
               </motion.div>
@@ -133,7 +133,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/maganhirdetes")}
-                className="panel lineUp p-3 mt-1 rounded"
+                className="panel lineUp p-3 mt-1 rounded magan"
               >
                 <h3 className="kitoltes text-left">Magánszemélyként</h3>
               </motion.div>
