@@ -9,6 +9,10 @@ import { Profile } from "./components/Profile";
 import { AdUpload } from "./components/AdUpload";
 import { NewAdComp } from "./components/NewAdComp";
 import { NewAdPers } from "./components/NewAdPers";
+import { Epitoipar } from "./components/Epitoipar";
+import { Vendeglatas } from "./components/Vendeglatas";
+import { Logisztika } from "./components/Logisztika";
+import { Egeszsegugy } from "./components/Egeszsegugy";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -25,15 +29,19 @@ function App() {
       <div className="container-fluid gx-0 app">
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
-        <Route path="/ad" element={<Ad loggedInUser={loggedInUser}/>} />  
-        <Route path="/about" element={<About loggedInUser={loggedInUser}/>} />
-        <Route path="/profile" element={<Profile loggedInUser={loggedInUser}/>} /> 
+        <Route path="/kezdolap" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
+        <Route path="/hirdetesek" element={<Ad loggedInUser={loggedInUser}/>} />  
+        <Route path="/rolunk" element={<About loggedInUser={loggedInUser}/>} />
+        <Route path="/profil" element={<Profile loggedInUser={loggedInUser}/>} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
-        <Route path="/adupload" element={< AdUpload loggedInUser={loggedInUser}/>} />
-        <Route path="/newadcomp" element={< NewAdComp loggedInUser={loggedInUser}/>} />
-        <Route path="/newadpers" element={< NewAdPers loggedInUser={loggedInUser}/>} />
+        <Route path="/hirdetes-feladas" element={< AdUpload loggedInUser={loggedInUser}/>} />
+        <Route path="/ceghirdetes" element={< NewAdComp loggedInUser={loggedInUser}/>} />
+        <Route path="/maganhirdetes" element={< NewAdPers loggedInUser={loggedInUser}/>} />
+        <Route path="/epitoipar" element={< Epitoipar loggedInUser={loggedInUser}/>} />
+        <Route path="/vendeglatas" element={< Vendeglatas loggedInUser={loggedInUser}/>} />
+        <Route path="/logisztika" element={< Logisztika loggedInUser={loggedInUser}/>} />
+        <Route path="/egeszsegugy" element={< Egeszsegugy loggedInUser={loggedInUser}/>} />
       </Routes>
       </div>
       

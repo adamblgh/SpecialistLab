@@ -53,16 +53,16 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink to='/home' className="nav-link active" aria-current="page">Főoldal</NavLink>
+              <NavLink to='/kezdolap' className="nav-link">Főoldal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/about' className="nav-link">Rólunk</NavLink>
+              <NavLink to='/rolunk' className="nav-link">Rólunk</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/ad' className="nav-link">Hirdetések</NavLink>
+              <NavLink to='/hirdetesek' className="nav-link">Hirdetések</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to='/adupload' className="nav-link">Hirdetés-feladás</NavLink>
+              <NavLink to='/hirdetes-feladas' className="nav-link active" aria-current="page">Hirdetésfeladás</NavLink>
             </NavItem>
             {loggedInUser?.role=='admin' && 
             (
@@ -90,7 +90,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
             (
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
-              <NavLink to="/profile" className="nav-link">
+              <NavLink to="/profil" className="nav-link">
               {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
               <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
               </NavLink>
@@ -113,7 +113,7 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
       <div className="container">
-      <h1 className='text-center homekateg'>Hogyan szeretne hirdetni?</h1>
+      <h1 className='sitetitle p-3 text-white text-center homekateg'>Hogyan szeretne hirdetni?</h1>
       <br />
       <div className="row">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
         <div className="col-md-6">
@@ -121,8 +121,8 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/newadcomp")}
-                className="panel lineUp p-3 mt-1 rounded"
+                onClick={() => navigate("/ceghirdetes")}
+                className="panel lineUp p-3 mt-1 rounded ceg"
               >
                 <h3 className="kitoltes text-left">Cégként</h3>
               </motion.div>
@@ -132,8 +132,8 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
-                onClick={() => navigate("/newadpers")}
-                className="panel lineUp p-3 mt-1 rounded"
+                onClick={() => navigate("/maganhirdetes")}
+                className="panel lineUp p-3 mt-1 rounded magan"
               >
                 <h3 className="kitoltes text-left">Magánszemélyként</h3>
               </motion.div>
