@@ -112,11 +112,11 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
           }
         </Collapse>
       </Navbar>
-    <div className="container">
+    <div className="container  home-container">
       <h1 className='text-center homekateg'>Válasszon kategóriát...</h1>
       <br />
-      <div className="row">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
-      <div className="col-md-3">
+      <div className="row d-flex justify-content-center align-items-center">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
+      <div className="col-md-3 igazit">
         <motion.div
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
@@ -124,10 +124,10 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 onClick={() => navigate("/")}
                 className="panel kitoltes lineUp rounded epitoipar"
               >
-                <h3 className="text-left text-white p-2 bg-primary cimke">Építőipar</h3>
+                <h3 className="text-left  text-white p-2 bg-primary cimke">Építőipar</h3>
               </motion.div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-3 igazit">
         <motion.div
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
@@ -138,7 +138,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 <h3 className="text-left text-white p-2 bg-primary cimke">Vendéglátás</h3>
               </motion.div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-3 igazit">
         <motion.div
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
@@ -149,7 +149,7 @@ export const Home=({loggedInUser,setLoggedInUser})=> {
                 <h3 className="text-left text-white p-2 bg-primary cimke">Logisztika</h3>
               </motion.div>
         </div>
-        <div className="col-md-3">
+        <div className="col-md-3 igazit">
         <motion.div
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
