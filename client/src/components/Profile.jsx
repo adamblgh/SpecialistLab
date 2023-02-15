@@ -102,7 +102,7 @@ export const Profile=({loggedInUser,setLoggedInUser})=> {
       </Navbar>
     </div>
     <div className='container'>
-      <h1 className='text-center text-white'>Profil</h1>
+    <h1 className="sitetitle p-3 text-white text-center">Profil</h1>
     </div>
     </>
   );
