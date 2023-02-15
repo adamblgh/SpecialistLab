@@ -115,16 +115,16 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
       <div className="container">
       <h1 className='sitetitle p-3 text-white text-center homekateg'>Hogyan szeretne hirdetni?</h1>
       <br />
-      <div className="row">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
+      <div className="row aduploadpanel">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
         <div className="col-md-6">
         <motion.div
                 style={{marginRight:5,minWidth:250}}
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/ceghirdetes")}
-                className="panel lineUp p-3 mt-1 rounded ceg"
+                className="panel lineUp text-center p-3 mt-1 rounded ceg"
               >
-                <h3 className="kitoltes text-left">Cégként</h3>
+                <h3 className="text-center hirdetesfel">Cégként</h3>
               </motion.div>
         </div>
         <div className="col-md-6">
@@ -133,9 +133,9 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/maganhirdetes")}
-                className="panel lineUp p-3 mt-1 rounded magan"
+                className="panel text-center lineUp p-3 mt-1 rounded magan"
               >
-                <h3 className="kitoltes text-left">Magánszemélyként</h3>
+                <h3 className="hirdetesfel text-center">Magánszemélyként</h3>
               </motion.div>
         </div>
       </div>

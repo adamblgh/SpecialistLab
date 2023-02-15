@@ -136,6 +136,11 @@ Form {
     margin: 10px;
   }
 }
+@media only screen and (max-width: 426px) {
+  .aduploadpanel {
+    margin-bottom: 125px!important;
+  }
+}
 @media only screen and (min-width: 767px) {
   .end {
     display: flex;
@@ -146,6 +151,12 @@ Form {
   footer {
     height: 122px;
   }
+}
+.aduploadpanel{
+  margin-top: -25px!important;
+}
+.hirdetesfel{
+  margin-bottom: 310px;
 }
 
 .kitoltes {
@@ -323,4 +334,7 @@ Form {
   .igazit {
     margin-bottom: 90px;
   }
+}
+.container-ad{
+  margin-left: 13px!important;
 }
