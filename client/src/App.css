@@ -12,6 +12,13 @@ h6 {
   flex-wrap: wrap;
   justify-content: center;
 }
+.adtitle{
+  margin-top: -16px!important;
+  max-width: 250px!important;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+}
 .nev{
   max-width: 200px!important;
   padding: 10px;
@@ -93,7 +100,7 @@ Form {
   opacity: 75%;
   text-align: right;
 }
-.varosok {
+.legorduloelemek {
   border-radius: 30px !important;
 }
 .ad {
@@ -287,6 +294,9 @@ Form {
     padding-top: 13px !important;
   }
 }
+.kepek{
+  border-radius: 100px!important;
+}
 .reglogpanel {
   margin-top: 5px !important;
 }
@@ -333,4 +343,7 @@ Form {
   .igazit {
     padding-bottom: 80px;
   }
+}
+.munka{
+  text-transform: capitalize;
 }
