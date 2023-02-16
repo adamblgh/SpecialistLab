@@ -182,7 +182,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           </div>
 
           {/*KÁRTYA*/}
-          <div className="row ad p-3 mt-5">
+          <div className="row ad mt-5">
             <div className="col-md-10 bal-ad">
               <h4 className="bg-primary p-2 adtitle">Festő</h4>
               <p className="mt-4">
@@ -204,7 +204,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
             </div>
 
             <div className="row mt-3">
-              <div className="col-md-8">
+              <div className="col-md-8 align-items-center">
                 <input
                   type="button"
                   value="Állás megtekintése"
