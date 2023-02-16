@@ -230,7 +230,9 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           {/*KÁRTYA*/}
           <div className="row ad p-3 mt-5">
             <div className="col-md-10 bal-ad">
-              <h4 className="bg-primary p-2 adtitle"><span className="munka">{selSubCateg}</span></h4>
+              <h4 className="bg-primary p-2 adtitle">
+                <span className="munka">{selSubCateg}</span>
+              </h4>
               <p className="mt-4">
                 <i class="fa-solid fa-location-dot"></i>
                 <span> {selCity}</span>

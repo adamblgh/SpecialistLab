@@ -7,29 +7,29 @@ h6 {
 }
 .lineUp {
   animation: 3s anim-lineUp ease-out;
- 
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.adtitle{
-  margin-top: -16px!important;
-  max-width: 250px!important;
+.adtitle {
+  margin-top: -16px !important;
+  max-width: 250px !important;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   color: white;
 }
-.nev{
-  max-width: 200px!important;
+.nev {
+  max-width: 200px !important;
   padding: 10px;
   color: white;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
   margin-left: -16px;
-  margin-top: -16px!important;
+  margin-top: -16px !important;
   border-bottom-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.title{
+.title {
   margin-bottom: 50px;
 }
 h1 {
@@ -88,7 +88,7 @@ Form {
   margin-bottom: 100px;
   /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */ /*2soros=850px 1soros=900px*/
 }
- 
+
 .panel {
   background-color: #ffffff;
   color: black;
@@ -145,7 +145,7 @@ Form {
 }
 @media only screen and (max-width: 426px) {
   .aduploadpanel {
-    margin-bottom: 125px!important;
+    margin-bottom: 125px !important;
   }
 }
 @media only screen and (min-width: 767px) {
@@ -159,13 +159,13 @@ Form {
     height: 122px;
   }
 }
-.aduploadpanel{
-  margin-top: -25px!important;
+.aduploadpanel {
+  margin-top: -25px !important;
 }
-.hirdetesfel{
+.hirdetesfel {
   margin-bottom: 310px;
 }
- 
+
 .kitoltes {
   padding-bottom: 300px;
   padding-right: 70px;
@@ -221,7 +221,7 @@ Form {
   padding-right: 65px !important;
   background-repeat: no-repeat;
 }
-.sitetitle{
+.sitetitle {
   background-color: #2667ff;
   border: 5px solid white;
   border-bottom-right-radius: 100px;
@@ -248,7 +248,7 @@ footer {
   max-width: 30px;
   max-height: 30px;
 }
- 
+
 .container {
   margin-top: 60px;
 }
@@ -256,7 +256,7 @@ footer {
   margin-top: 15px;
   margin-right: 25px;
 }
- 
+
 Form {
   max-width: 500px !important;
 }
@@ -284,7 +284,7 @@ Form {
 @media only screen and (max-width: 767px) {
   footer {
     padding: 0 !important;
- 
+
     justify-content: center;
     align-items: center;
     width: 100% !important;
@@ -293,8 +293,8 @@ Form {
     padding-top: 13px !important;
   }
 }
-.kepek{
-  border-radius: 100px!important;
+.kepek {
+  border-radius: 100px !important;
 }
 .reglogpanel {
   margin-top: 5px !important;
@@ -314,7 +314,7 @@ Form {
   margin-block: 0.3em;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(0, 0, 0,0.7);
+  background-color: rgb(0, 0, 0, 0.7);
   border-radius: 100vw;
 }
 @media only screen and (max-width: 767px) {
@@ -343,6 +343,6 @@ Form {
     padding-bottom: 80px;
   }
 }
-.munka{
+.munka {
   text-transform: capitalize;
 }
