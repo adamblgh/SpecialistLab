@@ -22,9 +22,14 @@ import {
 import { useQuery } from "react-query";
 import { getCities } from "./getData.js";
 import { getCountId } from "./getData.js";
+import { getCateg } from "./getData.js";
+import { getSubCateg } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser }) => {
   const [selCity, setSelCity] = useState(0);
+  const [selSubCateg, setSelSubCateg] = useState(0);
+  const [id, setId] = useState(0);
+  const [subCategId, setSubCategId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -44,6 +49,23 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
     setSelCity(event.target.value);
     //console.log("Klikk volt", event.target);
     //console.log(event.target.value);
+  };
+
+  const { data: dataCateg, status: statusCateg } = useQuery(
+    ["categs", id],
+    getCateg
+  );
+  statusCateg == "success" && console.log(dataCateg.data);
+
+  const { data: dataSubCateg, status: statusSubCateg } = useQuery(
+    ["subCategs", id],
+    getSubCateg
+  );
+  statusSubCateg == "success" && console.log(dataSubCateg.data);
+
+  const handleSelectSubCateg = (event) => {
+    setSelSubCateg(event.target.value);
+    console.log(event.target.value);
   };
 
   return (
@@ -152,7 +174,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           <h1 className="sitetitle p-3 text-white text-center">Hirdetések</h1>
           <br />
           <div className="row">
-            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+            <div className="col-md-2 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
                   {statusCounted == "success" && dataCounted.data[0].nr}
@@ -162,19 +184,43 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
             </div>
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <Input
-                className="varosok"
+                className="legorduloelemek"
                 type="select"
                 name="select"
-                id="exampleSelect"
                 onChange={handleSelect}
               >
-                <option value="0" id="deletedSelect">
-                  Összes
-                </option>
+                <option value="0">Összes</option>
                 {statusCities == "success" &&
                   dataCities.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.id}>
+                    <option key={obj.id} id={obj.id} value={obj.name}>
                       {obj.name}
+                    </option>
+                  ))}
+              </Input>
+            </div>
+            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+              <Input className="legorduloelemek" type="select" name="select">
+                <option value="0">Összes</option>
+                {statusCateg == "success" &&
+                  dataCateg.data.map((obj) => (
+                    <option key={obj.id} id={obj.id} value={obj.id}>
+                      {obj.description}
+                    </option>
+                  ))}
+              </Input>
+            </div>
+            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+              <Input
+                className="legorduloelemek"
+                type="select"
+                name="select"
+                onChange={handleSelectSubCateg}
+              >
+                <option value="0">Összes</option>
+                {statusSubCateg == "success" &&
+                  dataSubCateg.data.map((obj) => (
+                    <option key={obj.id} id={obj.id} value={obj.id}>
+                      {obj.description}
                     </option>
                   ))}
               </Input>
@@ -184,10 +230,10 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           {/*KÁRTYA*/}
           <div className="row ad p-3 mt-5">
             <div className="col-md-10 bal-ad">
-              <h4 className="bg-primary p-2">Festő</h4>
+              <h4 className="bg-primary p-2"><span className="munka">{selSubCateg}</span></h4>
               <p className="mt-4">
                 <i class="fa-solid fa-location-dot"></i>
-                <span> Kecskemét</span>
+                <span> {selCity}</span>
               </p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">
@@ -200,7 +246,11 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
             </div>
 
             <div className="col-md-2 mt-2 jobb">
-              <img className="img-fluid cegkep cegavatarlogo" src={logo} alt="" />
+              <img
+                className="img-fluid cegkep cegavatarlogo"
+                src={logo}
+                alt=""
+              />
             </div>
 
             <div className="row mt-3">
@@ -216,10 +266,8 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
               </div>
             </div>
           </div>
-          
+
           {/*KÁRTYA*/}
-          
-          
         </div>
       </div>
       <footer className="nofixed">

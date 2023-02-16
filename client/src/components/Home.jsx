@@ -142,7 +142,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/epitoipar")}
+              onClick={() => navigate("/ad")}
               className="panel kitoltes lineUp rounded epitoipar"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
@@ -155,7 +155,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/vendeglatas")}
+              onClick={() => navigate("/ad")}
               className="panel kitoltes lineUp rounded vendeglatas"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
@@ -168,7 +168,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/logisztika")}
+              onClick={() => navigate("/ad")}
               className="panel kitoltes lineUp rounded logisztika"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
@@ -181,7 +181,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/egeszsegugy")}
+              onClick={() => navigate("/ad")}
               className="panel kitoltes lineUp rounded egeszsegugy"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
