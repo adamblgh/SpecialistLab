@@ -180,7 +180,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
               </p>
             </div>
             <div className="col-md-4">
-              <img className="img-fluid kepek" src="adika.jpg" alt="Ádám" />
+              <img className="img-fluid kepek" src="adam.jpg" alt="Ádám" />
             </div>
           </div>
         </div>
