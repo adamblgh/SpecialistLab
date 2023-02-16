@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Feb 03. 09:38
+-- Létrehozás ideje: 2023. Feb 16. 12:57
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -38,7 +38,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `description`, `subcateg_id`) VALUES
-(4, 'építőipar', 1);
+(4, 'építőipar', 1),
+(5, 'vendéglátás', 2),
+(6, 'logisztika', 3),
+(7, 'egészségügy', 4);
 
 -- --------------------------------------------------------
 
@@ -109,9 +112,9 @@ CREATE TABLE `subcategory` (
 
 INSERT INTO `subcategory` (`id`, `description`, `city_id`) VALUES
 (1, 'ács', 1),
-(2, 'mázoló', 8),
-(3, 'lakatos', 4),
-(4, 'vízszerelő', 7);
+(2, 'pincér', 8),
+(3, 'szállító', 4),
+(4, 'nővér', 7);
 
 -- --------------------------------------------------------
 
@@ -226,7 +229,7 @@ ALTER TABLE `worker_images`
 -- AUTO_INCREMENT a táblához `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT a táblához `cities`
