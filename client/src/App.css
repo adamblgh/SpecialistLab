@@ -99,7 +99,7 @@ Form {
   opacity: 75%;
   text-align: right;
 }
-.varosok {
+.legorduloelemek {
   border-radius: 30px !important;
 }
 .ad {
@@ -344,4 +344,7 @@ Form {
   .igazit {
     padding-bottom: 80px;
   }
+}
+.munka{
+  text-transform: capitalize;
 }
