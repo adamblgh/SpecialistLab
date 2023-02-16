@@ -7,10 +7,17 @@ h6 {
 }
 .lineUp {
   animation: 3s anim-lineUp ease-out;
-
+ 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+.adtitle{
+  margin-top: -16px!important;
+  max-width: 250px!important;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
 }
 .nev{
   max-width: 200px!important;
@@ -81,7 +88,7 @@ Form {
   margin-bottom: 100px;
   /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */ /*2soros=850px 1soros=900px*/
 }
-
+ 
 .panel {
   background-color: #ffffff;
   color: black;
@@ -136,6 +143,11 @@ Form {
     margin: 10px;
   }
 }
+@media only screen and (max-width: 426px) {
+  .aduploadpanel {
+    margin-bottom: 125px!important;
+  }
+}
 @media only screen and (min-width: 767px) {
   .end {
     display: flex;
@@ -147,7 +159,13 @@ Form {
     height: 122px;
   }
 }
-
+.aduploadpanel{
+  margin-top: -25px!important;
+}
+.hirdetesfel{
+  margin-bottom: 310px;
+}
+ 
 .kitoltes {
   padding-bottom: 300px;
   padding-right: 70px;
@@ -189,6 +207,20 @@ Form {
   padding-right: 65px !important;
   background-repeat: no-repeat;
 }
+.magan {
+  background-image: url("../src/components/image/magan.jpg");
+  background-position: center;
+  background-size: 310px;
+  padding-right: 65px !important;
+  background-repeat: no-repeat;
+}
+.ceg {
+  background-image: url("../src/components/image/ceg.jpg");
+  background-position: center;
+  background-size: 310px;
+  padding-right: 65px !important;
+  background-repeat: no-repeat;
+}
 .sitetitle{
   background-color: #2667ff;
   border: 5px solid white;
@@ -216,7 +248,7 @@ footer {
   max-width: 30px;
   max-height: 30px;
 }
-
+ 
 .container {
   margin-top: 60px;
 }
@@ -224,7 +256,7 @@ footer {
   margin-top: 15px;
   margin-right: 25px;
 }
-
+ 
 Form {
   max-width: 500px !important;
 }
@@ -252,7 +284,7 @@ Form {
 @media only screen and (max-width: 767px) {
   footer {
     padding: 0 !important;
-
+ 
     justify-content: center;
     align-items: center;
     width: 100% !important;
@@ -260,6 +292,9 @@ Form {
   .helyez {
     padding-top: 13px !important;
   }
+}
+.kepek{
+  border-radius: 100px!important;
 }
 .reglogpanel {
   margin-top: 5px !important;
@@ -302,15 +337,12 @@ Form {
 }
 @media only screen and (max-width: 1200px) {
   .kategkartya {
-    margin-left: 60px !important;
-    margin-top: 40px !important;
-    margin-right: 60px !important;
+    margin: 50px;
   }
   .igazit {
-    margin-bottom: 90px;
+    padding-bottom: 80px;
   }
 }
-
 .munka{
   text-transform: capitalize;
 }

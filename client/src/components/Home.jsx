@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+ 
 import {
   Collapse,
   Navbar,
@@ -17,11 +17,11 @@ import {
   DropdownItem,
   NavbarText,
 } from "reactstrap";
-
+ 
 export const Home = ({ loggedInUser, setLoggedInUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-
+ 
   const handleUpdateAvatar = () => {
     const formdata = new FormData();
     /*formdata.append("selFile", selFile)*/
@@ -30,7 +30,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
     /*setIsUploading(true)
     mutationAvatar.mutate(formdata)*/
   };
-
+ 
   const navigate = useNavigate();
   return (
     <>
@@ -98,7 +98,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               </UncontrolledDropdown>
             )}
           </Nav>
-
+ 
           {loggedInUser?.username ? (
             <Nav navbar>
               <NavItem className="nav-link d-flex align-items-center">
@@ -134,7 +134,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
       <div className="container">
         <h1 className="sitetitle p-3 text-white text-center homekateg">Válasszon kategóriát...</h1>
         <br />
-        <div className="row">
+        <div className="row justify-content-center align-items-center">
           {" "}
           {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
           <div className="col-md-3 kategkartya">
@@ -163,7 +163,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               </h3>
             </motion.div>
           </div>
-          <div className="col-md-3 kategkartya igazit">
+          <div className="col-md-3 kategkartya">
             <motion.div
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
@@ -193,7 +193,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
       </div>
       <footer>
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-4 mt-2">
             <a target="_blank" href="https://github.com/adamblgh/Specialistlab">
               <i class="fa-brands fa-2xl fa-github"></i>
             </a>
