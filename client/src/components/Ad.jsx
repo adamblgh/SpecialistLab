@@ -273,7 +273,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
         </div>
       </div>
       <footer className="nofixed">
-        <div className="row gx-0 helyez">
+        <div className="row gx-0 helyez mt-2">
           <div className="col-md-4">
             <a target="_blank" href="https://github.com/adamblgh/Specialistlab">
               <i class="fa-brands fa-2xl fa-github"></i>
