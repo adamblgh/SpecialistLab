@@ -64,8 +64,8 @@ export const Welcome = ({ setLoggedInUser }) => {
     
       </div>
       <footer>
-        <div className="row">
-          <div className="col-md-4">
+        <div className="row welcomefooter">
+          <div className="col-md-4 social">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
               <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>

@@ -159,6 +159,12 @@ Form {
     text-align: center !important;
     font-size: 200%!important;
   }
+  .welcomefooter{
+    margin-top: 15px!important;
+  }
+  .social{
+    margin-bottom: 15px!important;
+  }
 }
 @media only screen and (max-width: 321px) {
   .titleh1{
