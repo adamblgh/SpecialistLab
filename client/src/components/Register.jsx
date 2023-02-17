@@ -107,7 +107,7 @@ export const Register = () => {
         <source src={bg} type="video/mp4" />
       </video>
     <div className="reglogpanel">
-    <Form className="border p-3 shadow mt-1 rounded text-center">
+    <Form className="border formlog2 p-3 shadow mt-1 rounded text-center">
         <h3>Regisztráció</h3>
  
         <FormGroup>
@@ -171,8 +171,8 @@ export const Register = () => {
     </Form>
     </div>
     <footer>
-        <div className="row">
-          <div className="col-md-4">
+        <div className="row welcomefooter">
+          <div className="col-md-4 social">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
               <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-2xl fa-instagram"></i></a>

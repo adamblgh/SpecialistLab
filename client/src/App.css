@@ -414,3 +414,17 @@ Form {
     align-items: center;
   }
 }
+@media only screen and (max-width: 426px) {
+  .formlog2 {
+    width: 90%!important;
+    height: 150%!important;
+    margin-left: 5px!important;
+    margin-bottom: 150px!important;
+  }
+  .reglogpanel{
+    margin-top: 25px!important;
+  }
+}
+.reglogpanel{
+    margin-top: 20px!important;
+  }
