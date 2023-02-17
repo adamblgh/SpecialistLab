@@ -163,7 +163,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               </h3>
             </motion.div>
           </div>
-          <div className="col-md-3 kategkartya">
+          <div className="col-md-3 kategkartya igazit">
             <motion.div
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
