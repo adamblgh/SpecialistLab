@@ -153,13 +153,14 @@ const mutationChangePw = useMutation(changePassword, {
     <h1 className="sitetitle p-3 text-white text-center">Profil</h1>
     </div>
     <div className="mt-3">
-      <h3 className="p-2 border-bottom text-center">User Profile Settings</h3>
+      <h3 className="p-2 text-center text-white">User Profile Settings</h3>
       <br />
-      <div className="row border p1">
-        <span className="col-2">Email:</span>
-        <span className="col-10">{loggedInUser.email}</span>
+      <div className="row text-center text-white p-1">
+        <span className="">Email:</span>
+        <span className="">{loggedInUser.email}</span>
       </div>
-      <Form className="border p-2 m-2 shadow">
+      <div className="row justify-content-center align-items-center">
+        <Form className="border p-2 m-2 shadow">
         <FormGroup row>
           <Label for="pw" sm={12}>
             New Password
@@ -204,6 +205,8 @@ const mutationChangePw = useMutation(changePassword, {
         </FormGroup>
         <div className="msg text-center ">{msg}</div>
       </Form>
+      </div>
+      
       {modal && <MyModal modal={modal} setModal={setModal} setLoggedInUser={setLoggedInUser} username={loggedInUser.username} avatar_id={loggedInUser.avatar_id}/>}
     </div>
     </>
