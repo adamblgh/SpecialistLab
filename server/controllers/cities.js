@@ -30,7 +30,7 @@ export const getCountId = (request, response) => {
   });
 };
 
-export const getCateg = (request, response) => {
+/*export const getCateg = (request, response) => {
   let sql1;
   let { ctg } = request.params;
   if (ctg == 0) {
@@ -45,7 +45,7 @@ export const getCateg = (request, response) => {
       response.send(results);
     }
   });
-};
+};*/
 
 export const getSubCateg = (request, response) => {
   let sql2;

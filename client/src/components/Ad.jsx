@@ -22,7 +22,7 @@ import {
 import { useQuery } from "react-query";
 import { getCities } from "./getData.js";
 import { getCountId } from "./getData.js";
-import { getCateg } from "./getData.js";
+/*import { getCateg } from "./getData.js";*/
 import { getSubCateg } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser }) => {
@@ -56,11 +56,11 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
     //console.log(event.target.value);
   };
 
-  const { data: dataCateg, status: statusCateg } = useQuery(
+  /*const { data: dataCateg, status: statusCateg } = useQuery(
     ["categs", id],
     getCateg
   );
-  statusCateg == "success" && console.log(dataCateg.data);
+  statusCateg == "success" && console.log(dataCateg.data);*/
 
   const { data: dataSubCateg, status: statusSubCateg } = useQuery(
     ["subCategs", id],
@@ -179,7 +179,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           <h1 className="sitetitle p-3 text-white text-center">Hirdetések</h1>
           <br />
           <div className="row">
-            <div className="col-md-2 talalat bg-white rounded-pill p-1 text-black">
+            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
                   {statusCounted == "success" && dataCounted.data[0].nr}
@@ -187,7 +187,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                 találat
               </h5>
             </div>
-            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+            <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">
               <Input
                 className="legorduloelemek"
                 type="select"
@@ -204,7 +204,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                   ))}
               </Input>
             </div>
-            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+            {/*<div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <Input className="legorduloelemek" type="select" name="select">
                 <option value="0">Összes</option>
                 {statusCateg == "success" &&
@@ -214,8 +214,8 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                     </option>
                   ))}
               </Input>
-            </div>
-            <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
+            </div>*/}
+            <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">
               <Input
                 className="legorduloelemek"
                 type="select"
