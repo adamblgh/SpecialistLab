@@ -4,29 +4,29 @@ let url = "http://localhost:5000";
 
 export const checkUsername = async (formdata) => {
   const response = await axios.post(url + "/auth/checkUsername", formdata);
-  return await response;
+  return response;
 };
 
 export const checkEmail = async (formdata) => {
   const response = await axios.post(url + "/auth/checkEmail", formdata);
-  return await response;
+  return response;
 };
 
 export const login = async (formdata) => {
   const response = await axios.post(url + "/auth/login", formdata);
-  return await response;
+  return response;
 };
 
 export const register = async (formdata) => {
   const response = await axios.post(url + "/auth/register", formdata);
-  return await response;
+  return response;
 };
 
 export const updateAvatar = async (formdata) => {
   const response = await axios.put(url + "/auth/updateAvatar", formdata, {
     header: { "Content-Type": "multipart/form-data" },
   });
-  return await response;
+  return response;
 };
 
 export const deleteUser = async (formdata) => {
@@ -34,12 +34,12 @@ export const deleteUser = async (formdata) => {
   const response = await axios.delete(url + "/auth/deleteUser", {
     data: formdata,
   });
-  return await response;
+  return response;
 };
 
 export const changePassword = async (formdata) => {
   const response = await axios.put(url + "/auth/changePassword", formdata);
-  return await response;
+  return response;
 };
 
 /*export const getBooks = async ()=>{
@@ -68,5 +68,11 @@ export const getCountId = async ({ queryKey }) => {
 export const getSubCateg = async ({ queryKey }) => {
   const [_, id] = queryKey;
   const response = await axios.get(url + `/cities/subcateg/${id}`);
+  return response;
+};
+
+export const getOnclickSubCateg = async ({ queryKey }) => {
+  const [_, id] = queryKey;
+  const response = await axios.get(url + `/cities/onclicksubcateg/${id}`);
   return response;
 };

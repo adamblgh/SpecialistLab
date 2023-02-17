@@ -18,7 +18,7 @@ import {
   NavbarText,
 } from "reactstrap";
 
-export const Home = ({ loggedInUser, setLoggedInUser }) => {
+export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -30,6 +30,11 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
     /*setIsUploading(true)
     mutationAvatar.mutate(formdata)*/
   };
+
+  const handleClick =(id)=>{
+    setSelectedCategId(id)
+    navigate("/hirdetesek")
+  }
 
   const navigate = useNavigate();
   return (
@@ -144,7 +149,7 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/hirdetesek")}
+              onClick={()=>handleClick(4)}
               //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded epitoipar"
             >

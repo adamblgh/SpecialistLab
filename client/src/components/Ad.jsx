@@ -24,8 +24,10 @@ import { getCities } from "./getData.js";
 import { getCountId } from "./getData.js";
 /*import { getCateg } from "./getData.js";*/
 import { getSubCateg } from "./getData.js";
+import { getOnclickSubCateg } from "./getData.js";
 
-export const Ad = ({ loggedInUser, setLoggedInUser }) => {
+export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
+  console.log("adasdsadsadsad",selectedCategId);
   const [selCity, setSelCity] = useState({id:0,name:""});
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
@@ -45,6 +47,12 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
   );
   //statusCounted == "success" && console.log(dataCounted.data[0].nr);
   console.log(selCity,'a kiválasztott város')
+
+  const {data:dataSelectedCateg,status:statusSelectedCateg} = useQuery(
+    ["selectedCateg",selectedCategId],
+    getOnclickSubCateg
+  );
+  statusSelectedCateg == "success" && console.log("Ok",dataSelectedCateg.data) 
 
 
   const handleSelect = (event) => {
@@ -72,6 +80,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
     setSelSubCateg(event.target.value);
     console.log(event.target.value);
   };
+
 
   return (
     <>
@@ -195,7 +204,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                 id="selectedCity"
                 onChange={handleSelect}
               >
-                <option value="0">Összes</option>
+                <option value="0">Város</option>
                 {statusCities == "success" &&
                   dataCities.data.map((obj) => (
                     <option key={obj.id} id={obj.id} value={obj.id} name={obj.name}>
@@ -222,9 +231,9 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                 name="select"
                 onChange={handleSelectSubCateg}
               >
-                <option value="0">Összes</option>
-                {statusSubCateg == "success" &&
-                  dataSubCateg.data.map((obj) => (
+                <option value="0">Munkakör</option>
+                {statusSelectedCateg == "success" &&
+                  dataSelectedCateg.data.map((obj) => (
                     <option key={obj.id} id={obj.id} value={obj.id}>
                       {obj.description}
                     </option>

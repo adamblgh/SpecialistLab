@@ -19,14 +19,15 @@ const queryClient = new QueryClient();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [selectedCategId, setSelectedCategId] = useState(0);
   console.log('loggedInUser:',loggedInUser)
   return (
     <QueryClientProvider client={queryClient}>
       <div className="container-fluid gx-0 app">
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/kezdolap" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
-        <Route path="/hirdetesek" element={<Ad loggedInUser={loggedInUser}/>} />  
+        <Route path="/kezdolap" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setSelectedCategId={setSelectedCategId}/>} />
+        <Route path="/hirdetesek" element={<Ad loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
         <Route path="/rolunk" element={<About loggedInUser={loggedInUser}/>} />
         <Route path="/profil" element={<Profile loggedInUser={loggedInUser}/>} /> 
         <Route path="/register" element={<Register />} />
