@@ -26,7 +26,7 @@ import { getCateg } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser }) => {
-  const [selCity, setSelCity] = useState(0);
+  const [selCity, setSelCity] = useState({id:0,name:""});
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [subCategId, setSubCategId] = useState(0);
@@ -40,13 +40,18 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
   //statusCities == "success" && console.log(dataCities.data);
 
   const { data: dataCounted, status: statusCounted } = useQuery(
-    ["countedCities", selCity],
+    ["countedCities", selCity.id],
     getCountId
   );
   //statusCounted == "success" && console.log(dataCounted.data[0].nr);
+  console.log(selCity,'a kiválasztott város')
+
 
   const handleSelect = (event) => {
-    setSelCity(event.target.value);
+    //console.log(event.target.id,event.target.name)
+    let selectedName= event.target.options[event.target.selectedIndex].text
+    console.log(selectedName)
+    setSelCity({id:event.target.value,name:selectedName});
     //console.log("Klikk volt", event.target);
     //console.log(event.target.value);
   };
@@ -187,12 +192,13 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
                 className="legorduloelemek"
                 type="select"
                 name="select"
+                id="selectedCity"
                 onChange={handleSelect}
               >
                 <option value="0">Összes</option>
                 {statusCities == "success" &&
                   dataCities.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.name}>
+                    <option key={obj.id} id={obj.id} value={obj.id} name={obj.name}>
                       {obj.name}
                     </option>
                   ))}
@@ -228,14 +234,14 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
           </div>
 
           {/*KÁRTYA*/}
-          <div className="row ad p-3 mt-5">
+          <div className="row ad mt-5">
             <div className="col-md-10 bal-ad">
               <h4 className="bg-primary p-2 adtitle">
                 <span className="munka">{selSubCateg}</span>
               </h4>
               <p className="mt-4">
                 <i class="fa-solid fa-location-dot"></i>
-                <span> {selCity}</span>
+                <span> {selCity.id>0 && selCity.name}</span>
               </p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">
@@ -256,7 +262,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
             </div>
 
             <div className="row mt-3">
-              <div className="col-md-8">
+              <div className="col-md-8 align-items-center">
                 <input
                   type="button"
                   value="Állás megtekintése"

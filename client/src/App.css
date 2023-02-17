@@ -12,9 +12,8 @@ h6 {
   flex-wrap: wrap;
   justify-content: center;
 }
-.adtitle {
-  margin-top: -16px !important;
-  max-width: 250px !important;
+.adtitle{
+  max-width: 250px!important;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   color: white;
@@ -89,6 +88,7 @@ Form {
   /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */ /*2soros=850px 1soros=900px*/
 }
 
+ 
 .panel {
   background-color: #ffffff;
   color: black;
@@ -108,6 +108,9 @@ Form {
   color: black;
   border-radius: 15px;
   max-width: 750px;
+  padding: 0px!important;
+  margin-left: 5px!important;
+  margin-right: 5px!important;
 }
 .hely {
   padding-right: 2px;
@@ -143,9 +146,42 @@ Form {
     margin: 10px;
   }
 }
+@media only screen and (max-width: 1025px) {
+  .panelek {
+    margin-top: 0px!important;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .panelek {
+    margin-bottom: 120px!important;
+  }
+  .titleh1{
+    text-align: center !important;
+    font-size: 200%!important;
+  }
+  .welcomefooter{
+    margin-top: 15px!important;
+  }
+  .social{
+    margin-bottom: 15px!important;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .titleh1{
+    font-size: 180%!important;
+  }
+  .loginregister{
+    margin-left: -10px!important;
+  }
+}
 @media only screen and (max-width: 426px) {
   .aduploadpanel {
     margin-bottom: 125px !important;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .talalat {
+    margin-top: 10px!important;
   }
 }
 @media only screen and (min-width: 767px) {

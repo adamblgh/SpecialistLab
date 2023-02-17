@@ -144,7 +144,8 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/ad")}
+              onClick={() => navigate("/hirdetesek")}
+              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded epitoipar"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
@@ -157,7 +158,8 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/ad")}
+              onClick={() => navigate("/hirdetesek")}
+              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded vendeglatas"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
@@ -170,7 +172,8 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/ad")}
+              onClick={() => navigate("/hirdetesek")}
+              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded logisztika"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
@@ -183,7 +186,8 @@ export const Home = ({ loggedInUser, setLoggedInUser }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/ad")}
+              onClick={() => navigate("/hirdetesek")}
+              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded egeszsegugy"
             >
               <h3 className="text-center text-white p-2 bg-primary cimke">
