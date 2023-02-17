@@ -377,7 +377,10 @@ Form {
     margin: 50px;
   }
   .igazit {
-    padding-bottom: 80px;
+    margin-top: -50px!important;
+  }
+  .homepanelek{
+    margin-bottom: 100px!important;
   }
 }
 .munka{
