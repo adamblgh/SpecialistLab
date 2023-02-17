@@ -55,7 +55,7 @@ export const getSubCateg = (request, response) => {
       "SELECT subcategory.description FROM subcategory ORDER BY description";
   } else {
     sql2 =
-      "SELECT subcategory.description FROM subcategory,category WHERE subcategory.id=category.subcateg_id AND subcategory.id=?";
+      "SELECT subcategory.description FROM subcategory,category WHERE category.id=subcategory.categ_id AND subcategory.id=?";
   }
   db.query(sql2, [ctg], (error, results) => {
     if (error) {

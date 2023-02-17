@@ -49,7 +49,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser }) => {
 
   const handleSelect = (event) => {
     //console.log(event.target.id,event.target.name)
-    let selectedName= event.target.options[event.target.selectedIndex].text
+    let selectedName=event.target.options[event.target.selectedIndex].text
     console.log(selectedName)
     setSelCity({id:event.target.value,name:selectedName});
     //console.log("Klikk volt", event.target);
