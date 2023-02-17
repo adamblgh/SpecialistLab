@@ -87,6 +87,7 @@ Form {
   margin-bottom: 100px;
   /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */ /*2soros=850px 1soros=900px*/
 }
+
  
 .panel {
   background-color: #ffffff;
@@ -143,6 +144,28 @@ Form {
     display: flex;
     justify-content: center;
     margin: 10px;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .panelek {
+    margin-top: 0px!important;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .panelek {
+    margin-bottom: 120px!important;
+  }
+  .titleh1{
+    text-align: center !important;
+    font-size: 200%!important;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .titleh1{
+    font-size: 180%!important;
+  }
+  .loginregister{
+    margin-left: -10px!important;
   }
 }
 @media only screen and (max-width: 426px) {
