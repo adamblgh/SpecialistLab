@@ -366,12 +366,6 @@ Form {
     width: 300px;
   }
 }
-@media only screen and (max-width: 767px) {
-  .cegkep {
-    height: 300px;
-    width: 300px;
-  }
-}
 @media only screen and (max-width: 1200px) {
   .kategkartya {
     margin: 50px;
