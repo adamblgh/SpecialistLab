@@ -196,7 +196,7 @@ Form {
   }
 }
 .aduploadpanel{
-  margin-top: -25px!important;
+  margin-top: -50px!important;
 }
 .hirdetesfel{
   margin-bottom: 310px;
@@ -353,6 +353,9 @@ Form {
 ::-webkit-scrollbar-thumb {
   background-color: rgb(0, 0, 0,0.7);
   border-radius: 100vw;
+}
+.homepanelek{
+  margin-top: -45px!important;
 }
 @media only screen and (max-width: 767px) {
   .kepek {
