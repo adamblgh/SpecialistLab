@@ -30,22 +30,17 @@ export const getCountId = (request, response) => {
   });
 };
 
-/*export const getCateg = (request, response) => {
+export const getCateg = (request, response) => {
   let sql1;
-  let { ctg } = request.params;
-  if (ctg == 0) {
     sql1 = "SELECT * FROM category ORDER BY description";
-  } else {
-    sql1 = "SELECT id,description FROM category WHERE id = ?";
-  }
-  db.query(sql1, [ctg], (error, results) => {
+  db.query(sql1,(error, results) => {
     if (error) {
       console.log("Hiba!", error);
     } else {
       response.send(results);
     }
   });
-};*/
+}
 
 export const getSubCateg = (request, response) => {
   let sql2;

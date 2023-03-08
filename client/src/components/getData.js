@@ -59,11 +59,10 @@ export const getCountId = async ({ queryKey }) => {
   return response;
 };
 
-/*export const getCateg = async ({ queryKey }) => {
-  const [_, id] = queryKey;
-  const response = await axios.get(url + `/cities/categ/${id}`);
+export const getCateg = async () => {
+  const response = await axios.get(url + `/cities/categ`);
   return response;
-};*/
+};
 
 export const getSubCateg = async ({ queryKey }) => {
   const [_, id] = queryKey;

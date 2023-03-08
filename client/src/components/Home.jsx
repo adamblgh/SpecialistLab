@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useQuery } from "react-query";
 import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { getCateg } from "./getData";
 
 import {
   Collapse,
@@ -22,6 +24,12 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
+  const {data:dataCateg,status:statusCateg} = useQuery(
+    "Categ",
+    getCateg
+  );
+  statusCateg == "success" && console.log("Ok",dataCateg.data) 
+
   const handleUpdateAvatar = () => {
     const formdata = new FormData();
     /*formdata.append("selFile", selFile)*/
@@ -33,6 +41,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
 
   const handleClick =(id)=>{
     setSelectedCategId(id)
+    console.log("Kategoria idje:",id)
     navigate("/hirdetesek")
   }
 
@@ -144,62 +153,23 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
         <div className="row justify-content-center align-items-center homepanelek">
           {" "}
           {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
-          <div className="col-md-3 kategkartya">
-            <motion.div
-              style={{ marginRight: 5, minWidth: 250 }}
-              whileHover={{ scale: [null, 1.08] }}
-              transition={{ duration: 1 }}
-              onClick={()=>handleClick(4)}
-              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
-              className="panel kitoltes lineUp rounded epitoipar"
-            >
-              <h3 className="text-center text-white p-2 bg-primary cimke">
-                Építőipar
-              </h3>
-            </motion.div>
-          </div>
-          <div className="col-md-3 kategkartya">
-            <motion.div
-              style={{ marginRight: 5, minWidth: 250 }}
-              whileHover={{ scale: [null, 1.08] }}
-              transition={{ duration: 1 }}
-              onClick={() =>handleClick(5)}
-              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
-              className="panel kitoltes lineUp rounded vendeglatas"
-            >
-              <h3 className="text-center text-white p-2 bg-primary cimke">
-                Vendéglátás
-              </h3>
-            </motion.div>
-          </div>
-          <div className="col-md-3 kategkartya igazit">
-            <motion.div
-              style={{ marginRight: 5, minWidth: 250 }}
-              whileHover={{ scale: [null, 1.08] }}
-              transition={{ duration: 1 }}
-              onClick={() =>handleClick(6)}
-              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
-              className="panel kitoltes lineUp rounded logisztika"
-            >
-              <h3 className="text-center text-white p-2 bg-primary cimke">
-                Logisztika
-              </h3>
-            </motion.div>
-          </div>
-          <div className="col-md-3 kategkartya igazit">
-            <motion.div
-              style={{ marginRight: 5, minWidth: 250 }}
-              whileHover={{ scale: [null, 1.08] }}
-              transition={{ duration: 1 }}
-              onClick={() =>handleClick(7)}
-              //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
-              className="panel kitoltes lineUp rounded egeszsegugy"
-            >
-              <h3 className="text-center text-white p-2 bg-primary cimke">
-                Egészségügy
-              </h3>
-            </motion.div>
-          </div>
+
+            {statusCateg=="success" && dataCateg.data.map(obj=>
+                <div className="col-md-3 kategkartya">
+                <motion.div
+                  style={{ marginRight: 5, minWidth: 250,backgroundImage:`url(${obj.kep_url})` }}
+                  whileHover={{ scale: [null, 1.08] }}
+                  transition={{ duration: 1 }}
+                  onClick={()=>handleClick(obj.id)}
+                  //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
+                  className="panel kitoltes lineUp rounded epitoipar"
+                >
+                  <h3 className="text-center text-white p-2 bg-primary cimke">
+                    {obj.description}
+                  </h3>
+                </motion.div>
+              </div>
+            )}
         </div>
       </div>
       <footer>
