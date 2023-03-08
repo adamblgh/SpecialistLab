@@ -195,8 +195,8 @@ Form {
     height: 122px;
   }
 }
-.aduploadpanel {
-  margin-top: -25px !important;
+.aduploadpanel{
+  margin-top: -50px!important;
 }
 .hirdetesfel {
   margin-bottom: 310px;
@@ -354,16 +354,13 @@ Form {
   background-color: rgb(0, 0, 0, 0.7);
   border-radius: 100vw;
 }
+.homepanelek{
+  margin-top: -45px!important;
+}
 @media only screen and (max-width: 767px) {
   .kepek {
     height: 400px;
     width: 400px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .cegkep {
-    height: 300px;
-    width: 300px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -377,9 +374,54 @@ Form {
     margin: 50px;
   }
   .igazit {
-    padding-bottom: 80px;
+    margin-top: -50px!important;
+  }
+  .homepanelek{
+    margin-bottom: 100px!important;
   }
 }
 .munka {
   text-transform: capitalize;
 }
+@media only screen and (max-width: 391px) {
+  .formlog {
+    width: 90%!important;
+    height: 200%!important;
+    margin-left: 5px!important;
+  }
+  .bejelentkezes {
+    height: 40px !important;
+    width: 300px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 321px) {
+  .formlog {
+    width: 90%!important;
+    height: 200%!important;
+    margin-left: 7px!important;
+  }
+  .bejelentkezes {
+    height: 40px !important;
+    width: 250px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 426px) {
+  .formlog2 {
+    width: 90%!important;
+    height: 150%!important;
+    margin-left: 5px!important;
+    margin-bottom: 150px!important;
+  }
+  .reglogpanel{
+    margin-top: 25px!important;
+  }
+}
+.reglogpanel{
+    margin-top: 20px!important;
+  }
