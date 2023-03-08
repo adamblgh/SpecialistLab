@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Feb 16. 12:57
+-- Létrehozás ideje: 2023. Már 08. 11:49
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -30,18 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `description` varchar(50) NOT NULL,
-  `subcateg_id` int(11) NOT NULL
+  `kep_url` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `category`
 --
 
-INSERT INTO `category` (`id`, `description`, `subcateg_id`) VALUES
-(4, 'építőipar', 1),
-(5, 'vendéglátás', 2),
-(6, 'logisztika', 3),
-(7, 'egészségügy', 4);
+INSERT INTO `category` (`id`, `description`, `kep_url`) VALUES
+(4, 'építőipar', 'epitoipar.jpg'),
+(5, 'vendéglátás', 'vendeglatas.jpg'),
+(6, 'logisztika', 'logisztika.jpg'),
+(7, 'egészségügy', 'egeszsegugy.jpg');
 
 -- --------------------------------------------------------
 
@@ -103,18 +103,22 @@ CREATE TABLE `ratings` (
 CREATE TABLE `subcategory` (
   `id` int(11) NOT NULL,
   `description` varchar(50) NOT NULL,
-  `city_id` int(11) NOT NULL
+  `city_id` int(11) NOT NULL,
+  `categ_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `subcategory`
 --
 
-INSERT INTO `subcategory` (`id`, `description`, `city_id`) VALUES
-(1, 'ács', 1),
-(2, 'pincér', 8),
-(3, 'szállító', 4),
-(4, 'nővér', 7);
+INSERT INTO `subcategory` (`id`, `description`, `city_id`, `categ_id`) VALUES
+(1, 'ács', 1, 4),
+(2, 'pincér', 8, 5),
+(3, 'szállító', 4, 6),
+(4, 'nővér', 7, 7),
+(5, 'szakorvos', 3, 7),
+(6, 'építészmérnök', 16, 4),
+(7, 'költségvetési intézményvezető', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -176,8 +180,7 @@ CREATE TABLE `worker_images` (
 -- A tábla indexei `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subcateg_id` (`subcateg_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `cities`
@@ -198,7 +201,8 @@ ALTER TABLE `ratings`
 --
 ALTER TABLE `subcategory`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `city_id` (`city_id`);
+  ADD KEY `city_id` (`city_id`),
+  ADD KEY `categ_id` (`categ_id`);
 
 --
 -- A tábla indexei `users`
@@ -247,7 +251,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT a táblához `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT a táblához `users`
@@ -272,12 +276,6 @@ ALTER TABLE `worker_images`
 --
 
 --
--- Megkötések a táblához `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`subcateg_id`) REFERENCES `subcategory` (`id`);
-
---
 -- Megkötések a táblához `ratings`
 --
 ALTER TABLE `ratings`
@@ -288,14 +286,14 @@ ALTER TABLE `ratings`
 -- Megkötések a táblához `subcategory`
 --
 ALTER TABLE `subcategory`
-  ADD CONSTRAINT `subcategory_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`);
+  ADD CONSTRAINT `subcategory_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`),
+  ADD CONSTRAINT `subcategory_ibfk_2` FOREIGN KEY (`categ_id`) REFERENCES `category` (`id`);
 
 --
 -- Megkötések a táblához `workers`
 --
 ALTER TABLE `workers`
-  ADD CONSTRAINT `workers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `workers_ibfk_2` FOREIGN KEY (`subcateg_id`) REFERENCES `subcategory` (`id`);
+  ADD CONSTRAINT `workers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Megkötések a táblához `worker_images`
