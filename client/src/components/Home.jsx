@@ -163,7 +163,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/hirdetesek")}
+              onClick={() =>handleClick(5)}
               //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded vendeglatas"
             >
@@ -177,7 +177,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/hirdetesek")}
+              onClick={() =>handleClick(6)}
               //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded logisztika"
             >
@@ -191,7 +191,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
               style={{ marginRight: 5, minWidth: 250 }}
               whileHover={{ scale: [null, 1.08] }}
               transition={{ duration: 1 }}
-              onClick={() => navigate("/hirdetesek")}
+              onClick={() =>handleClick(7)}
               //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
               className="panel kitoltes lineUp rounded egeszsegugy"
             >

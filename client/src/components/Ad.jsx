@@ -210,7 +210,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
                     <option key={obj.id} id={obj.id} value={obj.id} name={obj.name}>
                       {obj.name}
                     </option>
-                  ))}
+                  ))} 
               </Input>
             </div>
             {/*<div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
@@ -232,8 +232,12 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
                 onChange={handleSelectSubCateg}
               >
                 <option value="0">Munkakör</option>
-                {statusSelectedCateg == "success" &&
+                {selectedCategId!=0 && statusSelectedCateg == "success" ?
                   dataSelectedCateg.data.map((obj) => (
+                    <option key={obj.id} id={obj.id} value={obj.id}>
+                      {obj.description}
+                    </option>
+                  )): statusSubCateg == "success" && dataSubCateg.data.map((obj) => (
                     <option key={obj.id} id={obj.id} value={obj.id}>
                       {obj.description}
                     </option>
