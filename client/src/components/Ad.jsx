@@ -25,14 +25,17 @@ import { getCountId } from "./getData.js";
 /*import { getCateg } from "./getData.js";*/
 import { getSubCateg } from "./getData.js";
 import { getOnclickSubCateg } from "./getData.js";
+import { PopUpModal } from "./PopUpModal";
 
-export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
-  console.log("Kiválasztott kategória idje",selectedCategId);
-  const [selCity, setSelCity] = useState({id:0,name:""});
+export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
+  console.log("Kiválasztott kategória idje", selectedCategId);
+  const [selCity, setSelCity] = useState({ id: 0, name: "" });
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [subCategId, setSubCategId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
 
   const { data: dataCities, status: statusCities } = useQuery(
@@ -46,20 +49,19 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
     getCountId
   );
   //statusCounted == "success" && console.log(dataCounted.data[0].nr);
-  console.log(selCity,'a kiválasztott város')
+  console.log(selCity, "a kiválasztott város");
 
-  const {data:dataSelectedCateg,status:statusSelectedCateg} = useQuery(
-    ["selectedCateg",selectedCategId],
+  const { data: dataSelectedCateg, status: statusSelectedCateg } = useQuery(
+    ["selectedCateg", selectedCategId],
     getOnclickSubCateg
   );
-  statusSelectedCateg == "success" && console.log("Ok",dataSelectedCateg.data) 
-
+  statusSelectedCateg == "success" && console.log("Ok", dataSelectedCateg.data);
 
   const handleSelect = (event) => {
     //console.log(event.target.id,event.target.name)
-    let selectedName=event.target.options[event.target.selectedIndex].text
-    console.log(selectedName)
-    setSelCity({id:event.target.value,name:selectedName});
+    let selectedName = event.target.options[event.target.selectedIndex].text;
+    console.log(selectedName);
+    setSelCity({ id: event.target.value, name: selectedName });
     //console.log("Klikk volt", event.target);
     //console.log(event.target.value);
   };
@@ -79,11 +81,8 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
   const handleSelectSubCateg = (event) => {
     setSelSubCateg(event.target.value);
     console.log(event.target.value);
-    console.log(event.target.dataset.test)
-    let datum = event.target.options[event.target.selectedIndex.getAttribute(datum)]
-    console.log(datum)
   };
- /*ÍRNI OLYAN APIT AMI LEKÉRI A DÁTUMOT!!!*/
+
 
   return (
     <>
@@ -210,10 +209,15 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
                 <option value="0">Város</option>
                 {statusCities == "success" &&
                   dataCities.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.id} name={obj.name}>
+                    <option
+                      key={obj.id}
+                      id={obj.id}
+                      value={obj.id}
+                      name={obj.name}
+                    >
                       {obj.name}
                     </option>
-                  ))} 
+                  ))}
               </Input>
             </div>
             {/*<div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
@@ -237,16 +241,23 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
                 onChange={handleSelectSubCateg}
               >
                 <option value="0">Munkakör</option>
-                {selectedCategId!=0 && statusSelectedCateg == "success" ?
-                  dataSelectedCateg.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} data-datum={obj.datum} value={obj.id}>
-                      {obj.description}
-                    </option>
-                  )): statusSubCateg == "success" && dataSubCateg.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.id}>
-                      {obj.description}
-                    </option>
-                  ))}
+                {selectedCategId != 0 && statusSelectedCateg == "success"
+                  ? dataSelectedCateg.data.map((obj) => (
+                      <option
+                        key={obj.id}
+                        id={obj.id}
+                        data-datum={obj.datum}
+                        value={obj.id}
+                      >
+                        {obj.description}
+                      </option>
+                    ))
+                  : statusSubCateg == "success" &&
+                    dataSubCateg.data.map((obj) => (
+                      <option key={obj.id} id={obj.id} value={obj.id}>
+                        {obj.description}
+                      </option>
+                    ))}
               </Input>
             </div>
           </div>
@@ -259,7 +270,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
               </h4>
               <p className="mt-4">
                 <i class="fa-solid fa-location-dot"></i>
-                <span> {selCity.id>0 && selCity.name}</span>
+                <span> {selCity.id > 0 && selCity.name}</span>
               </p>
               <div className="col-md-8">
                 <p className="hirdetoszoveg">
@@ -283,15 +294,18 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
               <div className="col-md-8 align-items-center">
                 <input
                   type="button"
-                  value="Állás megtekintése"
+                  value="Jelentkezés"
+                  data-toggle="modal"
+                  onClick={toggleModal}
                   className="btn btn-primary"
                 />
               </div>
               <div className="col-md-4">
-                <p className="datum mt-2">Febr. 1.</p>
+                <p className="datum mt-2">&nbsp;</p>
               </div>
             </div>
           </div>
+
 
           {/*KÁRTYA*/}
         </div>
@@ -322,6 +336,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
           </div>
         </div>
       </footer>
+      {modal && <PopUpModal modal={modal} setModal={setModal}/>}
     </>
   );
 };
