@@ -122,7 +122,7 @@ export const NewAdPers=({loggedInUser,setLoggedInUser})=> {
         </Collapse>
       </Navbar>
     <div className="container">
-      <h1 className='text-center homekateg'>Hirdetés magánszemélyként</h1>
+    <h1 className="sitetitle p-3 text-white text-center">Hirdetés létrehozása</h1>
       <div className='row justify-content-center border'>
         <Input type="button" className="btn btn-danger mt-2 mb-2" onClick={backClick} value="Vissza"/>
       </div>
