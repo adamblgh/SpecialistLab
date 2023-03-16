@@ -267,6 +267,7 @@ Form {
 .cimke {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  margin-left: 30px!important;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
 }
 footer {
@@ -305,6 +306,7 @@ Form {
 }
 .homekateg {
   color: white;
+  margin-top: -5px;
 }
 .aboutfooter {
   margin-bottom: 150px !important;

@@ -164,7 +164,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
                   //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
                   className="panel kitoltes lineUp rounded epitoipar"
                 >
-                  <h3 className="text-center text-white p-2 bg-primary cimke">
+                  <h3 className="text-center text-white cimke p-2 bg-primary">
                     {obj.description}
                   </h3>
                 </motion.div>
