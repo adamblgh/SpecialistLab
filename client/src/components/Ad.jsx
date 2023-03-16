@@ -27,7 +27,7 @@ import { getSubCateg } from "./getData.js";
 import { getOnclickSubCateg } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
-  console.log("adasdsadsadsad",selectedCategId);
+  console.log("Kiválasztott kategória idje",selectedCategId);
   const [selCity, setSelCity] = useState({id:0,name:""});
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
@@ -79,8 +79,11 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
   const handleSelectSubCateg = (event) => {
     setSelSubCateg(event.target.value);
     console.log(event.target.value);
+    console.log(event.target.dataset.test)
+    let datum = event.target.options[event.target.selectedIndex.getAttribute(datum)]
+    console.log(datum)
   };
-
+ /*ÍRNI OLYAN APIT AMI LEKÉRI A DÁTUMOT!!!*/
 
   return (
     <>
@@ -229,12 +232,14 @@ export const Ad = ({ loggedInUser, setLoggedInUser,selectedCategId }) => {
                 className="legorduloelemek"
                 type="select"
                 name="select"
+                data-test="test"
+                id="test"
                 onChange={handleSelectSubCateg}
               >
                 <option value="0">Munkakör</option>
                 {selectedCategId!=0 && statusSelectedCateg == "success" ?
                   dataSelectedCateg.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.id}>
+                    <option key={obj.id} id={obj.id} data-datum={obj.datum} value={obj.id}>
                       {obj.description}
                     </option>
                   )): statusSubCateg == "success" && dataSubCateg.data.map((obj) => (
