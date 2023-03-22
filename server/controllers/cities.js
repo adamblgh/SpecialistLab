@@ -1,3 +1,4 @@
+import { response } from "express";
 import mysql from "mysql";
 import { configDB } from "../configDB.js";
 
@@ -63,7 +64,7 @@ export const getSubCateg = (request, response) => {
 
 export const getOnclickSubCateg = (request, response) => {
   const { id } = request.params;
-  db.query("SELECT subcategory.description FROM subcategory,category WHERE category.id=subcategory.categ_id AND categ_id=?",[id],(error, results) => {
+  db.query("SELECT subcategory.description,datum FROM subcategory,category WHERE category.id=subcategory.categ_id AND categ_id=?",[id],(error, results) => {
       if (error) {
         console.log("Hiba!", error);
       } else {
@@ -71,3 +72,15 @@ export const getOnclickSubCateg = (request, response) => {
       }
   });
 };
+
+export const getDateFromSubCateg = (request,response) => {
+  const { id } = request.params
+  db.query("SELECT datum FROM subcategory WHERE id=?",[id],(error,results)=>{
+    if(error){
+      console.log("Hiba!",error)
+    }
+    else{
+      response.send(results)
+    }
+  })
+}
