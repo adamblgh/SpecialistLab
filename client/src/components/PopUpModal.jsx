@@ -9,8 +9,8 @@ export const PopUpModal = ({modal,setModal}) => {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Sikeres jelentkezés</ModalHeader>
         <ModalBody>
-          <p>Gratulálunk! Sikeresen jelentkeztél.</p> 
-          <p>További teendőidről majd értesítünk!</p>
+          <p>Gratulálunk! Sikeresen jelentkezett.</p> 
+          <p>További teendőiről majd értesítjük!</p>
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={toggle}>

@@ -195,7 +195,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                 <span className="szam">
                   {statusCounted == "success" && selCity!=0 && selSubCateg !=0 && dataCounted.data[0].nr}
                 </span>{" "}
-                {selCity!=0 && selSubCateg!=0 ? 'találat': 'Összes találat'}
+                {selCity!=0 && selSubCateg!=0 ? 'találat': 'Válasszon'}
               </h5>
             </div>
             <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">
