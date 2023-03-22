@@ -267,7 +267,7 @@ Form {
 .cimke {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  margin-left: 30px!important;
+  margin-left: 115px!important;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
 }
 footer {
@@ -427,3 +427,5 @@ Form {
 .reglogpanel{
     margin-top: 20px!important;
   }
+
+  
