@@ -193,9 +193,9 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
-                  {statusCounted == "success" && dataCounted.data[0].nr}
+                  {statusCounted == "success" && selCity!=0 && selSubCateg !=0 && dataCounted.data[0].nr}
                 </span>{" "}
-                találat
+                {selCity!=0 && selSubCateg!=0 ? 'találat': 'Összes találat'}
               </h5>
             </div>
             <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">
@@ -263,10 +263,11 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
           </div>
 
           {/*KÁRTYA*/}
+          {selCity!=0 && selSubCateg!=0 && 
           <div className="row ad mt-5">
             <div className="col-md-10 bal-ad">
               <h4 className="bg-primary p-2 adtitle">
-                <span className="munka">{selSubCateg}</span>
+                <span className="munka">{selSubCateg}&nbsp;</span>
               </h4>
               <p className="mt-4">
                 <i class="fa-solid fa-location-dot"></i>
@@ -304,7 +305,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                 <p className="datum mt-2">&nbsp;</p>
               </div>
             </div>
-          </div>
+          </div>}
 
 
           {/*KÁRTYA*/}
