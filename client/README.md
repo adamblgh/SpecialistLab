@@ -1,4 +1,4 @@
 SpecialistLab_Project
 TESZT
 Teszt2
-teszt3
+teszt
