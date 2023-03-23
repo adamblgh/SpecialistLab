@@ -34,7 +34,6 @@ export const Profile = ({ loggedInUser, setLoggedInUser }) => {
     console.log('új jelszó:',newPw)
     mutationChangePw.mutate({username:loggedInUser.username,password:newPw})
   }
-
   const mutationAvatar = useMutation(updateAvatar, {
     onSuccess: (data) => {
       console.log(data.data.msg);
@@ -112,7 +111,7 @@ const mutationChangePw = useMutation(changePassword, {
                 <DropdownItem divider />
                 <DropdownItem>
                 <NavItem>
-                  <NavLink to='books'>Books</NavLink>
+                  <NavLink to='specialistlab'>Books</NavLink>
                 </NavItem>
                 </DropdownItem>
               </DropdownMenu>
@@ -191,8 +190,7 @@ const mutationChangePw = useMutation(changePassword, {
             />
           ) : (
             <Button color="primary" className="w-50" disabled>
-              <Spinner size="sm">Uploading...</Spinner>
-              <span> Uploading</span>
+              <span> Upload</span>
             </Button>
           )}
 
