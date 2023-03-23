@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import bg from "../components/background/bg.mp4";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -14,15 +15,31 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  NavbarText,
   Form,
   FormGroup,
   Label,
   Input,
+  FormFeedback,
 } from 'reactstrap';
 
 export const NewAdComp=({loggedInUser,setLoggedInUser})=> {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  const handleUpdateAvatar = () => {
+    const formdata = new FormData()
+    /*formdata.append("selFile", selFile)*/
+    formdata.append("username", loggedInUser.username)
+    formdata.append("avatar_id", loggedInUser.avatar_id)
+    /*setIsUploading(true)
+    mutationAvatar.mutate(formdata)*/
+  };
+
+  const backClick = () => {
+    navigate('/hirdetes-feladas')
+  }
+
 
   const navigate = useNavigate();
   return (
@@ -125,7 +142,7 @@ export const NewAdComp=({loggedInUser,setLoggedInUser})=> {
       </FormGroup>
         
       <div>
-        <Input type="button" className="btn btn-dark bejelentkezes" id="login" value="Hirdetés Feladása" />
+        <Input type="button" className="btn btn-primary bejelentkezes" id="login" value="Hirdetés Feladása" />
       </div>
     </Form>
       </div>
