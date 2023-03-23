@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import bg from "../components/background/bg.mp4";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -14,15 +15,31 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  NavbarText,
   Form,
   FormGroup,
   Label,
   Input,
+  FormFeedback,
 } from 'reactstrap';
 
 export const NewAdComp=({loggedInUser,setLoggedInUser})=> {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+
+  const handleUpdateAvatar = () => {
+    const formdata = new FormData()
+    /*formdata.append("selFile", selFile)*/
+    formdata.append("username", loggedInUser.username)
+    formdata.append("avatar_id", loggedInUser.avatar_id)
+    /*setIsUploading(true)
+    mutationAvatar.mutate(formdata)*/
+  };
+
+  const backClick = () => {
+    navigate('/hirdetes-feladas')
+  }
+
 
   const navigate = useNavigate();
   return (
@@ -83,7 +100,7 @@ export const NewAdComp=({loggedInUser,setLoggedInUser})=> {
             <Nav navbar>
             <NavItem className="nav-link d-flex align-items-center">
               <NavLink to="/profil" className="nav-link">
-              {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
+              <img src={loggedInUser.avatar} className="avatar" alt="Avatar" style={{width:"30px",marginRight:"20px"}} />
               <span style={{cursor:"pointer"}}>{loggedInUser.username}</span>
               </NavLink>
           </NavItem>
