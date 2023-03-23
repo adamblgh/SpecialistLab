@@ -263,6 +263,7 @@ Form {
   border-bottom-right-radius: 100px;
   border-bottom-left-radius: 100px;
   margin-bottom: 50px;
+  margin-top: 75px!important;
 }
 .cimke {
   border-bottom-right-radius: 20px;
