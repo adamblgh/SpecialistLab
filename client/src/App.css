@@ -363,8 +363,9 @@ Form {
 }
 @media only screen and (max-width: 767px) {
   .kepek {
-    height: 400px;
-    width: 400px;
+    height: 200px;
+    width: 200px;
+    margin-top: 20px!important;
   }
 }
 @media only screen and (max-width: 767px) {

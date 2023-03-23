@@ -138,7 +138,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
                 Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!
               </p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 aboutkepek">
               <img
                 className="img-fluid kepek"
                 src="czeczike.jpg"
@@ -159,7 +159,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
               Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!
               </p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 aboutkepek">
               <img className="img-fluid kepek" src="somika.jpg" alt="Soma" />
             </div>
           </div>
@@ -176,7 +176,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
               Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!
               </p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 aboutkepek">
               <img className="img-fluid kepek" src="adam.jpg" alt="Ádám" />
             </div>
           </div>
