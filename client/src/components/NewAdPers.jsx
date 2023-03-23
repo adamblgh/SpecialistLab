@@ -142,7 +142,7 @@ export const NewAdPers=({loggedInUser,setLoggedInUser})=> {
       </FormGroup>
         
       <div>
-        <Input type="button" className="btn btn-dark bejelentkezes" id="login" value="Hirdetés Feladása" />
+        <Input type="button" className="btn btn-primary bejelentkezes" id="login" value="Hirdetés Feladása" />
       </div>
     </Form>
       </div>
