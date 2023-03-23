@@ -429,4 +429,6 @@ Form {
     margin-top: 20px!important;
   }
 
-  
+ .avatar{
+  border-radius: 50px!important;
+ } 
