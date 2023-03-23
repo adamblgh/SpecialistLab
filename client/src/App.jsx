@@ -29,7 +29,7 @@ function App() {
         <Route path="/kezdolap" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setSelectedCategId={setSelectedCategId}/>} />
         <Route path="/hirdetesek" element={<Ad loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
         <Route path="/rolunk" element={<About loggedInUser={loggedInUser}/>} />
-        <Route path="/profil" element={<Profile loggedInUser={loggedInUser}/>} /> 
+        <Route path="/profil" element={<Profile loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} /> 
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
         <Route path="/hirdetes-feladas" element={< AdUpload loggedInUser={loggedInUser}/>} />

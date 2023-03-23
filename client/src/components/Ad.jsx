@@ -155,7 +155,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
               <Nav navbar>
                 <NavItem className="nav-link d-flex align-items-center">
                   <NavLink to="/profil" className="nav-link">
-                    {/*<img src={loggedInUser.avatar} alt="Avatar" style={{width:"20px",marginRight:"10px"}} />*/}
+                    <img src={loggedInUser.avatar} className="avatar" alt="Avatar" style={{width:"30px",marginRight:"20px"}} />
                     <span style={{ cursor: "pointer" }}>
                       {loggedInUser.username}
                     </span>
