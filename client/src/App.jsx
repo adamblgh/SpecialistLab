@@ -33,8 +33,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
         <Route path="/hirdetes-feladas" element={< AdUpload loggedInUser={loggedInUser}/>} />
-        <Route path="/ceghirdetes" element={< NewAdComp loggedInUser={loggedInUser}/>} />
-        <Route path="/maganhirdetes" element={< NewAdPers loggedInUser={loggedInUser}/>} />
+        <Route path="/ceghirdetes" element={< NewAdComp loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
+        <Route path="/maganhirdetes" element={< NewAdPers loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
       </Routes>
       </div>
       
