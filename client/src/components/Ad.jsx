@@ -83,7 +83,6 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
     console.log(event.target.value);
   };
 
-
   return (
     <>
       <video
@@ -193,9 +192,12 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
-                  {statusCounted == "success" && selCity!=0 && selSubCateg !=0 && dataCounted.data[0].nr}
+                  {statusCounted == "success" &&
+                    selCity.id != 0 &&
+                    selSubCateg != 0 &&
+                    dataCounted.data[0].nr}
                 </span>{" "}
-                {selCity!=0 && selSubCateg!=0 ? 'találat': 'Válasszon'}
+                {selCity.id != 0 && selSubCateg != 0 ? "találat" : "Válasszon"}
               </h5>
             </div>
             <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">
@@ -263,50 +265,50 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
           </div>
 
           {/*KÁRTYA*/}
-          {selCity!=0 && selSubCateg!=0 && 
-          <div className="row ad mt-5">
-            <div className="col-md-10 bal-ad">
-              <h4 className="bg-primary p-2 adtitle">
-                <span className="munka">{selSubCateg}&nbsp;</span>
-              </h4>
-              <p className="mt-4">
-                <i class="fa-solid fa-location-dot"></i>
-                <span> {selCity.id > 0 && selCity.name}</span>
-              </p>
-              <div className="col-md-8">
-                <p className="hirdetoszoveg">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora laudantium deleniti dolor officiis, maiores excepturi
-                  id vel doloremque fugit aut magni quibusdam est, suscipit
-                  maxime? Alias qui quae a adipisci.
+          {selCity.id != 0 && selSubCateg != 0 && (
+            <div className="row ad mt-5">
+              <div className="col-md-10 bal-ad">
+                <h4 className="bg-primary p-2 adtitle">
+                  <span className="munka">{selSubCateg}&nbsp;</span>
+                </h4>
+                <p className="mt-4">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span> {selCity.id !=0 && selCity.name}</span>
                 </p>
+                <div className="col-md-8">
+                  <p className="hirdetoszoveg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Tempora laudantium deleniti dolor officiis, maiores
+                    excepturi id vel doloremque fugit aut magni quibusdam est,
+                    suscipit maxime? Alias qui quae a adipisci.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div className="col-md-2 mt-2 jobb">
-              <img
-                className="img-fluid cegkep cegavatarlogo"
-                src={logo}
-                alt=""
-              />
-            </div>
-
-            <div className="row mt-3">
-              <div className="col-md-8 align-items-center">
-                <input
-                  type="button"
-                  value="Jelentkezés"
-                  data-toggle="modal"
-                  onClick={toggleModal}
-                  className="btn btn-primary"
+              <div className="col-md-2 mt-2 jobb">
+                <img
+                  className="img-fluid cegkep cegavatarlogo"
+                  src={logo}
+                  alt=""
                 />
               </div>
-              <div className="col-md-4">
-                <p className="datum mt-2">&nbsp;</p>
+
+              <div className="row mt-3">
+                <div className="col-md-8 align-items-center">
+                  <input
+                    type="button"
+                    value="Jelentkezés"
+                    data-toggle="modal"
+                    onClick={toggleModal}
+                    className="btn btn-primary"
+                  />
+                </div>
+                <div className="col-md-4">
+                  <p className="datum mt-2">&nbsp;</p>
+                </div>
               </div>
             </div>
-          </div>}
-
+          )}
 
           {/*KÁRTYA*/}
         </div>
@@ -337,7 +339,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
           </div>
         </div>
       </footer>
-      {modal && <PopUpModal modal={modal} setModal={setModal}/>}
+      {modal && <PopUpModal modal={modal} setModal={setModal} />}
     </>
   );
 };
