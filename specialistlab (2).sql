@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 08. 11:49
--- Kiszolgáló verziója: 10.4.27-MariaDB
--- PHP verzió: 8.2.0
+-- Létrehozás ideje: 2023. Már 23. 12:52
+-- Kiszolgáló verziója: 10.4.21-MariaDB
+-- PHP verzió: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL,
-  `kep_url` varchar(256) NOT NULL
+  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `kep_url` varchar(256) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -51,7 +51,7 @@ INSERT INTO `category` (`id`, `description`, `kep_url`) VALUES
 
 CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
-  `name` varchar(256) NOT NULL,
+  `name` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   `postal_code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -91,7 +91,7 @@ CREATE TABLE `ratings` (
   `user_id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
   `rating` int(5) NOT NULL,
-  `description` varchar(125) NOT NULL
+  `description` varchar(125) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -102,7 +102,7 @@ CREATE TABLE `ratings` (
 
 CREATE TABLE `subcategory` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL,
+  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `city_id` int(11) NOT NULL,
   `categ_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -128,13 +128,13 @@ INSERT INTO `subcategory` (`id`, `description`, `city_id`, `categ_id`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `avatar` varchar(256) NOT NULL,
-  `avatar_id` varchar(255) NOT NULL,
-  `role` varchar(10) NOT NULL
+  `username` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
+  `password` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `avatar` varchar(256) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571813/wvvomlhgfihi4fxlyewo.png',
+  `avatar_id` varchar(255) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'wvvomlhgfihi4fxlyewo',
+  `role` varchar(10) COLLATE utf8_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -142,7 +142,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `avatar_id`, `role`) VALUES
-(3, 'admin', '$2a$10$9maSMr/D6wvWSUYwmsBk0.DBsCppG8/yBkYN9S/0RZHhYgMzdmDym', 'admin@gmail.com', 'admin', '', '', ''),
+(3, 'admin', '$2a$10$fLBJuWR6c/3X8Cjl4PehxuvFQIeCdbq4Lllj/imx9dE732Uz2919C', 'admin@gmail.com', 'admin', 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571246/lnnem1f4gzoiuof3zh1y.jpg', 'lnnem1f4gzoiuof3zh1y', ''),
 (4, 'olvodisoma', '$2a$10$zeVJ8IMdIFION7DcrU82G.D2Pn6HYozbPWFB9kaakamAISmoOaFYO', 'olvodisoma@gmail.com', 'Ölvödi Soma', '', '', '');
 
 -- --------------------------------------------------------
@@ -154,22 +154,10 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `a
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `about_me` varchar(1024) NOT NULL,
-  `contact` varchar(256) NOT NULL,
+  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `about_me` varchar(1024) COLLATE utf8_hungarian_ci NOT NULL,
+  `contact` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   `subcateg_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `worker_images`
---
-
-CREATE TABLE `worker_images` (
-  `id` int(11) NOT NULL,
-  `worker_id` int(11) NOT NULL,
-  `image` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -219,13 +207,6 @@ ALTER TABLE `workers`
   ADD KEY `subcateg_id` (`subcateg_id`);
 
 --
--- A tábla indexei `worker_images`
---
-ALTER TABLE `worker_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `worker_id` (`worker_id`);
-
---
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -257,19 +238,13 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT a táblához `workers`
 --
 ALTER TABLE `workers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT a táblához `worker_images`
---
-ALTER TABLE `worker_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -294,12 +269,6 @@ ALTER TABLE `subcategory`
 --
 ALTER TABLE `workers`
   ADD CONSTRAINT `workers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Megkötések a táblához `worker_images`
---
-ALTER TABLE `worker_images`
-  ADD CONSTRAINT `worker_images_ibfk_1` FOREIGN KEY (`worker_id`) REFERENCES `workers` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
