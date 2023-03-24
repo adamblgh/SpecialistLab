@@ -99,25 +99,13 @@ const mutationChangePw = useMutation(changePassword, {
             <NavItem>
               <NavLink to='/hirdetes-feladas' className="nav-link">Hirdetésfeladás</NavLink>
             </NavItem>
-            {loggedInUser?.role=='admin' && 
-            (
-              <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+            {loggedInUser?.role == "admin" && (
+              <NavItem>
+              <NavLink to="/adminpanel" className="nav-link">
                 Admin Panel
-              </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem>Users</DropdownItem>
-                <DropdownItem>Products</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                <NavItem>
-                  <NavLink to='specialistlab'>Books</NavLink>
-                </NavItem>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            )
-            }
+              </NavLink>
+            </NavItem>
+            )}
 
             </Nav>
 

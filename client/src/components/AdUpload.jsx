@@ -64,25 +64,13 @@ export const AdUpload=({loggedInUser,setLoggedInUser})=> {
             <NavItem>
               <NavLink to='/hirdetes-feladas' className="nav-link active" aria-current="page">Hirdetésfeladás</NavLink>
             </NavItem>
-            {loggedInUser?.role=='admin' && 
-            (
-              <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+            {loggedInUser?.role == "admin" && (
+              <NavItem>
+              <NavLink to="/adminpanel" className="nav-link">
                 Admin Panel
-              </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem>Users</DropdownItem>
-                <DropdownItem>Products</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                <NavItem>
-                  <NavLink to='books'>Books</NavLink>
-                </NavItem>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            )
-            }
+              </NavLink>
+            </NavItem>
+            )}
 
             </Nav>
 
