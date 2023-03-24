@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getCities } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 import { useQuery } from "react-query";
+import { PopUpModal } from "./PopUpModal";
 
 import {
   Collapse,
@@ -35,6 +36,8 @@ export const NewAdPers = ({
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
 
   const { data: dataCities, status: statusCities } = useQuery(
@@ -42,7 +45,6 @@ export const NewAdPers = ({
     getCities
   );
   //statusCities == "success" && console.log(dataCities.data);
-
 
   const { data: dataSubCateg, status: statusSubCateg } = useQuery(
     ["subCategs", id],
@@ -128,10 +130,10 @@ export const NewAdPers = ({
             </NavItem>
             {loggedInUser?.role == "admin" && (
               <NavItem>
-              <NavLink to="/adminpanel" className="nav-link">
-                Admin Panel
-              </NavLink>
-            </NavItem>
+                <NavLink to="/adminpanel" className="nav-link">
+                  Admin Panel
+                </NavLink>
+              </NavItem>
             )}
           </Nav>
 
@@ -215,11 +217,11 @@ export const NewAdPers = ({
               >
                 <option value="0">Válassz munkakört...</option>
                 {statusSubCateg == "success" &&
-                    dataSubCateg.data.map((obj) => (
-                      <option key={obj.id} id={obj.id} value={obj.id}>
-                        {obj.description}
-                      </option>
-                    ))}
+                  dataSubCateg.data.map((obj) => (
+                    <option key={obj.id} id={obj.id} value={obj.id}>
+                      {obj.description}
+                    </option>
+                  ))}
               </Input>
             </FormGroup>
 
@@ -238,6 +240,8 @@ export const NewAdPers = ({
                 type="button"
                 className="btn btn-primary bejelentkezes"
                 id="login"
+                data-toggle="modal"
+                onClick={toggleModal}
                 value="Hirdetés Feladása"
               />
             </div>
