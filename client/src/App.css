@@ -265,6 +265,26 @@ Form {
   margin-bottom: 50px;
   margin-top: 75px!important;
 }
+@media only screen and (max-height: 700px) {
+  .adform {
+    margin-bottom: 50px!important;
+  }
+}
+@media only screen and (max-width: 643px) {
+  .aboutcim {
+    margin-top: 150px!important;
+  }
+}
+@media only screen and (max-width: 666px) {
+  .sitetitle {
+    margin-top: 80px!important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .sitetitle {
+    margin-top: 50px!important;
+  }
+}
 .cimke {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;

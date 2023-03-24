@@ -186,7 +186,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
       </div>
       <div className="container-ad mt-5 hirdetes">
         <div className="tartalom">
-          <h1 className="sitetitle p-3 text-white text-center">Hirdetések</h1>
+          <h1 className="sitetitle p-3 aboutcim text-white text-center">Hirdetések</h1>
           <br />
           <div className="row">
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">

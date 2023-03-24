@@ -154,9 +154,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
             </p>
             <div className="col-md-8">
               <p className="hirdetoszoveg">
-              Ölvödi Soma vagyok 20 éves. Kecskeméten élek. Régen fociztam, manapság szabaidőmet barátaimmal töltöm vagy autókázok. 
-              Szeretem a szoftverfejlesztést, a weblap készítés tetszik a legjobban! 
-              Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae enim esse fugiat. Quam saepe animi temporibus, nam quasi consequuntur laboriosam similique voluptatibus! Ipsam rerum atque magni, eaque vel sapiente!
               </p>
             </div>
             <div className="col-md-4 aboutkepek">
@@ -171,9 +169,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
             </p>
             <div className="col-md-8">
               <p className="hirdetoszoveg">
-              Balogh Ádám vagyok 20 éves. Kecskeméten élek. Régen fociztam, manapság szabaidőmet barátaimmal töltöm vagy autókázok. 
-              Szeretem a szoftverfejlesztést, a weblap készítés tetszik a legjobban! 
-              Külföldön szeretnék dolgozni ezáltal az idegennyelvet is jobban kell tanulnom!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequuntur, beatae eligendi maiores molestiae vel ratione aliquid dolor iste minus qui ut atque consequatur quis blanditiis a sequi velit quam?
               </p>
             </div>
             <div className="col-md-4 aboutkepek">

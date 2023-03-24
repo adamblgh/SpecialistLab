@@ -187,7 +187,7 @@ export const NewAdPers = ({
           Hirdetés Magánszemélyként
         </h1>
         <div className="row justify-content-center">
-          <Form className="text-center formlog border p-3 shadow mt-1 rounded">
+          <Form className="text-center formlog adform border p-3 shadow mt-1 rounded">
             <h3>Hirdetési adatlap</h3>
             <FormGroup>
               <Label for="username">Város</Label>
