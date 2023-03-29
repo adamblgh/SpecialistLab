@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getCities } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 import { useQuery } from "react-query";
-import { PopUpModal } from "./PopUpModal";
+import { Modaladup } from "./Modaladup";
 
 import {
   Collapse,
@@ -39,6 +39,9 @@ export const NewAdComp = ({
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
+  const [admodal, setAdModal] = useState(false);
+  const toggleAdModal = () => setAdModal(!admodal);
+
 
   const { data: dataCities, status: statusCities } = useQuery(
     "cities",
@@ -237,14 +240,13 @@ export const NewAdComp = ({
             </FormGroup>
 
             <div>
-              <Input
-                type="button"
-                className="btn btn-primary bejelentkezes"
-                id="login"
-                data-toggle='modal'
-                onClick={toggleModal}
-                value="Hirdetés Feladása"
-              />
+            <input
+                    type="button"
+                    value="Feltöltés"
+                    data-toggle="modal"
+                    onClick={toggleAdModal}
+                    className="btn btn-primary bejelentkezes"
+                  />
             </div>
           </Form>
         </div>
@@ -275,6 +277,7 @@ export const NewAdComp = ({
           </div>
         </div>
       </footer>
+      {admodal && <Modaladup admodal={admodal} setAdModal={setAdModal} />}
     </>
   );
 };
