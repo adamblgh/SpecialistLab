@@ -75,3 +75,8 @@ export const getOnclickSubCateg = async ({ queryKey }) => {
   const response = await axios.get(url + `/cities/onclicksubcateg/${id}`);
   return response;
 };
+
+export const getUsers = async () =>{
+  const response = await axios.get(url+'/admin')
+  return response;
+}

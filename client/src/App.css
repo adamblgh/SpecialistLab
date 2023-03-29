@@ -453,4 +453,7 @@ Form {
 
  .avatar{
   border-radius: 50px!important;
- } 
+ }
+ .userkerekites{
+  border-radius: 20px!important;
+ }
