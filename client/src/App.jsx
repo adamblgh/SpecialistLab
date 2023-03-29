@@ -9,6 +9,7 @@ import { Profile } from "./components/Profile";
 import { AdUpload } from "./components/AdUpload";
 import { NewAdComp } from "./components/NewAdComp";
 import { NewAdPers } from "./components/NewAdPers";
+import { AdminPanel } from "./components/AdminPanel";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React,{ useState } from "react";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/hirdetes-feladas" element={< AdUpload loggedInUser={loggedInUser}/>} />
         <Route path="/ceghirdetes" element={< NewAdComp loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
         <Route path="/maganhirdetes" element={< NewAdPers loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
+        <Route path="/adminpanel" element={<AdminPanel loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
       </Routes>
       </div>
       

@@ -131,21 +131,11 @@ export const NewAdComp = ({
               </NavLink>
             </NavItem>
             {loggedInUser?.role == "admin" && (
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Admin Panel
-                </DropdownToggle>
-                <DropdownMenu end>
-                  <DropdownItem>Users</DropdownItem>
-                  <DropdownItem>Products</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink to="books">Books</NavLink>
-                    </NavItem>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+              <NavLink to="/adminpanel" className="nav-link">
+                Admin Panel
+              </NavLink>
+            </NavItem>
             )}
           </Nav>
 
