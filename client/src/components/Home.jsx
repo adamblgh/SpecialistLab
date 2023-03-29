@@ -140,7 +140,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
           Válasszon kategóriát...
         </h1>
         <br />
-        <div className="row justify-content-center align-items-center homepanelek">
+        <div className="row justify-content-center homepanelek">
           {" "}
           {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
 
