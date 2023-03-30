@@ -458,3 +458,9 @@ Form {
  .userkerekites{
   border-radius: 20px!important;
  }
+ .torloikon{
+  cursor: pointer;
+ }
+ .modositoikon{
+  cursor: pointer;
+ }

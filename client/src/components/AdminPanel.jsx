@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import bg from "../components/background/bg.mp4";
 import {
   Collapse,
@@ -13,6 +20,7 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
+  ListGroupItem,
 } from "reactstrap";
 import { useQuery } from "react-query";
 import { getUsers } from "./getData.js";
@@ -127,9 +135,36 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
         <div className="tartalom">
           <h1 className="sitetitle p-3 text-white text-center">Admin Panel</h1>
           <h1 className="text-white p-3 text-center">Felhasználók</h1>
-          {statusUsers == "success" && dataUsers.data.map(obj=><div className="row text-white border p-2 mt-2 justify-content-center userkerekites">
-            {`Username: ${obj.username}  Email: ${obj.email}  Role: ${obj.role}`}
-            </div>)}
+          <TableContainer component={Paper}>
+            <Table sx={{minWidth: 650}} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell align="center">Name</TableCell>
+                  <TableCell align="center">Username</TableCell>
+                  <TableCell align="center">Email</TableCell>
+                  <TableCell align="center">Role</TableCell>
+                  <TableCell align="center">Delete</TableCell>
+                  <TableCell align="center">Modify</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+              {statusUsers == "success" && dataUsers.data.map(obj=>
+              <TableRow
+                key={obj.id}
+                sx={{'&last-child td, &last-child th':{border: 0}}}
+              >
+                <TableCell align="center">{obj.name}</TableCell>
+                <TableCell align="center">{obj.username}</TableCell>
+                <TableCell align="center">{obj.email}</TableCell>
+                <TableCell align="center">{obj.role}</TableCell>
+                <TableCell align="center"><i className="fa fa-trash torloikon"></i></TableCell>
+                <TableCell align="center"><i className="fas fa-edit modositoikon"></i></TableCell>
+              </TableRow>
+              )}
+              </TableBody>
+            </Table>
+          </TableContainer>
+            
         </div>
       </div>
       <footer className="nofixed">
