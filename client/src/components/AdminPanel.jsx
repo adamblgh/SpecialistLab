@@ -35,6 +35,13 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
   );
   statusUsers == "success" && console.log(dataUsers.data);
 
+  const deleteUser=()=>{
+    console.log("Klikk")
+  }
+  const modifyUser=()=>{
+    console.log("Klikk")
+  }
+
   return (
     <>
       <video
@@ -139,12 +146,12 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
             <Table sx={{minWidth: 650}} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell align="center">Name</TableCell>
-                  <TableCell align="center">Username</TableCell>
+                  <TableCell align="center">Név</TableCell>
+                  <TableCell align="center">Felhasználónév</TableCell>
                   <TableCell align="center">Email</TableCell>
-                  <TableCell align="center">Role</TableCell>
-                  <TableCell align="center">Delete</TableCell>
-                  <TableCell align="center">Modify</TableCell>
+                  <TableCell align="center">Rang</TableCell>
+                  <TableCell align="center">Törlés</TableCell>
+                  <TableCell align="center">Módosítás</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -157,8 +164,8 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                 <TableCell align="center">{obj.username}</TableCell>
                 <TableCell align="center">{obj.email}</TableCell>
                 <TableCell align="center">{obj.role}</TableCell>
-                <TableCell align="center"><i className="fa fa-trash torloikon"></i></TableCell>
-                <TableCell align="center"><i className="fas fa-edit modositoikon"></i></TableCell>
+                <TableCell align="center" onClick={deleteUser}><i className="fa fa-trash torloikon"></i></TableCell>
+                <TableCell align="center" onClick={modifyUser}><i className="fas fa-edit modositoikon"></i></TableCell>
               </TableRow>
               )}
               </TableBody>
