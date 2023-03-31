@@ -12,14 +12,14 @@ export const FileDrop=({setSelFile})=> {
     };
     return (
       <div className="filedrop-holder">
-        <h3>Drag & Drop Your Avatar</h3>
+        <h3>Avatár Feltöltés</h3>
         <FileUploader
           handleChange={handleChange}
           name="file"
           types={fileTypes}
           maxSize="1"
         />
-        <p>{file ? `File name: ${file.name}` : "no files uploaded yet"}</p>
+        <p>{file ? `File name: ${file.name}` : "nincs még feltöltve fájl"}</p>
       </div>
     );
 }
