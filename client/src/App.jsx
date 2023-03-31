@@ -10,12 +10,12 @@ import { AdUpload } from "./components/AdUpload";
 import { NewAdComp } from "./components/NewAdComp";
 import { NewAdPers } from "./components/NewAdPers";
 import { AdminPanel } from "./components/AdminPanel";
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { useCookies } from 'react-cookie';
+
 
 
 const queryClient = new QueryClient();
@@ -23,9 +23,13 @@ const queryClient = new QueryClient();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [selectedCategId, setSelectedCategId] = useState(0);
-  const [cookies, setCookie] = useCookies(['user']);
+  const navigate=useNavigate()
   console.log('loggedInUser:',loggedInUser)
- 
+  useEffect(()=>{
+    console.log("változás")
+    if(!loggedInUser.id)
+      navigate('/')
+  },[loggedInUser])
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -34,6 +38,7 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
+
         <Route path="/kezdolap" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setSelectedCategId={setSelectedCategId}/>} />
         <Route path="/hirdetesek" element={<Ad loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
         <Route path="/rolunk" element={<About loggedInUser={loggedInUser}/>} />
