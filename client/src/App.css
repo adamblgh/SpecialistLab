@@ -483,3 +483,7 @@ Form {
  .formlog,.formlog2{
   margin-bottom: 140px!important;
  }
+
+ .hozzaadoikon{
+  cursor: pointer;
+ }
