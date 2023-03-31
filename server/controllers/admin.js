@@ -23,3 +23,31 @@ export const getUsers=(request,response)=>{
         }
     })
 }
+export const addUser=(request,response)=>{
+    const {name} = request.body
+    db.query('INSERT INTO users (name) VALUES (?)',[name],(error, results)=>{
+        if (error)
+            console.log(error)
+        else 
+            response.send(results)
+    })
+}
+export const delUser=(request,response)=>{
+    const {id} = request.params
+    db.query('delete from users where id=?',[id],(error, results)=>{
+        if (error)
+            console.log(error)
+        else 
+            response.send(results)
+    })
+}
+
+export const updateUser=(request,response)=>{
+    const {id} = request.params
+    db.query('update users set role=user where id=?',[id],(error, results)=>{
+        if (error)
+            console.log(error)
+        else 
+            response.send(results)
+    })
+}
