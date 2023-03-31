@@ -5,7 +5,7 @@ import {Form,FormGroup,Input,Label,FormFeedback,Button} from "reactstrap";
 import {useNavigate} from 'react-router-dom';
 import bg from "../components/background/bg.mp4";
 import { useEffect } from "react";
- 
+
 export const Login = ({loggedInUser,setLoggedInUser}) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
