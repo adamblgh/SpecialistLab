@@ -158,7 +158,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
       </Navbar>
 
 
-    <div className='row justify-content-center '>
+    <div className='row justify-content-center container-admin'>
     {isLoading?
     <div className='loading'>
       <FidgetSpinner
@@ -178,13 +178,15 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
           Admin Panel
       </h1>
       <div className="d-flex justify-content-center">
-      <form className='d-flex justify-content-evenly mb-4 p-3 admin-add'>
-        <input type="text"  onChange={(e)=>setNewItem(e.target.value)} value={newItem} />
+      <form className='mb-4 p-3 admin-add'>
+        <p>Kategórai hozzáadása</p>
+        <input type="text" className='mb-1' onChange={(e)=>setNewItem(e.target.value)} value={newItem} />
 
-        <i className="fa-solid fa-plus fa-2x m-1 text-success hozzaadoikon" onClick={()=>mutationAdd.mutate({name:newItem})}></i>
+        <i className="fa-solid mt-1 fa-plus fa-xl m-1 text-success hozzaadoikon" onClick={()=>mutationAdd.mutate({name:newItem})}></i>
       </form>
       </div>
-     
+      <div className="row">
+      <div className="col-md-6 users">
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -224,6 +226,50 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
           </TableBody>
       </Table>
       </TableContainer>
+      </div>
+      <div className="col-md-6 category">
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Név</TableCell>
+              <TableCell>Felhasználónév</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Rang</TableCell>
+              <TableCell>Módosítás</TableCell>
+              <TableCell>Törlés</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+          {data.data.map(item=>
+          <TableRow key={item.id}>
+            <TableCell>
+              {item.name}
+            </TableCell>
+            <TableCell>
+              {item.username}
+            </TableCell>
+            <TableCell>
+              {item.email}
+            </TableCell>
+            <TableCell>
+              {item.role}
+            </TableCell>
+            <TableCell>
+              <i className="fas fa-edit text-warning fa-2x modositoikon"
+            onClick={()=>mutationDone.mutate(item.id)}></i>
+            </TableCell>
+            <TableCell>
+              <i className="fa-solid fa-trash text-danger fa-2x torloikon" 
+            onClick={()=>mutationDel.mutate(item.id)}></i>
+            </TableCell>
+            </TableRow>)}
+          </TableBody>
+      </Table>
+      </TableContainer>
+      </div>
+     </div>
+      
     </div>
         }
         </div>
