@@ -35,11 +35,11 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
   );
   statusUsers == "success" && console.log(dataUsers.data);
 
-  const deleteUser=()=>{
-    console.log("Klikk")
+  const deleteUser=(e)=>{
+    console.log(e.target.parentNode.value)
   }
-  const modifyUser=()=>{
-    console.log("Klikk")
+  const modifyUser=(e)=>{
+    console.log(e.target.parentNode.value)
   }
 
   return (
@@ -164,8 +164,8 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                 <TableCell align="center">{obj.username}</TableCell>
                 <TableCell align="center">{obj.email}</TableCell>
                 <TableCell align="center">{obj.role}</TableCell>
-                <TableCell align="center" onClick={deleteUser}><i className="fa fa-trash torloikon"></i></TableCell>
-                <TableCell align="center" onClick={modifyUser}><i className="fas fa-edit modositoikon"></i></TableCell>
+                <TableCell align="center" value={obj.id} onClick={deleteUser}><i className="fa fa-trash text-danger fa-2x torloikon"></i></TableCell>
+                <TableCell align="center" value={obj.id} onClick={modifyUser}><i className="fas fa-edit text-warning fa-2x modositoikon"></i></TableCell>
               </TableRow>
               )}
               </TableBody>
