@@ -6,11 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import ListGroup  from 'react-bootstrap/ListGroup';
 import {FidgetSpinner} from 'react-loader-spinner';
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getUsers,delUser,addUser,updateUser } from './getData.js';
 import bg from "../components/background/bg.mp4";
-import logo from "../components/image/slab_logo.png";
 import {useQuery,useQueryClient,useMutation, QueryClient} from 'react-query';
 import {
   Collapse,
@@ -28,7 +28,6 @@ import {
   FormGroup,
   Input,
   Label,
-  NavLink
 } from "reactstrap";
 
 
@@ -66,6 +65,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
     }
   })
   
+  const navigate = useNavigate();
 
   return (
     <>
@@ -79,7 +79,6 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
     >
       <source src={bg} type="video/mp4" />
     </video>
-    <div>
       <Navbar expand="sm" light color="light" fixed="top">
         <NavbarBrand>
           <img
@@ -105,7 +104,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
             <NavItem>
               <NavLink
                 to="/hirdetesek"
-                className="nav-link active"
+                className="nav-link"
                 aria-current="page"
               >
                 Hirdetések
@@ -118,7 +117,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
             </NavItem>
             {loggedInUser?.role == "admin" && (
             <NavItem>
-            <NavLink to="/adminpanel" className="nav-link">
+            <NavLink to="/adminpanel" className="nav-link active">
               Admin Panel
             </NavLink>
           </NavItem>
@@ -157,7 +156,6 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
           )}
         </Collapse>
       </Navbar>
-    </div>
 
 
     <div className='row justify-content-center '>
