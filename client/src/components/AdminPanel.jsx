@@ -6,11 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import ListGroup  from 'react-bootstrap/ListGroup';
 import {FidgetSpinner} from 'react-loader-spinner';
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getUsers,delUser,addUser,updateUser } from './getData.js';
 import bg from "../components/background/bg.mp4";
-import logo from "../components/image/slab_logo.png";
 import {useQuery,useQueryClient,useMutation, QueryClient} from 'react-query';
 import {
   Collapse,
@@ -28,7 +28,6 @@ import {
   FormGroup,
   Input,
   Label,
-  NavLink
 } from "reactstrap";
 
 
@@ -66,6 +65,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
     }
   })
   
+  const navigate = useNavigate();
 
   return (
     <>
@@ -79,7 +79,6 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
     >
       <source src={bg} type="video/mp4" />
     </video>
-    <div>
       <Navbar expand="sm" light color="light" fixed="top">
         <NavbarBrand>
           <img
@@ -106,6 +105,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
               <NavLink
                 to="/hirdetesek"
                 className="nav-link"
+                aria-current="page"
               >
                 Hirdetések
               </NavLink>
@@ -117,8 +117,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
             </NavItem>
             {loggedInUser?.role == "admin" && (
             <NavItem>
-            <NavLink to="/adminpanel" className="nav-link active"
-                aria-current="page">
+            <NavLink to="/adminpanel" className="nav-link active">
               Admin Panel
             </NavLink>
           </NavItem>
@@ -157,7 +156,6 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
           )}
         </Collapse>
       </Navbar>
-    </div>
 
 
     <div className='row justify-content-center '>
@@ -175,13 +173,18 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
   />
     </div>
     :
-    <div className='border p-2'>
-      <h1 className='text-center'>Felhasználók</h1>
-      <form className='d-flex justify-content-evenly m-1 p-2 border'>
+    <div className='container-admin'>
+      <h1 className="sitetitle p-3 text-white text-center homekateg">
+          Admin Panel
+      </h1>
+      <div className="d-flex justify-content-center">
+      <form className='d-flex justify-content-evenly mb-4 p-3 admin-add'>
         <input type="text"  onChange={(e)=>setNewItem(e.target.value)} value={newItem} />
 
         <i className="fa-solid fa-plus fa-2x m-1 text-success hozzaadoikon" onClick={()=>mutationAdd.mutate({name:newItem})}></i>
       </form>
+      </div>
+     
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

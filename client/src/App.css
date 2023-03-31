@@ -87,13 +87,14 @@ Form {
   margin-bottom: 100px;
   /*min-width: 1300px;!!!!!!!!!!!!!!!!!!!   */ /*2soros=850px 1soros=900px*/
 }
-
+.welcomepanel{
+  margin: 15px;
+}
  
 .panel {
   background-color: #ffffff;
   color: black;
   cursor: pointer;
-  margin: 15px;
   box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.2);
 }
 .datum {
@@ -399,6 +400,7 @@ Form {
     width: 300px;
   }
 }
+
 @media only screen and (max-width: 1200px) {
   .kategkartya {
     margin: 50px;
@@ -408,8 +410,11 @@ Form {
   }
   .homepanelek{
     margin-bottom: 100px!important;
-    margin-right: 100px!important;
   }
+}
+.homepanel{
+  display:flex!important;
+  justify-content: center!important;
 }
 .munka {
   text-transform: capitalize;
@@ -424,6 +429,9 @@ Form {
   padding: 5px;
   margin-top: -10px!important;
   margin-bottom: -5px!important;
+}
+.admin-add{
+  border-radius: 10px;
 }
 @media only screen and (max-width: 391px) {
   .formlog {

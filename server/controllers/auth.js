@@ -112,12 +112,12 @@ export const updateAvatar=async (request,response)=>{
 
 export const adupload=(request,response)=>{
     console.log(request.body)
-    const {city,work,description} = request.body
+    const {users_id,cities_id,subcateg_id,description} = request.body
         if(err){
             console.log('Feltöltési hiba!',err)
         }
         else{
-            db.query('INSERT INTO workers (city,work,description) values (?,?,?,?)',[city,work,description],(err,result)=>{
+            db.query('INSERT INTO workers (users_id,cities_id,subcateg_id,description) values (?,?,?,?,?)',[users_id,cities_id,subcateg_id,description],(err,result)=>{
                 if(err){
                     console.log('HIBA AZ INSERT-NÉL!',err)
                     response.send({msg:'Sikertelen feltöltés!',id:result.insertId})
