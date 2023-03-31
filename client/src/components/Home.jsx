@@ -135,7 +135,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
           )}
         </Collapse>
       </Navbar>
-      <div className="container">
+      <div className="container homesite">
         <h1 className="sitetitle p-3 text-white text-center homekateg">
           Válasszon kategóriát...
         </h1>
@@ -152,7 +152,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
                   transition={{ duration: 1 }}
                   onClick={()=>handleClick(obj.id)}
                   //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
-                  className="panel kitoltes lineUp rounded epitoipar"
+                  className="panel homepanel kitoltes lineUp rounded epitoipar"
                 >
                   <h3 className="text-center text-white cimke p-2 bg-primary text-capitalize">
                     {obj.description}

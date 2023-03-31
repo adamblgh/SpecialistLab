@@ -45,7 +45,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/register")}
-                className="panel lineUp register p-3 mt-1 rounded"
+                className="welcomepanel panel lineUp register p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-left loginregister">Regisztráció</h3>
               </motion.div>
@@ -56,7 +56,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/login")}
-                className="panel lineUp login p-3 mt-1 rounded"
+                className="welcomepanel panel lineUp login p-3 mt-1 rounded"
               >
                 <h3 className="kitoltes text-left loginregister">Bejelentkezés</h3>
               </motion.div>
