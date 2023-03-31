@@ -9,13 +9,41 @@ import Paper from '@mui/material/Paper';
 import ListGroup  from 'react-bootstrap/ListGroup';
 import {FidgetSpinner} from 'react-loader-spinner';
 import { getUsers,delUser,addUser,updateUser } from './getData.js';
+import bg from "../components/background/bg.mp4";
+import logo from "../components/image/slab_logo.png";
 import {useQuery,useQueryClient,useMutation, QueryClient} from 'react-query';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  NavLink
+} from "reactstrap";
 
 
-export const AdminPanel=()=> {
+export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
   const [newItem,setNewItem] = useState('')
   const {data,isLoading}=useQuery("users",getUsers)
   !isLoading && console.log(data.data)
+  const [selCity, setSelCity] = useState({ id: 0, name: "" });
+  const [selSubCateg, setSelSubCateg] = useState(0);
+  const [id, setId] = useState(0);
+  const [subCategId, setSubCategId] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
+  const toggle = () => setIsOpen(!isOpen);
 
   const clientQuery = useQueryClient()
 
@@ -40,6 +68,98 @@ export const AdminPanel=()=> {
   
 
   return (
+    <>
+    <video
+      autoPlay
+      loop
+      muted
+      style={{
+        zIndex: "-1",
+      }}
+    >
+      <source src={bg} type="video/mp4" />
+    </video>
+    <div>
+      <Navbar expand="sm" light color="light" fixed="top">
+        <NavbarBrand>
+          <img
+            className="img-fluid"
+            style={{ width: "35px", height: "35px" }}
+            alt="SpecialistLab_Logo"
+            src="slab_logo.png"
+          ></img>
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink to="/kezdolap" className="nav-link">
+                Főoldal
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/rolunk" className="nav-link">
+                Rólunk
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                to="/hirdetesek"
+                className="nav-link active"
+                aria-current="page"
+              >
+                Hirdetések
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/hirdetes-feladas" className="nav-link">
+                Hirdetésfeladás
+              </NavLink>
+            </NavItem>
+            {loggedInUser?.role == "admin" && (
+            <NavItem>
+            <NavLink to="/adminpanel" className="nav-link">
+              Admin Panel
+            </NavLink>
+          </NavItem>
+          )}
+          </Nav>
+
+          {loggedInUser?.username ? (
+            <Nav navbar>
+              <NavItem className="nav-link d-flex align-items-center">
+                <NavLink to="/profil" className="nav-link">
+                  <img src={loggedInUser.avatar} className="avatar" alt="Avatar" style={{width:"30px",marginRight:"20px"}} />
+                  <span style={{ cursor: "pointer" }}>
+                    {loggedInUser.username}
+                  </span>
+                </NavLink>
+              </NavItem>
+              <NavItem className="d-flex align-items-center">
+                <NavLink to="/">
+                  <span
+                    className="btn text-info"
+                    onClick={()=>setLoggedInUser({})}
+                  >
+                    Kijelentkezés
+                  </span>
+                </NavLink>
+              </NavItem>
+            </Nav>
+          ) : (
+            <Nav navbar>
+              <NavItem>
+                <NavLink to="/login" className="nav-link">
+                  Bejelentkezés
+                </NavLink>
+              </NavItem>
+            </Nav>
+          )}
+        </Collapse>
+      </Navbar>
+    </div>
+
+
     <div className='row justify-content-center '>
     {isLoading?
     <div className='loading'>
@@ -104,5 +224,6 @@ export const AdminPanel=()=> {
     </div>
         }
         </div>
+      </>
   )
 }
