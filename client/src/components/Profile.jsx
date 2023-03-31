@@ -139,18 +139,17 @@ const mutationChangePw = useMutation(changePassword, {
     <div className='container'>
     <h1 className="sitetitle p-3 text-white text-center">Profil</h1>
     </div>
-    <div className="mt-3">
-      <h3 className="p-2 text-center text-white">User Profile Settings</h3>
-      <br />
-      <div className="row text-center text-white p-1">
-        <span className="">Email:</span>
-        <span className="">{loggedInUser.email}</span>
-      </div>
+    <div className="profilpanel">
       <div className="row justify-content-center align-items-center">
         <Form className="border p-2 m-2 shadow">
         <FormGroup row>
+          <Label>
+          <span>Email:</span><br />
+          <span>{loggedInUser.email}</span>
+          <Input readOnly disabled><span>{loggedInUser.email}</span></Input>
+          </Label>
           <Label for="pw" sm={12}>
-            New Password
+            Új jelszó beállítása:
           </Label>
           <Col sm={8}>
             <Input id="pw" name="password" type="password" value={newPw} onChange={(e)=>setNewpw(e.target.value)} />
@@ -159,7 +158,7 @@ const mutationChangePw = useMutation(changePassword, {
             <Input
               type="button"
               disabled={!newPw || newPw.length<6}
-              value="Change Password"
+              value="Alkalmaz"
               onClick={handleChangePw}
             />
           </Col>
@@ -172,13 +171,13 @@ const mutationChangePw = useMutation(changePassword, {
             <Input
               type="button"
               className="btn w-50 m-1 btn-primary"
-              value="Update Avatar"
+              value="Feltöltés"
               disabled={!selFile.name}
               onClick={handleUpdateAvatar}
             />
           ) : (
             <Button color="primary" className="w-50" disabled>
-              <span> Upload</span>
+              <span> Feltöltés...</span>
             </Button>
           )}
 
@@ -186,7 +185,7 @@ const mutationChangePw = useMutation(changePassword, {
             type="button"
             className="btn w-50 m-1 btn-danger"
             onClick={handleDelete}
-            value="Delete User"
+            value="Fiók törlése"
           />
         </FormGroup>
         <div className="msg text-center ">{msg}</div>

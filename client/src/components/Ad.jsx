@@ -155,7 +155,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                   <NavLink to="/">
                     <span
                       className="btn text-info"
-                      onClick={() => setLoggedInUser({})}
+                      onClick={()=>setLoggedInUser({})}
                     >
                       Kijelentkezés
                     </span>
