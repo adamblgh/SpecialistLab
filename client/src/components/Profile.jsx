@@ -144,9 +144,8 @@ const mutationChangePw = useMutation(changePassword, {
         <Form className="border p-2 m-2 shadow">
         <FormGroup row>
           <Label>
-          <span>Email:</span><br />
-          <span>{loggedInUser.email}</span>
-          <Input readOnly disabled><span>{loggedInUser.email}</span></Input>
+          <p>Email:</p>
+          <p className='profilemail'>{loggedInUser.email}</p>
           </Label>
           <Label for="pw" sm={12}>
             Új jelszó beállítása:
