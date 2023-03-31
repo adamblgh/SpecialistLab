@@ -36,6 +36,8 @@ export const NewAdPers = ({
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
   const [admodal, setAdModal] = useState(false);
   const toggleAdModal = () => setAdModal(!admodal);
@@ -46,7 +48,6 @@ export const NewAdPers = ({
     getCities
   );
   //statusCities == "success" && console.log(dataCities.data);
-
 
   const { data: dataSubCateg, status: statusSubCateg } = useQuery(
     ["subCategs", id],
@@ -132,10 +133,10 @@ export const NewAdPers = ({
             </NavItem>
             {loggedInUser?.role == "admin" && (
               <NavItem>
-              <NavLink to="/adminpanel" className="nav-link">
-                Admin Panel
-              </NavLink>
-            </NavItem>
+                <NavLink to="/adminpanel" className="nav-link">
+                  Admin Panel
+                </NavLink>
+              </NavItem>
             )}
           </Nav>
 
@@ -219,11 +220,11 @@ export const NewAdPers = ({
               >
                 <option value="0">Válassz munkakört...</option>
                 {statusSubCateg == "success" &&
-                    dataSubCateg.data.map((obj) => (
-                      <option key={obj.id} id={obj.id} value={obj.id}>
-                        {obj.description}
-                      </option>
-                    ))}
+                  dataSubCateg.data.map((obj) => (
+                    <option key={obj.id} id={obj.id} value={obj.id}>
+                      {obj.description}
+                    </option>
+                  ))}
               </Input>
             </FormGroup>
 

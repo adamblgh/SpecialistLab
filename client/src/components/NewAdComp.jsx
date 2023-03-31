@@ -36,6 +36,8 @@ export const NewAdComp = ({
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
   const [admodal, setAdModal] = useState(false);
   const toggleAdModal = () => setAdModal(!admodal);

@@ -71,14 +71,14 @@ export const checkUsername=(request,response)=>{
 const saltRound=10
 export const register=(request,response)=>{
     console.log(request.body)
-    const {name,username,email,password} = request.body
+    const {name,username,email,password,role} = request.body
     bcrypt.hash(password,saltRound,(err,hashedPassword)=>{
         console.log(hashedPassword)
         if(err){
             console.log('BCRYPT HIBA!',err)
         }
         else{
-            db.query('INSERT INTO users (name,username,email,password) values (?,?,?,?)',[name,username,email,hashedPassword],(err,result)=>{
+            db.query('INSERT INTO users (name,username,email,password,role) values (?,?,?,?,?)',[name,username,email,hashedPassword,"user"],(err,result)=>{
                 if(err){
                     console.log('HIBA AZ INSERT-NÉL!',err)
                     response.send({msg:'Regisztráció sikertelen!',id:result.insertId})
