@@ -409,6 +409,13 @@ Form {
 .munka {
   text-transform: capitalize;
 }
+.profilpanel{
+ display: flex;
+ justify-content: center!important;
+}
+.profilemail{
+  margin-top: 50px!important;
+}
 @media only screen and (max-width: 391px) {
   .formlog {
     width: 90%!important;
