@@ -105,8 +105,7 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
             <NavItem>
               <NavLink
                 to="/hirdetesek"
-                className="nav-link active"
-                aria-current="page"
+                className="nav-link"
               >
                 Hirdetések
               </NavLink>
@@ -118,7 +117,8 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
             </NavItem>
             {loggedInUser?.role == "admin" && (
             <NavItem>
-            <NavLink to="/adminpanel" className="nav-link">
+            <NavLink to="/adminpanel" className="nav-link active"
+                aria-current="page">
               Admin Panel
             </NavLink>
           </NavItem>
