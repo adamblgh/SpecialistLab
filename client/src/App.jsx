@@ -33,17 +33,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login loggedInUser={cookies} setLoggedInUser={setLoggedInUser}/>} />
-        
-        {loggedInUser?.id && <>
-        <Route path="/kezdolap" element={<Home loggedInUser={cookies} setLoggedInUser={setLoggedInUser} setSelectedCategId={setSelectedCategId}/>} />
-        <Route path="/hirdetesek" element={<Ad loggedInUser={cookies} selectedCategId={selectedCategId}/>} />
-        <Route path="/rolunk" element={<About loggedInUser={cookies}/>} />
-        <Route path="/profil" element={<Profile loggedInUser={cookies} setLoggedInUser={setLoggedInUser}/>} /> 
-        <Route path="/hirdetes-feladas" element={< AdUpload loggedInUser={cookies}/>} />
-        <Route path="/ceghirdetes" element={< NewAdComp loggedInUser={cookies} selectedCategId={selectedCategId}/>} />
-        <Route path="/maganhirdetes" element={< NewAdPers loggedInUser={cookies} selectedCategId={selectedCategId}/>} />
-        <Route path="/adminpanel" element={<AdminPanel loggedInUser={cookies} setLoggedInUser={setLoggedInUser}/>} /></>}
+        <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
+        <Route path="/kezdolap" element={<Home loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} setSelectedCategId={setSelectedCategId}/>} />
+        <Route path="/hirdetesek" element={<Ad loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
+        <Route path="/rolunk" element={<About loggedInUser={loggedInUser}/>} />
+        <Route path="/profil" element={<Profile loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} /> 
+        <Route path="/hirdetes-feladas" element={< AdUpload loggedInUser={loggedInUser}/>} />
+        <Route path="/ceghirdetes" element={< NewAdComp loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
+        <Route path="/maganhirdetes" element={< NewAdPers loggedInUser={loggedInUser} selectedCategId={selectedCategId}/>} />
+        <Route path="/adminpanel" element={<AdminPanel loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>} />
       </Routes>
       </div>
       
