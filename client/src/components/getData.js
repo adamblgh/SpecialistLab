@@ -80,3 +80,18 @@ export const getUsers = async () =>{
   const response = await axios.get(url+'/admin')
   return response;
 }
+
+export const delUser = async (id) => {
+  const response = await axios.delete(url+'/admin/delete/'+id);
+  return response;
+};
+
+export const addUser = async (formdata) => {
+  const response = await axios.post(url+'/admin/add',formdata);
+  return response;
+};
+
+export const updateUser = async (id) => {
+  const response = await axios.put(url+'/admin/update/'+id);
+  return response;
+};
