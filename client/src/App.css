@@ -430,6 +430,9 @@ Form {
   margin-top: -10px!important;
   margin-bottom: -5px!important;
 }
+.admin-add{
+  border-radius: 10px;
+}
 @media only screen and (max-width: 391px) {
   .formlog {
     width: 90%!important;

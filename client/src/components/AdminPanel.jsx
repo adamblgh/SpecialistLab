@@ -175,13 +175,18 @@ export const AdminPanel=({ loggedInUser, setLoggedInUser })=> {
   />
     </div>
     :
-    <div className='border p-2'>
-      <h1 className='text-center'>Felhasználók</h1>
-      <form className='d-flex justify-content-evenly m-1 p-2 border'>
+    <div className='container-admin'>
+      <h1 className="sitetitle p-3 text-white text-center homekateg">
+          Admin Panel
+      </h1>
+      <div className="d-flex justify-content-center">
+      <form className='d-flex justify-content-evenly mb-4 p-3 admin-add'>
         <input type="text"  onChange={(e)=>setNewItem(e.target.value)} value={newItem} />
 
         <i className="fa-solid fa-plus fa-2x m-1 text-success hozzaadoikon" onClick={()=>mutationAdd.mutate({name:newItem})}></i>
       </form>
+      </div>
+     
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
