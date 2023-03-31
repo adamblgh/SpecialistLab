@@ -414,7 +414,11 @@ Form {
  justify-content: center!important;
 }
 .profilemail{
-  margin-top: 50px!important;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: -10px!important;
+  margin-bottom: -5px!important;
 }
 @media only screen and (max-width: 391px) {
   .formlog {
