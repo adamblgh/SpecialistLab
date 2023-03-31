@@ -64,7 +64,7 @@ export const getSubCateg = (request, response) => {
 
 export const getOnclickSubCateg = (request, response) => {
   const { id } = request.params;
-  db.query("SELECT subcategory.description,datum FROM subcategory,category WHERE category.id=subcategory.categ_id AND categ_id=?",[id],(error, results) => {
+  db.query("SELECT subcategory.description FROM subcategory,category WHERE category.id=subcategory.categ_id AND categ_id=?",[id],(error, results) => {
       if (error) {
         console.log("Hiba!", error);
       } else {

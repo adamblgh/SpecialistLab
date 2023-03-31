@@ -24,7 +24,7 @@ const db=mysql.createConnection(configDB)
 export const login=(request,response)=>{
     /*console.log(request.body)*/
     const {username,password} = request.body
-    db.query('SELECT id,password,email,avatar,avatar_id FROM `users` where username=?',[username],(err,result)=>{
+    db.query('SELECT id,password,email,avatar,avatar_id,role FROM `users` where username=?',[username],(err,result)=>{
         if(err)
             console.log('HIBA!',err)
         else{
@@ -34,7 +34,7 @@ export const login=(request,response)=>{
                     response.send({error:"ServerERROR!",err})
                 if(resultCompare){
                     //console.log("password:",password, result[0].password)
-                    response.send({username:username,id:result[0].id,email:result[0].email,avatar:result[0].avatar,avatar_id:result[0].avatar_id})
+                    response.send({username:username,id:result[0].id,email:result[0].email,avatar:result[0].avatar,avatar_id:result[0].avatar_id,role:result[0].role})
                 }
                 else{
                     response.send({error:"Rossz felhasználónév és jelszó pár!"})
@@ -71,14 +71,14 @@ export const checkUsername=(request,response)=>{
 const saltRound=10
 export const register=(request,response)=>{
     console.log(request.body)
-    const {name,username,email,password} = request.body
+    const {name,username,email,password,role} = request.body
     bcrypt.hash(password,saltRound,(err,hashedPassword)=>{
         console.log(hashedPassword)
         if(err){
             console.log('BCRYPT HIBA!',err)
         }
         else{
-            db.query('INSERT INTO users (name,username,email,password) values (?,?,?,?)',[name,username,email,hashedPassword],(err,result)=>{
+            db.query('INSERT INTO users (name,username,email,password,role) values (?,?,?,?,?)',[name,username,email,hashedPassword,"user"],(err,result)=>{
                 if(err){
                     console.log('HIBA AZ INSERT-NÉL!',err)
                     response.send({msg:'Regisztráció sikertelen!',id:result.insertId})
@@ -108,6 +108,24 @@ export const updateAvatar=async (request,response)=>{
             }
         })
     }
+}
+
+export const adupload=(request,response)=>{
+    console.log(request.body)
+    const {city,work,description} = request.body
+        if(err){
+            console.log('Feltöltési hiba!',err)
+        }
+        else{
+            db.query('INSERT INTO workers (city,work,description) values (?,?,?,?)',[city,work,description],(err,result)=>{
+                if(err){
+                    console.log('HIBA AZ INSERT-NÉL!',err)
+                    response.send({msg:'Sikertelen feltöltés!',id:result.insertId})
+                }
+                else
+                    response.send({msg:'Sikeres feltöltés!',id:result.insertId})
+            })
+        }
 }
  
 const removeTMPfiles = path =>{

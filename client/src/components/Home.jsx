@@ -95,21 +95,11 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
               </NavLink>
             </NavItem>
             {loggedInUser?.role == "admin" && (
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Admin Panel
-                </DropdownToggle>
-                <DropdownMenu end>
-                  <DropdownItem>Users</DropdownItem>
-                  <DropdownItem>Products</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink to="books">Books</NavLink>
-                    </NavItem>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+              <NavLink to="/adminpanel" className="nav-link">
+                Admin Panel
+              </NavLink>
+            </NavItem>
             )}
           </Nav>
 
@@ -150,7 +140,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
           Válasszon kategóriát...
         </h1>
         <br />
-        <div className="row justify-content-center align-items-center homepanelek">
+        <div className="row justify-content-center homepanelek">
           {" "}
           {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
 
@@ -164,7 +154,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
                   //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
                   className="panel kitoltes lineUp rounded epitoipar"
                 >
-                  <h3 className="text-center text-white cimke p-2 bg-primary">
+                  <h3 className="text-center text-white cimke p-2 bg-primary text-capitalize">
                     {obj.description}
                   </h3>
                 </motion.div>

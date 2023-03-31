@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getCities } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 import { useQuery } from "react-query";
+import { Modaladup } from "./Modaladup";
 
 import {
   Collapse,
@@ -35,14 +36,18 @@ export const NewAdPers = ({
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
+  const [admodal, setAdModal] = useState(false);
+  const toggleAdModal = () => setAdModal(!admodal);
+
 
   const { data: dataCities, status: statusCities } = useQuery(
     "cities",
     getCities
   );
   //statusCities == "success" && console.log(dataCities.data);
-
 
   const { data: dataSubCateg, status: statusSubCateg } = useQuery(
     ["subCategs", id],
@@ -127,21 +132,11 @@ export const NewAdPers = ({
               </NavLink>
             </NavItem>
             {loggedInUser?.role == "admin" && (
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+              <NavItem>
+                <NavLink to="/adminpanel" className="nav-link">
                   Admin Panel
-                </DropdownToggle>
-                <DropdownMenu end>
-                  <DropdownItem>Users</DropdownItem>
-                  <DropdownItem>Products</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink to="books">Books</NavLink>
-                    </NavItem>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                </NavLink>
+              </NavItem>
             )}
           </Nav>
 
@@ -225,11 +220,11 @@ export const NewAdPers = ({
               >
                 <option value="0">Válassz munkakört...</option>
                 {statusSubCateg == "success" &&
-                    dataSubCateg.data.map((obj) => (
-                      <option key={obj.id} id={obj.id} value={obj.id}>
-                        {obj.description}
-                      </option>
-                    ))}
+                  dataSubCateg.data.map((obj) => (
+                    <option key={obj.id} id={obj.id} value={obj.id}>
+                      {obj.description}
+                    </option>
+                  ))}
               </Input>
             </FormGroup>
 
@@ -244,12 +239,13 @@ export const NewAdPers = ({
             </FormGroup>
 
             <div>
-              <Input
-                type="button"
-                className="btn btn-primary bejelentkezes"
-                id="login"
-                value="Hirdetés Feladása"
-              />
+            <input
+                    type="button"
+                    value="Feltöltés"
+                    data-toggle="modal"
+                    onClick={toggleAdModal}
+                    className="btn btn-primary bejelentkezes"
+                  />
             </div>
           </Form>
         </div>
@@ -280,6 +276,7 @@ export const NewAdPers = ({
           </div>
         </div>
       </footer>
+      {admodal && <Modaladup admodal={admodal} setAdModal={setAdModal} />}
     </>
   );
 };
