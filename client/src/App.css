@@ -206,6 +206,10 @@ Form {
   padding-bottom: 300px;
   padding-right: 70px;
   width: 270px;
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+  
 }
 .register {
   background-image: url("../public/register.png");
@@ -380,6 +384,7 @@ Form {
 }
 .homepanelek{
   margin-top: -45px!important;
+  
 }
 @media only screen and (max-width: 767px) {
   .kepek {
@@ -474,4 +479,7 @@ Form {
  }
  .modositoikon{
   cursor: pointer;
+ }
+ .formlog,.formlog2{
+  margin-bottom: 140px!important;
  }
