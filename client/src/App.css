@@ -196,6 +196,9 @@ Form {
     height: 122px;
   }
 }
+.loginregister{
+  margin-top: 10px;
+}
 .aduploadpanel{
   margin-top: -50px!important;
 }
