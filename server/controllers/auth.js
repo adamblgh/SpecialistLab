@@ -110,23 +110,7 @@ export const updateAvatar=async (request,response)=>{
     }
 }
 
-export const adupload=(request,response)=>{
-    console.log(request.body)
-    const {users_id,cities_id,subcateg_id,description} = request.body
-        if(err){
-            console.log('Feltöltési hiba!',err)
-        }
-        else{
-            db.query('INSERT INTO workers (users_id,cities_id,subcateg_id,description) values (?,?,?,?,?)',[users_id,cities_id,subcateg_id,description],(err,result)=>{
-                if(err){
-                    console.log('HIBA AZ INSERT-NÉL!',err)
-                    response.send({msg:'Sikertelen feltöltés!',id:result.insertId})
-                }
-                else
-                    response.send({msg:'Sikeres feltöltés!',id:result.insertId})
-            })
-        }
-}
+
  
 const removeTMPfiles = path =>{
     console.log("A törlendő temp file útvonala: ",path)

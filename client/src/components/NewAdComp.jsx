@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { getCities } from "./getData.js";
+import { adupload, getCities } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 import { useQuery } from "react-query";
 import { Modaladup } from "./Modaladup";
@@ -40,8 +40,14 @@ export const NewAdComp = ({
   const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
   const [admodal, setAdModal] = useState(false);
-  const toggleAdModal = () => setAdModal(!admodal);
+  
+  const [contact,setContact] = useState("")
+  const[about,setAboutme] = useState("")
 
+  const toggleAdModal = () => {
+  let newItem={user_id:loggedInUser.id,about_me:about,subcateg_id:selSubCateg,contact}
+  adupload(newItem)
+  setAdModal(!admodal)};
 
   const { data: dataCities, status: statusCities } = useQuery(
     "cities",
@@ -228,14 +234,24 @@ export const NewAdComp = ({
                     ))}
               </Input>
             </FormGroup>
+            <FormGroup>
+              <Label >Contact</Label>
+              <Input
+                type="textarea"
+                
+                value={contact}
+                onChange={(event)=>setContact(event.target.value)}
+              ></Input>
+            </FormGroup>
 
             <FormGroup>
-              <Label for="password">Leírás</Label>
+              <Label>Leírás</Label>
               <Input
                 type="textarea"
                 maxlength="365"
-                name="text"
-                id="exampleText"
+               
+                value={about}
+                onChange={(event)=>setAboutme(event.target.value)}
               ></Input>
             </FormGroup>
 
