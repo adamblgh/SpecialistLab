@@ -63,7 +63,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
     },
   });
 
-  const mutationDone = useMutation(updateUser, {
+  const mutationUpdate = useMutation(updateUser, {
     onSuccess: () => {
       clientQuery.invalidateQueries("users");
     },
@@ -197,7 +197,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
 
                 <i
                   className="fa-solid mt-1 fa-plus fa-xl m-1 text-success hozzaadoikon"
-                  onClick={() => mutationAdd.mutate({ name: newItem })}
+                  onClick={() => mutationAdd.mutate({ username: newItem })}
                 ></i>
               </form>
             </div>
@@ -225,7 +225,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                           <TableCell align="center">
                             <i
                               className="fas fa-edit text-warning fa-2x modositoikon"
-                              onClick={() => mutationDone.mutate(item.id)}
+                              onClick={() => mutationUpdate.mutate(item.id)}
                             ></i>
                           </TableCell>
                           <TableCell align="center">
@@ -263,7 +263,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                           <TableCell align="center">
                             <i
                               className="fas fa-edit text-warning fa-2x modositoikon"
-                              onClick={() => mutationDone.mutate(item.id)}
+                              onClick={() => mutationUpdate.mutate(item.id)}
                             ></i>
                           </TableCell>
                           <TableCell align="center">

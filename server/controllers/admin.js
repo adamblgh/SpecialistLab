@@ -24,8 +24,8 @@ export const getUsers=(request,response)=>{
     })
 }
 export const addUser=(request,response)=>{
-    const {name} = request.body
-    db.query('INSERT INTO users (name) VALUES (?)',[name],(error, results)=>{
+    const {username} = request.body
+    db.query('INSERT INTO users (username) VALUES (?)',[username],(error, results)=>{
         if (error)
             console.log(error)
         else 
