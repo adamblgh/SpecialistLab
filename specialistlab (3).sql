@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 23. 12:52
+-- Létrehozás ideje: 2023. Ápr 05. 13:17
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 8.0.10
 
@@ -142,7 +142,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `avatar_id`, `role`) VALUES
-(3, 'admin', '$2a$10$fLBJuWR6c/3X8Cjl4PehxuvFQIeCdbq4Lllj/imx9dE732Uz2919C', 'admin@gmail.com', 'admin', 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571246/lnnem1f4gzoiuof3zh1y.jpg', 'lnnem1f4gzoiuof3zh1y', ''),
+(3, 'admin', '$2a$10$fLBJuWR6c/3X8Cjl4PehxuvFQIeCdbq4Lllj/imx9dE732Uz2919C', 'admin@gmail.com', 'admin', 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571246/lnnem1f4gzoiuof3zh1y.jpg', 'lnnem1f4gzoiuof3zh1y', 'admin'),
 (4, 'olvodisoma', '$2a$10$zeVJ8IMdIFION7DcrU82G.D2Pn6HYozbPWFB9kaakamAISmoOaFYO', 'olvodisoma@gmail.com', 'Ölvödi Soma', '', '', '');
 
 -- --------------------------------------------------------
@@ -154,11 +154,18 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `a
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
   `about_me` varchar(1024) COLLATE utf8_hungarian_ci NOT NULL,
   `contact` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
   `subcateg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `workers`
+--
+
+INSERT INTO `workers` (`id`, `user_id`, `about_me`, `contact`, `subcateg_id`) VALUES
+(2, 3, 'leírás...', 'admin@gmail.com', 0),
+(3, 3, 'asdasdasd', 'admin@gmail.com', 2);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -244,7 +251,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Megkötések a kiírt táblákhoz

@@ -95,3 +95,8 @@ export const updateUser = async (id) => {
   const response = await axios.put(url+'/admin/update/'+id);
   return response;
 };
+export const adupload = async (formdata) => {
+  console.log(formdata)
+  const response = await axios.post(url + "/workers/adupload", formdata);
+  return response;
+};
