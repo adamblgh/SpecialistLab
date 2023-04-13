@@ -239,14 +239,14 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                         key={obj.id}
                         id={obj.id}
                         data-datum={obj.datum}
-                        value={obj.id}
+                        value={obj.description}
                       >
                         {obj.description}
                       </option>
                     ))
                   : statusSubCateg == "success" &&
                     dataSubCateg.data.map((obj) => (
-                      <option key={obj.id} id={obj.id} value={obj.id}>
+                      <option key={obj.id} id={obj.id} value={obj.description}>
                         {obj.description}
                       </option>
                     ))}
