@@ -10,7 +10,9 @@ import { FidgetSpinner } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { getUsers, delUser, addUser, updateUser } from "./getData.js";
+import { getCateg } from "./getData.js";
 import bg from "../components/background/bg.mp4";
+import { UpdateModal } from "./UpdateModal.jsx";
 import {
   useQuery,
   useQueryClient,
@@ -37,16 +39,26 @@ import {
 
 export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
   const [newItem, setNewItem] = useState("");
+
+
   const { data, isLoading } = useQuery("users", getUsers);
   !isLoading && console.log(data.data);
+
+  const {data:dataCateg,status:statusCateg} = useQuery(
+    "Categ",
+    getCateg
+  );
+  statusCateg == "success" && console.log("Ok",dataCateg.data) 
+
+
   const [selCity, setSelCity] = useState({ id: 0, name: "" });
   const [selSubCateg, setSelSubCateg] = useState(0);
   const [id, setId] = useState(0);
   const [subCategId, setSubCategId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [modal, setModal] = useState(false);
-  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
+  const [updateItem,setUpdateItem] = useState({});
 
   const clientQuery = useQueryClient();
 
@@ -63,11 +75,16 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
     },
   });
 
-  const mutationUpdate = useMutation(updateUser, {
+ /* const mutationUpdate = useMutation(updateUser, {
     onSuccess: () => {
       clientQuery.invalidateQueries("users");
     },
-  });
+  });*/
+  const handleUpdate=(e,item)=>{
+    console.log(item)
+    setUpdateItem(item)
+    setModal(true)
+  }
 
   const navigate = useNavigate();
 
@@ -207,12 +224,12 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                       <TableRow>
-                        <TableCell align="center">Név</TableCell>
-                        <TableCell align="center">Felhasználónév</TableCell>
-                        <TableCell align="center">Email</TableCell>
-                        <TableCell align="center">Rang</TableCell>
-                        <TableCell align="center">Módosítás</TableCell>
-                        <TableCell align="center">Törlés</TableCell>
+                        <TableCell align="center" sx={{fontWeight: "bold"}}>Név</TableCell>
+                        <TableCell align="center" sx={{fontWeight: "bold"}}>Felhasználónév</TableCell>
+                        <TableCell align="center" sx={{fontWeight: "bold"}}>Email</TableCell>
+                        <TableCell align="center" sx={{fontWeight: "bold"}}>Rang</TableCell>
+                        <TableCell align="center" sx={{fontWeight: "bold"}}>Módosítás</TableCell>
+                        <TableCell align="center" sx={{fontWeight: "bold"}}>Törlés</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -225,7 +242,9 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                           <TableCell align="center">
                             <i
                               className="fas fa-edit text-warning fa-2x modositoikon"
-                              onClick={() => mutationUpdate.mutate(item.id)}
+                              //onClick={() => mutationUpdate.mutate(item.id)}
+                              onClick={(event)=>handleUpdate(event,item)}
+
                             ></i>
                           </TableCell>
                           <TableCell align="center">
@@ -241,46 +260,27 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                 </TableContainer>
               </div>
               <div className="col-md-6 category">
-                <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell align="center">Név</TableCell>
-                        <TableCell align="center">Felhasználónév</TableCell>
-                        <TableCell align="center">Email</TableCell>
-                        <TableCell align="center">Rang</TableCell>
-                        <TableCell align="center">Módosítás</TableCell>
-                        <TableCell align="center">Törlés</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {data.data.map((item) => (
-                        <TableRow key={item.id}>
-                          <TableCell align="center">{item.name}</TableCell>
-                          <TableCell align="center">{item.username}</TableCell>
-                          <TableCell align="center">{item.email}</TableCell>
-                          <TableCell align="center">{item.role}</TableCell>
-                          <TableCell align="center">
-                            <i
-                              className="fas fa-edit text-warning fa-2x modositoikon"
-                              onClick={() => mutationUpdate.mutate(item.id)}
-                            ></i>
-                          </TableCell>
-                          <TableCell align="center">
-                            <i
-                              className="fa-solid fa-trash text-danger fa-2x torloikon"
-                              onClick={() => mutationDel.mutate(item.id)}
-                            ></i>
-                          </TableCell>
+                  <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center" sx={{fontWeight: "bold",fontSize: "x-large"}}>Kategória</TableCell>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+                      </TableHead>
+                      <TableBody>
+                      {dataCateg.data.map((item)=>(
+                            <TableRow key={item.id}>
+                              <TableCell align="center" className="text-capitalize">{item.description}</TableCell>
+                            </TableRow>
+                          ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
               </div>
             </div>
           </div>
         )}
+        <UpdateModal {...updateItem} setUpdateItem={setUpdateItem} modal={modal} setModal={setModal}/>
       </div>
     </>
   );
