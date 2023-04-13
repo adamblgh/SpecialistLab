@@ -104,6 +104,9 @@ Form {
 .legorduloelemek {
   border-radius: 30px !important;
 }
+.welcomecimke{
+  margin-top: -242px;
+}
 .ad {
   background-color: white;
   color: black;
@@ -207,8 +210,7 @@ Form {
 }
 
 .kitoltes {
-  padding-bottom: 300px;
-  padding-right: 70px;
+  height: 300px;
   width: 270px;
   display: flex!important;
   justify-content: center!important;
@@ -227,28 +229,6 @@ Form {
   /*background-image: url("../src/components/image/epitoipar.jpg");*/
   background-position: center;
   background-size: 280px;
-  padding-right: 115px !important;
-  background-repeat: no-repeat;
-}
-.vendeglatas {
-  /*background-image: url("../src/components/image/vendeglatas.jpg");*/
-  background-position: center;
-  background-size: 330px;
-  padding-right: 70px !important;
-  background-repeat: no-repeat;
-}
-.logisztika {
-  /*background-image: url("../src/components/image/logisztika.jpg");*/
-  background-position: center;
-  background-size: 310px;
-  padding-right: 100px !important;
-  background-repeat: no-repeat;
-}
-.egeszsegugy {
-  /*background-image: url("../src/components/image/egeszsegugy.jpg");*/
-  background-position: center;
-  background-size: 310px;
-  padding-right: 65px !important;
   background-repeat: no-repeat;
 }
 .magan {
@@ -296,7 +276,7 @@ Form {
 .cimke {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  margin-left: 115px!important;
+  margin-top: -242px;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
 }
 footer {
@@ -315,6 +295,21 @@ footer {
   max-height: 30px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .homeasd{
+    margin-left: 130px!important;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .homeasd{
+    margin-left: 30px!important;
+  }
+}
+@media only screen and (max-width: 465px) {
+  .homeasd{
+    margin-left: 0px!important;
+  }
+}
 .container {
   margin-top: 60px;
 }
@@ -391,7 +386,7 @@ Form {
   border-radius: 100vw;
 }
 .homepanelek{
-  margin-top: -45px!important;
+  margin-top: 30px!important;
   
 }
 @media only screen and (max-width: 767px) {
@@ -415,7 +410,7 @@ Form {
 
 @media only screen and (max-width: 1200px) {
   .kategkartya {
-    margin: 50px;
+    margin: 40px;
   }
   .igazit {
     margin-top: -50px!important;
@@ -430,6 +425,11 @@ Form {
 }
 .munka {
   text-transform: capitalize;
+}
+@media only screen and (max-width: 1199px) {
+  .kateg {
+    margin-right: 100px;
+  }
 }
 .profilpanel{
  display: flex;

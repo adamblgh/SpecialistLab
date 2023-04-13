@@ -135,33 +135,29 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
           )}
         </Collapse>
       </Navbar>
-      <div className="container homesite">
-        <h1 className="sitetitle p-3 text-white text-center homekateg">
-          Válasszon kategóriát...
-        </h1>
-        <br />
-        <div className="row justify-content-center homepanelek">
-          {" "}
-          {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
-
-            {statusCateg=="success" && dataCateg.data.map(obj=>
-                <div className="col-md-3 kategkartya">
-                <motion.div
-                  style={{ marginRight: 5, minWidth: 250,backgroundImage:`url(${obj.kep_url})` }}
+      <div className="container">
+        <div className="cim justify-content-center align-items-center">
+        <h1 className='sitetitle p-3 text-white text-center homekateg'>Kategóriák</h1>
+        </div>
+      <div className="row justify-content-center homepanelek aduploadpanel">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
+      {statusCateg=="success" && dataCateg.data.map(obj=>
+                <div className="col-md-3 kateg">
+                  <motion.div
+                  style={{ marginRight:5,minWidth:250,backgroundImage:`url(${obj.kep_url})` }}
                   whileHover={{ scale: [null, 1.08] }}
                   transition={{ duration: 1 }}
                   onClick={()=>handleClick(obj.id)}
-                  //hogyha erre ranyom akkor jelolje ki a hirdeteseknel a megfelelo kategoriat//
-                  className="panel homepanel kitoltes lineUp rounded epitoipar"
+                  className="panel kitoltes lineUp text-center p-3 mt-1 rounded epitoipar"
                 >
                   <h3 className="text-center text-white cimke p-2 bg-primary text-capitalize">
                     {obj.description}
                   </h3>
-                </motion.div>
-              </div>
+              </motion.div>
+                </div>
+                
             )}
-        </div>
       </div>
+    </div>
       <footer>
         <div className="row">
           <div className="col-md-4 mt-2">
