@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import { getUsers, delUser, addUser, updateUser } from "./getData.js";
 import { getCateg } from "./getData.js";
 import bg from "../components/background/bg.mp4";
+import { UpdateModal } from "./UpdateModal.jsx";
 import {
   useQuery,
   useQueryClient,
@@ -56,8 +57,8 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
   const [subCategId, setSubCategId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [modal, setModal] = useState(false);
-  const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
+  const [updateItem,setUpdateItem] = useState({});
 
   const clientQuery = useQueryClient();
 
@@ -74,11 +75,16 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
     },
   });
 
-  const mutationUpdate = useMutation(updateUser, {
+ /* const mutationUpdate = useMutation(updateUser, {
     onSuccess: () => {
       clientQuery.invalidateQueries("users");
     },
-  });
+  });*/
+  const handleUpdate=(e,item)=>{
+    console.log(item)
+    setUpdateItem(item)
+    setModal(true)
+  }
 
   const navigate = useNavigate();
 
@@ -236,7 +242,9 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                           <TableCell align="center">
                             <i
                               className="fas fa-edit text-warning fa-2x modositoikon"
-                              onClick={() => mutationUpdate.mutate(item.id)}
+                              //onClick={() => mutationUpdate.mutate(item.id)}
+                              onClick={(event)=>handleUpdate(event,item)}
+
                             ></i>
                           </TableCell>
                           <TableCell align="center">
@@ -272,6 +280,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
             </div>
           </div>
         )}
+        <UpdateModal {...updateItem} setUpdateItem={setUpdateItem} modal={modal} setModal={setModal}/>
       </div>
     </>
   );

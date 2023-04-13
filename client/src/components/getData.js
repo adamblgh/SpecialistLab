@@ -91,8 +91,9 @@ export const addUser = async (formdata) => {
   return response;
 };
 
-export const updateUser = async (id) => {
-  const response = await axios.put(url+'/admin/update/'+id);
+export const updateUser = async (formdata) => {
+  console.log(formdata)
+  const response = await axios.post(url+'/admin/update/',formdata);
   return response;
 };
 export const adupload = async (formdata) => {

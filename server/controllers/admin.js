@@ -43,8 +43,8 @@ export const delUser=(request,response)=>{
 }
 
 export const updateUser=(request,response)=>{
-    const {id} = request.params
-    db.query('update users set role=user where id=?',[id],(error, results)=>{
+    const {id,role} = request.body
+    db.query('update users set role=? where id=?',[role,id],(error, results)=>{
         if (error)
             console.log(error)
         else 

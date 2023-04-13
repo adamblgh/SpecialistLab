@@ -9,4 +9,4 @@ export const adminRouter=express.Router();
 adminRouter.route('/').get(getUsers);
 adminRouter.route('/add').post(addUser);
 adminRouter.route('/delete/:id').delete(delUser);
-adminRouter.route('/update/:id').put(updateUser);
+adminRouter.route('/update').post(updateUser);
