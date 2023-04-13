@@ -235,7 +235,7 @@ export const NewAdComp = ({
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label >Contact</Label>
+              <Label >Elérhetőség</Label>
               <Input
                 type="textarea"
                 
