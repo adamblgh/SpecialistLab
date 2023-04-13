@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { getCities } from "./getData.js";
+import { adupload, getCities } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 import { useQuery } from "react-query";
 import { Modaladup } from "./Modaladup";
@@ -40,14 +40,21 @@ export const NewAdPers = ({
   const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
   const [admodal, setAdModal] = useState(false);
-  const toggleAdModal = () => setAdModal(!admodal);
+  
+  const [contact,setContact] = useState("")
+  const[about,setAboutme] = useState("")
 
+  const toggleAdModal = () => {
+  let newItem={user_id:loggedInUser.id,about_me:about,subcateg_id:selSubCateg,contact}
+  adupload(newItem)
+  setAdModal(!admodal)};
 
   const { data: dataCities, status: statusCities } = useQuery(
     "cities",
     getCities
   );
   //statusCities == "success" && console.log(dataCities.data);
+
 
   const { data: dataSubCateg, status: statusSubCateg } = useQuery(
     ["subCategs", id],
@@ -133,10 +140,10 @@ export const NewAdPers = ({
             </NavItem>
             {loggedInUser?.role == "admin" && (
               <NavItem>
-                <NavLink to="/adminpanel" className="nav-link">
-                  Admin Panel
-                </NavLink>
-              </NavItem>
+              <NavLink to="/adminpanel" className="nav-link">
+                Admin Panel
+              </NavLink>
+            </NavItem>
             )}
           </Nav>
 
@@ -179,7 +186,7 @@ export const NewAdPers = ({
       </Navbar>
       <div className="container">
         <h1 className="sitetitle p-3 text-white text-center">
-          Hirdetés Magánszemélyként
+          Hirdetés Cégként
         </h1>
         <div className="row justify-content-center">
           <Form className="text-center formlog adform border p-3 shadow mt-1 rounded">
@@ -220,21 +227,31 @@ export const NewAdPers = ({
               >
                 <option value="0">Válassz munkakört...</option>
                 {statusSubCateg == "success" &&
-                  dataSubCateg.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.id}>
-                      {obj.description}
-                    </option>
-                  ))}
+                    dataSubCateg.data.map((obj) => (
+                      <option key={obj.id} id={obj.id} value={obj.id}>
+                        {obj.description}
+                      </option>
+                    ))}
               </Input>
+            </FormGroup>
+            <FormGroup>
+              <Label >Elérhetőség</Label>
+              <Input
+                type="textarea"
+                
+                value={contact}
+                onChange={(event)=>setContact(event.target.value)}
+              ></Input>
             </FormGroup>
 
             <FormGroup>
-              <Label for="password">Leírás</Label>
+              <Label>Leírás</Label>
               <Input
                 type="textarea"
                 maxlength="365"
-                name="text"
-                id="exampleText"
+               
+                value={about}
+                onChange={(event)=>setAboutme(event.target.value)}
               ></Input>
             </FormGroup>
 
