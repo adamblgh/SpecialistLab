@@ -136,7 +136,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
         </Collapse>
       </Navbar>
       <div className="container">
-        <div className="cim justify-content-center align-items-center">
+        <div className="cim">
         <h1 className='sitetitle p-3 text-white text-center homekateg'>Kategóriák</h1>
         </div>
       <div className="row justify-content-center homepanelek aduploadpanel">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
