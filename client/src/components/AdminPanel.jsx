@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 import { FidgetSpinner } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { getUsers, delUser, addUser, updateUser } from "./getData.js";
+import { getUsers, delUser, addCategory, delCategory, updateUser } from "./getData.js";
 import { getCateg } from "./getData.js";
 import bg from "../components/background/bg.mp4";
 import { UpdateModal } from "./UpdateModal.jsx";
@@ -40,16 +40,11 @@ import {
 export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
   const [newItem, setNewItem] = useState("");
 
-
   const { data, isLoading } = useQuery("users", getUsers);
   !isLoading && console.log(data.data);
 
-  const {data:dataCateg,status:statusCateg} = useQuery(
-    "Categ",
-    getCateg
-  );
-  statusCateg == "success" && console.log("Ok",dataCateg.data) 
-
+  const { data: dataCateg, status: statusCateg } = useQuery("categ", getCateg);
+  statusCateg == "success" && console.log("Ok", dataCateg.data);
 
   const [selCity, setSelCity] = useState({ id: 0, name: "" });
   const [selSubCateg, setSelSubCateg] = useState(0);
@@ -58,7 +53,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modal, setModal] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  const [updateItem,setUpdateItem] = useState({});
+  const [updateItem, setUpdateItem] = useState({});
 
   const clientQuery = useQueryClient();
 
@@ -68,23 +63,29 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
     },
   });
 
-  const mutationAdd = useMutation(addUser, {
+  const mutationAdd = useMutation(addCategory, {
     onSuccess: () => {
       setNewItem("");
-      clientQuery.invalidateQueries("users");
+      clientQuery.invalidateQueries("categ");
     },
   });
 
- /* const mutationUpdate = useMutation(updateUser, {
+  const mutationDelCategory = useMutation(delCategory,{
+    onSuccess: () =>{
+      clientQuery.invalidateQueries("categ");
+    },
+  });
+
+  /* const mutationUpdate = useMutation(updateUser, {
     onSuccess: () => {
       clientQuery.invalidateQueries("users");
     },
   });*/
-  const handleUpdate=(e,item)=>{
-    console.log(item)
-    setUpdateItem(item)
-    setModal(true)
-  }
+  const handleUpdate = (e, item) => {
+    console.log(item);
+    setUpdateItem(item);
+    setModal(true);
+  };
 
   const navigate = useNavigate();
 
@@ -214,7 +215,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
 
                 <i
                   className="fa-solid mt-1 fa-plus fa-xl m-1 text-success hozzaadoikon"
-                  onClick={() => mutationAdd.mutate({ username: newItem })}
+                  onClick={() => mutationAdd.mutate({ description: newItem })}
                 ></i>
               </form>
             </div>
@@ -224,12 +225,24 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                       <TableRow>
-                        <TableCell align="center" sx={{fontWeight: "bold"}}>Név</TableCell>
-                        <TableCell align="center" sx={{fontWeight: "bold"}}>Felhasználónév</TableCell>
-                        <TableCell align="center" sx={{fontWeight: "bold"}}>Email</TableCell>
-                        <TableCell align="center" sx={{fontWeight: "bold"}}>Rang</TableCell>
-                        <TableCell align="center" sx={{fontWeight: "bold"}}>Módosítás</TableCell>
-                        <TableCell align="center" sx={{fontWeight: "bold"}}>Törlés</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                          Név
+                        </TableCell>
+                        <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                          Felhasználónév
+                        </TableCell>
+                        <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                          Email
+                        </TableCell>
+                        <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                          Rang
+                        </TableCell>
+                        <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                          Módosítás
+                        </TableCell>
+                        <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                          Törlés
+                        </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -243,8 +256,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                             <i
                               className="fas fa-edit text-warning fa-2x modositoikon"
                               //onClick={() => mutationUpdate.mutate(item.id)}
-                              onClick={(event)=>handleUpdate(event,item)}
-
+                              onClick={(event) => handleUpdate(event, item)}
                             ></i>
                           </TableCell>
                           <TableCell align="center">
@@ -260,27 +272,51 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                 </TableContainer>
               </div>
               <div className="col-md-6 category">
-                  <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="center" sx={{fontWeight: "bold",fontSize: "x-large"}}>Kategória</TableCell>
+                <TableContainer component={Paper}>
+                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell
+                          align="center"
+                          sx={{ fontWeight: "bold", fontSize: "large" }}
+                        >
+                          Kategória
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          sx={{ fontWeight: "bold", fontSize: "large" }}
+                        >
+                          Törlés
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {dataCateg.data.map((item) => (
+                        <TableRow key={item.id}>
+                          <TableCell align="center" className="text-capitalize">
+                            {item.description}
+                          </TableCell>
+                          <TableCell align="center">
+                            <i
+                              className="fa-solid fa-trash text-danger fa-2x torloikon"
+                              onClick={() => mutationDelCategory.mutate(item.id)}
+                            ></i>
+                          </TableCell>
                         </TableRow>
-                      </TableHead>
-                      <TableBody>
-                      {dataCateg.data.map((item)=>(
-                            <TableRow key={item.id}>
-                              <TableCell align="center" className="text-capitalize">{item.description}</TableCell>
-                            </TableRow>
-                          ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
               </div>
             </div>
           </div>
         )}
-        <UpdateModal {...updateItem} setUpdateItem={setUpdateItem} modal={modal} setModal={setModal}/>
+        <UpdateModal
+          {...updateItem}
+          setUpdateItem={setUpdateItem}
+          modal={modal}
+          setModal={setModal}
+        />
       </div>
     </>
   );

@@ -33,7 +33,7 @@ export const getCountId = (request, response) => {
 
 export const getCateg = (request, response) => {
   let sql1;
-    sql1 = "SELECT * FROM category ORDER BY description";
+    sql1 = "SELECT * FROM category";
   db.query(sql1,(error, results) => {
     if (error) {
       console.log("Hiba!", error);
