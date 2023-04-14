@@ -204,7 +204,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
             </h1>
             <div className="d-flex justify-content-center">
               <form className="mb-4 p-3 admin-add">
-                <p align="center">Kategórai hozzáadása</p>
+                <p align="center">Kategória hozzáadása</p>
                 <input
                   type="text"
                   className="mb-1"
