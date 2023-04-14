@@ -426,11 +426,6 @@ Form {
 .munka {
   text-transform: capitalize;
 }
-@media only screen and (max-width: 1199px) {
-  .kateg {
-    margin-right: 100px;
-  }
-}
 .profilpanel{
  display: flex;
  justify-content: center!important;
