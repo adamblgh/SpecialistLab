@@ -27,18 +27,18 @@ export const UpdateModal=({modal,setModal,id,role,name,setUpdateItem})=> {
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>{id}-{name}</ModalHeader>
+        <ModalHeader toggle={toggle}>Rang módosítása</ModalHeader>
         <ModalBody>
-            <form >
+            <form className='text-center'>
                 <input type="text" value={newItem} onChange={(e)=>setNewItem(e.target.value)} contentEditable />
             </form>
           
         </ModalBody>
-        <ModalFooter>
-          <Button color="danger" onClick={()=>mutationUpdate.mutate({id,role:newItem})}>
+        <ModalFooter className='row'>
+          <Button color="danger" className='col-md' onClick={()=>mutationUpdate.mutate({id,role:newItem})}>
             Módosítás
           </Button>{' '}
-          <Button color="secondary" onClick={toggle}>
+          <Button color="secondary" className='col-md' onClick={toggle}>
             Mégse
           </Button>
         </ModalFooter>
