@@ -105,7 +105,7 @@ Form {
   border-radius: 30px !important;
 }
 .welcomecimke{
-  margin-top: -242px;
+  margin-top: -300px;
 }
 .ad {
   background-color: white;
@@ -164,7 +164,7 @@ Form {
     font-size: 200%!important;
   }
   .welcomefooter{
-    margin-top: 15px!important;
+    margin-top: 5px!important;
   }
   .social{
     margin-bottom: 15px!important;
@@ -183,6 +183,12 @@ Form {
     margin-bottom: 125px !important;
   }
 }
+@media only screen and (max-width: 1060px) {
+  .panelek {
+    margin-top: -30px!important;
+    margin-bottom: 0px!important;
+  }
+}
 @media only screen and (max-width: 426px) {
   .talalat {
     margin-top: 10px!important;
@@ -198,6 +204,9 @@ Form {
   footer {
     height: 122px;
   }
+  .social{
+    margin-top: 10px!important;
+  }
 }
 .loginregister{
   margin-top: 10px;
@@ -210,8 +219,8 @@ Form {
 }
 
 .kitoltes {
-  height: 300px;
-  width: 270px;
+  height: 350px;
+  width: 300px;
   display: flex!important;
   justify-content: center!important;
   align-items: center!important;
@@ -399,6 +408,17 @@ Form {
 @media only screen and (max-width: 771px) {
   .sitetitle {
     margin-top: 100px!important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .kitoltes{
+    height: 320px;
+  }
+  .welcomecimke{
+    margin-top: -270px!important;
+  }
+  .loginregister{
+    margin-bottom: 120px!important;
   }
 }
 @media only screen and (max-width: 576px) {
