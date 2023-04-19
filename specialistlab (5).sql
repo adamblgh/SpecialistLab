@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 05. 13:17
--- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 8.0.10
+-- Létrehozás ideje: 2023. Ápr 19. 12:19
+-- Kiszolgáló verziója: 10.4.27-MariaDB
+-- PHP verzió: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `kep_url` varchar(256) COLLATE utf8_hungarian_ci NOT NULL
+  `description` varchar(50) NOT NULL,
+  `kep_url` varchar(256) NOT NULL DEFAULT 'default.webp'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -41,7 +41,8 @@ INSERT INTO `category` (`id`, `description`, `kep_url`) VALUES
 (4, 'építőipar', 'epitoipar.jpg'),
 (5, 'vendéglátás', 'vendeglatas.jpg'),
 (6, 'logisztika', 'logisztika.jpg'),
-(7, 'egészségügy', 'egeszsegugy.jpg');
+(7, 'egészségügy', 'egeszsegugy.jpg'),
+(14, 'asdsad', 'default.webp');
 
 -- --------------------------------------------------------
 
@@ -51,7 +52,7 @@ INSERT INTO `category` (`id`, `description`, `kep_url`) VALUES
 
 CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
-  `name` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
+  `name` varchar(256) NOT NULL,
   `postal_code` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -91,7 +92,7 @@ CREATE TABLE `ratings` (
   `user_id` int(11) NOT NULL,
   `worker_id` int(11) NOT NULL,
   `rating` int(5) NOT NULL,
-  `description` varchar(125) COLLATE utf8_hungarian_ci NOT NULL
+  `description` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -102,7 +103,7 @@ CREATE TABLE `ratings` (
 
 CREATE TABLE `subcategory` (
   `id` int(11) NOT NULL,
-  `description` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
+  `description` varchar(50) NOT NULL,
   `city_id` int(11) NOT NULL,
   `categ_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
@@ -118,7 +119,8 @@ INSERT INTO `subcategory` (`id`, `description`, `city_id`, `categ_id`) VALUES
 (4, 'nővér', 7, 7),
 (5, 'szakorvos', 3, 7),
 (6, 'építészmérnök', 16, 4),
-(7, 'költségvetési intézményvezető', 2, 6);
+(7, 'költségvetési intézményvezető', 2, 6),
+(8, 'pincér', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -128,13 +130,13 @@ INSERT INTO `subcategory` (`id`, `description`, `city_id`, `categ_id`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `username` varchar(20) COLLATE utf8_hungarian_ci NOT NULL,
-  `password` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `avatar` varchar(256) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571813/wvvomlhgfihi4fxlyewo.png',
-  `avatar_id` varchar(255) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'wvvomlhgfihi4fxlyewo',
-  `role` varchar(10) COLLATE utf8_hungarian_ci NOT NULL
+  `username` varchar(20) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `avatar` varchar(256) NOT NULL DEFAULT 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571813/wvvomlhgfihi4fxlyewo.png',
+  `avatar_id` varchar(255) NOT NULL DEFAULT 'wvvomlhgfihi4fxlyewo',
+  `role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -143,7 +145,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `avatar_id`, `role`) VALUES
 (3, 'admin', '$2a$10$fLBJuWR6c/3X8Cjl4PehxuvFQIeCdbq4Lllj/imx9dE732Uz2919C', 'admin@gmail.com', 'admin', 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571246/lnnem1f4gzoiuof3zh1y.jpg', 'lnnem1f4gzoiuof3zh1y', 'admin'),
-(4, 'olvodisoma', '$2a$10$zeVJ8IMdIFION7DcrU82G.D2Pn6HYozbPWFB9kaakamAISmoOaFYO', 'olvodisoma@gmail.com', 'Ölvödi Soma', '', '', '');
+(9, 'olvodisoma', '$2a$10$B.oys2OaG4c.P.eJ5zvsA.Fq2YRYp2QYn3DQWQreZei.0I9aQ7k6W', 'olvodisoma@gmail.com', 'Ölvödi Soma', 'http://res.cloudinary.com/djpsqpe4l/image/upload/v1679571813/wvvomlhgfihi4fxlyewo.png', 'wvvomlhgfihi4fxlyewo', 'user');
 
 -- --------------------------------------------------------
 
@@ -154,8 +156,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `avatar`, `a
 CREATE TABLE `workers` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `about_me` varchar(1024) COLLATE utf8_hungarian_ci NOT NULL,
-  `contact` varchar(256) COLLATE utf8_hungarian_ci NOT NULL,
+  `about_me` varchar(1024) NOT NULL,
+  `contact` varchar(256) NOT NULL,
   `subcateg_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
@@ -221,7 +223,7 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT a táblához `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT a táblához `cities`
@@ -239,13 +241,13 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT a táblához `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT a táblához `workers`
