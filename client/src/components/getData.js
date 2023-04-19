@@ -86,8 +86,14 @@ export const delUser = async (id) => {
   return response;
 };
 
-export const addUser = async (formdata) => {
-  const response = await axios.post(url+'/admin/add',formdata);
+export const addCategory = async (formdata) => {
+  const response = await axios.post(url+'/admin/addCategory',formdata);
+  return response;
+};
+
+export const delCategory = async (id) => {
+  console.log("delcategory",id)
+  const response = await axios.delete(url+'/admin/delCategory/'+id);
   return response;
 };
 

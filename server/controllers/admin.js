@@ -1,5 +1,6 @@
 import mysql from "mysql";
 import { configDB } from "../configDB.js";
+import { request } from "express";
 const db=mysql.createConnection(configDB)
 
 /*export const specialistlab=(request,response)=>{
@@ -23,15 +24,28 @@ export const getUsers=(request,response)=>{
         }
     })
 }
-export const addUser=(request,response)=>{
-    const {username} = request.body
-    db.query('INSERT INTO users (username) VALUES (?)',[username],(error, results)=>{
+export const addCategory=(request,response)=>{
+    const {description} = request.body
+    db.query('INSERT INTO category (description) VALUES (?)',[description],(error, results)=>{
         if (error)
             console.log(error)
         else 
             response.send(results)
     })
 }
+
+export const delCategory=(request,response)=>{
+    const {id} = request.params
+    console.log("delcategory",id)
+    db.query('delete from category where id=?',[id],(error,results)=>{
+        if(error)
+            console.log(error)
+        else
+            response.send(results)
+    })  
+}
+
+
 export const delUser=(request,response)=>{
     const {id} = request.params
     db.query('delete from users where id=?',[id],(error, results)=>{
