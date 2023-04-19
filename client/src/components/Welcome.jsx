@@ -56,7 +56,7 @@ export const Welcome = ({ setLoggedInUser }) => {
                 whileHover={{ scale: [null, 1.08] }}
                 transition={{ duration: 1 }}
                 onClick={() => navigate("/login")}
-                className="welcomepanel kitoltes panel lineUp login p-3 mt-1 rounded"
+                className="welcomepanel kitoltes panel lineUp login mt-1 rounded"
               >
                 <h3 className="text-left welcomecimke">Bejelentkezés</h3>
               </motion.div>
@@ -64,7 +64,7 @@ export const Welcome = ({ setLoggedInUser }) => {
     
       </div>
       <footer>
-        <div className="row welcomefooter">
+        <div className="row footer">
           <div className="col-md-4 social">
               <a target="_blank" href="https://github.com/adamblgh/Specialistlab"><i class="fa-brands fa-2xl fa-github"></i></a>
               <a target="_blank" href="https://hu-hu.facebook.com/"><i class="fa-brands fa-2xl fa-facebook"></i></a>
