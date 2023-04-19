@@ -178,7 +178,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
         <div className="tartalom">
           <h1 className="sitetitle p-3 aboutcim text-white text-center">Hirdetések</h1>
           <br />
-          <div className="row">
+          <div className="row hirdetesigazit">
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
@@ -303,7 +303,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
           {/*KÁRTYA*/}
         </div>
       </div>
-      <footer className="nofixed">
+      <footer className="">
         <div className="row gx-0 helyez mt-2">
           <div className="col-md-4">
             <a target="_blank" href="https://github.com/adamblgh/Specialistlab">

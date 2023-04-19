@@ -122,7 +122,7 @@ Form {
 }
 .talalat {
   max-width: 150px;
-  margin-right: 10px !important;
+  margin:5px;
 }
 .hirdetoszoveg {
   text-align: justify;
@@ -511,4 +511,10 @@ Form {
 
  .hozzaadoikon{
   cursor: pointer;
+ }
+ .hirdetesigazit{
+  margin: 10px!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
  }
