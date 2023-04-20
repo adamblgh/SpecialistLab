@@ -139,9 +139,9 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
         <div className="cim">
         <h1 className='sitetitle p-3 text-white text-center homekateg'>Kategóriák</h1>
         </div>
-      <div className="row justify-content-center homepanelek aduploadpanel">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
+      <div className="row justify-content-center paneldiv homepanelek aduploadpanel">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
       {statusCateg=="success" && dataCateg.data.map(obj=>
-                <div className="col-md-3 m-2" style={{
+                <div className="col-md-3 m-2 homeelem" style={{
                   width: 304,
                   height: 350}} >
                   <motion.div

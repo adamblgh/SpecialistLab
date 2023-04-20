@@ -402,11 +402,18 @@ Form {
   margin-top: 30px!important;
   
 }
+.paneldiv{
+  margin-bottom: 100px!important;
+}
 @media only screen and (max-width: 767px) {
   .kepek {
     height: 200px;
     width: 200px;
     margin-top: 20px!important;
+  }
+  .homeelem{
+    padding-left: 4px!important;
+    padding-right: 0px!important;
   }
 }
 @media only screen and (max-width: 771px) {
