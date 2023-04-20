@@ -136,11 +136,9 @@ const mutationChangePw = useMutation(changePassword, {
         </Collapse>
       </Navbar>
     </div>
-    <div className='container'>
     <h1 className="sitetitle p-3 text-white text-center">Profil</h1>
-    </div>
-    <div className="profilpanel">
-      <div className="row justify-content-center align-items-center">
+    <div className='container justify-content-center d-flex'>
+      <div className="profilpanel">
         <Form className="border p-2 m-2 shadow">
         <FormGroup row>
           <Label>

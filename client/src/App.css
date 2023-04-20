@@ -474,8 +474,8 @@ Form {
   text-transform: capitalize;
 }
 .profilpanel{
- display: flex;
- justify-content: center!important;
+ min-width: 320px;
+ margin: 5px!important;
 }
 .profilemail{
   border: 1px solid #ced4da;
