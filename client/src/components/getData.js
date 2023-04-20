@@ -42,11 +42,6 @@ export const changePassword = async (formdata) => {
   return response;
 };
 
-/*export const getBooks = async ()=>{
-    const response = await axios.get(url+'/admin/books')
-    return await response
-}*/
-
 export const getCities = async () => {
   const response = await axios.get(url + "/cities");
   return response;
@@ -107,3 +102,9 @@ export const adupload = async (formdata) => {
   const response = await axios.post(url + "/workers/adupload", formdata);
   return response;
 };
+/*export const getSelectedSubcateg = async ({ queryKey }) => {
+  console.log("getselectedsubcateg",queryKey)
+  const [_, id] = queryKey;
+  const response = await axios.get(url+ `/cities/selectedsubcateg/${id}`);
+  return response;
+};*/

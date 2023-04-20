@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import logo from "../components/image/slab_logo.png";
@@ -25,12 +25,14 @@ import { getCountId } from "./getData.js";
 /*import { getCateg } from "./getData.js";*/
 import { getSubCateg } from "./getData.js";
 import { getOnclickSubCateg } from "./getData.js";
+/*import { getSelectedSubcateg } from "./getData.js";*/
 import { PopUpModal } from "./PopUpModal";
 
 export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
   console.log("Kiválasztott kategória idje", selectedCategId);
   const [selCity, setSelCity] = useState({ id: 0, name: "" });
   const [selSubCateg, setSelSubCateg] = useState(0);
+  /*const [selectedSubcategId,setSelectedSubcategId] = useState(0);*/
   const [id, setId] = useState(0);
   const [subCategId, setSubCategId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -58,12 +60,9 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
   statusSelectedCateg == "success" && console.log("Ok", dataSelectedCateg.data);
 
   const handleSelect = (event) => {
-    //console.log(event.target.id,event.target.name)
     let selectedName = event.target.options[event.target.selectedIndex].text;
     console.log(selectedName);
     setSelCity({ id: event.target.value, name: selectedName });
-    //console.log("Klikk volt", event.target);
-    //console.log(event.target.value);
   };
 
   /*const { data: dataCateg, status: statusCateg } = useQuery(
@@ -78,9 +77,17 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
   );
   statusSubCateg == "success" && console.log(dataSubCateg.data);
 
+/*console.log("sadasdlmaskasndjasnjab",selectedSubcategId)*/
+
+  {/*const {data: dataSelectedSubcateg, status: statusSelectedSubcateg} = useQuery(
+    ["getSelectedSubcateg", selectedSubcategId],
+    getSelectedSubcateg
+  );
+  statusSelectedSubcateg == "success" && console.log("Ok",dataSelectedSubcateg.data); */}
+
   const handleSelectSubCateg = (event) => {
     setSelSubCateg(event.target.value);
-    console.log(event.target.value);
+    console.log("handleselectsubcateg",event.target.value);
   };
 
   return (
@@ -212,17 +219,6 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                   ))}
               </Input>
             </div>
-            {/*<div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
-              <Input className="legorduloelemek" type="select" name="select">
-                <option value="0">Összes</option>
-                {statusCateg == "success" &&
-                  dataCateg.data.map((obj) => (
-                    <option key={obj.id} id={obj.id} value={obj.id}>
-                      {obj.description}
-                    </option>
-                  ))}
-              </Input>
-            </div>*/}
             <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">
               <Input
                 className="legorduloelemek"
