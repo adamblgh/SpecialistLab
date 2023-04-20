@@ -184,7 +184,7 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
         </Collapse>
       </Navbar>
 
-      <div className="row justify-content-center container-admin">
+      <div className="container">
         {isLoading ? (
           <div className="loading">
             <FidgetSpinner
@@ -199,10 +199,10 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
             />
           </div>
         ) : (
-          <div className="container-admin">
-            <h1 className="sitetitle p-3 text-white text-center homekateg">
-              Admin Panel
-            </h1>
+          <div className="container keret">
+            <div className="cim">
+        <h1 className='sitetitle p-3 text-white text-center homekateg'>Admin Panel</h1>
+        </div>
             <div className="d-flex justify-content-center">
               <form className="mb-4 p-3 admin-add">
                 <p align="center">Kategória hozzáadása</p>
@@ -219,8 +219,8 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                 ></i>
               </form>
             </div>
-            <div className="row">
-              <div className="col-md-6 users">
+            <div className="row mb-3" style={{marginRight:0,marginLeft:0}}>
+              <div className="col-md-6 justify-content-center- align-items-center users">
                 <TableContainer component={Paper}>
                   <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>

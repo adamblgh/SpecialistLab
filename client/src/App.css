@@ -327,9 +327,13 @@ footer {
 .container {
   margin-top: 60px;
 }
+.keret{
+  padding-right: 0px!important;
+  padding-left: 0px!important;
+  max-width: 1400px!important;
+}
 .container-admin{
-  max-width: 1520px!important;
-margin-left: 40px;
+  max-width: 1400px!important;
 }
 .fa-brands {
   margin-top: 15px;
@@ -470,8 +474,8 @@ Form {
   text-transform: capitalize;
 }
 .profilpanel{
- display: flex;
- justify-content: center!important;
+ min-width: 320px;
+ margin: 5px!important;
 }
 .profilemail{
   border: 1px solid #ced4da;
