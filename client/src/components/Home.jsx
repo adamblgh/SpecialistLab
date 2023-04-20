@@ -141,7 +141,7 @@ export const Home = ({ loggedInUser, setLoggedInUser,setSelectedCategId }) => {
         </div>
       <div className="row justify-content-center homepanelek aduploadpanel">                             {/*1200px-nél egybeugrik + 992px-nél is összeugrik + mobilnál az utolsó belelóg a footerbe */}
       {statusCateg=="success" && dataCateg.data.map(obj=>
-                <div className="col-md-3 kateg" style={{
+                <div className="col-md-3 m-2" style={{
                   width: 304,
                   height: 350}} >
                   <motion.div

@@ -282,10 +282,15 @@ Form {
     margin-top: 50px!important;
   }
 }
+@media only screen and (max-width: 767px) {
+  .cimke {
+    margin-top: -268px!important;
+  }
+}
 .cimke {
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  margin-top: -243px;
+  margin-top: -295px;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.4);
 }
 footer {
@@ -436,7 +441,9 @@ Form {
     margin-top: 20px!important;
   }
 }
-
+.kateg{
+  margin-right: 200px!important;
+}
 @media only screen and (max-width: 1200px) {
   .kategkartya {
     margin: 40px;
