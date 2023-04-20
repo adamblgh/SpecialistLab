@@ -39,17 +39,6 @@ export const Welcome = ({ setLoggedInUser }) => {
         </div>
         {/*PANELEK*/}
         <div className="loginregister">
-            {/*REGISZTRÁCIÓ*/}
-              <motion.div
-                style={{marginRight:5,minWidth:250}}
-                whileHover={{ scale: [null, 1.08] }}
-                transition={{ duration: 1 }}
-                onClick={() => navigate("/register")}
-                className="welcomepanel kitoltes panel lineUp register p-3 mt-1 rounded"
-              >
-                <h3 className="text-left welcomecimke">Regisztráció</h3>
-              </motion.div>
-
             {/*BEJELENTKEZÉS*/}
             <motion.div
                 style={{marginRight:5,minWidth:250}}
@@ -60,6 +49,17 @@ export const Welcome = ({ setLoggedInUser }) => {
               >
                 <h3 className="text-left welcomecimke">Bejelentkezés</h3>
               </motion.div>
+
+            {/*REGISZTRÁCIÓ*/}
+            <motion.div
+                style={{marginRight:5,minWidth:250}}
+                whileHover={{ scale: [null, 1.08] }}
+                transition={{ duration: 1 }}
+                onClick={() => navigate("/register")}
+                className="welcomepanel kitoltes panel lineUp register p-3 mt-1 rounded"
+              >
+                <h3 className="text-left welcomecimke">Regisztráció</h3>
+              </motion.div>  
         </div>
     
       </div>
