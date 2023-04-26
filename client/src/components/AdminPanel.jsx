@@ -220,9 +220,9 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
               </form>
             </div>
             <div className="row mb-3" style={{marginRight:0,marginLeft:0}}>
-              <div className="col-md-6 justify-content-center- align-items-center users">
-                <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <div className="col-md-7 justify-content-center- align-items-center users">
+                <TableContainer className="userconfig" component={Paper}>
+                  <Table  aria-label="simple table">
                     <TableHead>
                       <TableRow>
                         <TableCell align="center" sx={{ fontWeight: "bold" }}>
@@ -271,9 +271,9 @@ export const AdminPanel = ({ loggedInUser, setLoggedInUser }) => {
                   </Table>
                 </TableContainer>
               </div>
-              <div className="col-md-6 category">
+              <div className="col-md-5 category">
                 <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <Table aria-label="simple table">
                     <TableHead>
                       <TableRow>
                         <TableCell
