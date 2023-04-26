@@ -144,7 +144,10 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
             </p>
             <div className="col-md-8">
               <p className="hirdetoszoveg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quae enim esse fugiat. Quam saepe animi temporibus, nam quasi consequuntur laboriosam similique voluptatibus! Ipsam rerum atque magni, eaque vel sapiente!
+              Ölvödi Soma vagyok, 20 éves. Körülbelül 10 évig úsztam versenyszerűen, de kiszerettem belőle. 
+              Ma már a programozás iránt érdeklődöm, és ezen a területen is szeretnék elhelyezkedni a közeljövőben.
+              Szívemhez inkább a backend programozás áll közelebb, de a frontend része is érdekel.
+              Szabadidőmben úszómester vagyok, és szeretek a barátaimmal online játszani.
               </p>
             </div>
             <div className="col-md-4 aboutkepek">
