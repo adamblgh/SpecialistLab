@@ -8,17 +8,12 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
 } from 'reactstrap';
 import { FileDrop } from "./FileDrop";
 import { useMutation } from "react-query";
 import { Form, FormGroup, Label, Input, Col } from "reactstrap";
 import { updateAvatar,changePassword } from "./getData";
-import { Button,Spinner } from "reactstrap"
+import { Button} from "reactstrap"
 import { MyModal } from "./MyModal";
 
 export const Profile = ({ loggedInUser, setLoggedInUser }) => {
