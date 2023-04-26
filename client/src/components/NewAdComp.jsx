@@ -263,6 +263,12 @@ export const NewAdComp = ({
                     onClick={toggleAdModal}
                     className="btn btn-primary bejelentkezes"
                   />
+            <input 
+                    type="button" 
+                    value="Vissza"
+                    onClick={backClick}
+                    className="btn btn-danger mt-2 bejelentkezes"
+                  />
             </div>
           </Form>
         </div>
