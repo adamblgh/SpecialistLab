@@ -147,7 +147,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
               Ölvödi Soma vagyok, 20 éves. Körülbelül 10 évig úsztam versenyszerűen, de kiszerettem belőle. 
               Ma már a programozás iránt érdeklődöm, és ezen a területen is szeretnék elhelyezkedni a közeljövőben.
               Szívemhez inkább a backend programozás áll közelebb, de a frontend része is érdekel.
-              Szabadidőmben az uszodában vagyok úszómester, és szeretek a barátaimmal online játszani.
+              Szabadidőmben úszómester vagyok, és szeretek a barátaimmal online játszani.
               </p>
             </div>
             <div className="col-md-4 aboutkepek">
