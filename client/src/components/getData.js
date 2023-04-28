@@ -79,7 +79,7 @@ export const getUsers = async () =>{
 
 export const delUser = async (id) => {
   console.log("delUser",id)
-  const response = await axios.get(url+'/admin/delete/'+id);
+  const response = await axios.get(url+'/admin/delUser/'+id);
   return response;
 };
 
