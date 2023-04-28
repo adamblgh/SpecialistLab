@@ -85,8 +85,8 @@ export const getDateFromSubCateg = (request,response) => {
   })
 }
 
-export const getSelectedSubcateg = (request,response) =>{
-  const {id} = request.params
+/*export const getSelectedSubcateg = (request,response) =>{
+  const { id } = request.params
   db.query("SELECT cities.name,description FROM cities,subcategory WHERE cities.id=subcategory.city_id AND cities.id=?",[id],(error,results)=>{
     if(error){
       console.log("Hiba!",error)
@@ -95,4 +95,4 @@ export const getSelectedSubcateg = (request,response) =>{
       response.send(results)
     }
   })
-}
+}*/

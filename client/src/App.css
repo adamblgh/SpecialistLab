@@ -555,3 +555,6 @@ Form {
   justify-content: center;
   align-items: center;
  }
+ .userconfig{
+  max-width: 700px;
+ }

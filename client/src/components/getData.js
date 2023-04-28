@@ -1,6 +1,7 @@
 import axios from "axios";
 
-let url = "http://localhost:5000";
+//let url = "http://localhost:5000";
+let url = "https://specialistlab.onrender.com"
 
 export const checkUsername = async (formdata) => {
   const response = await axios.post(url + "/auth/checkUsername", formdata);
@@ -41,11 +42,6 @@ export const changePassword = async (formdata) => {
   const response = await axios.put(url + "/auth/changePassword", formdata);
   return response;
 };
-
-/*export const getBooks = async ()=>{
-    const response = await axios.get(url+'/admin/books')
-    return await response
-}*/
 
 export const getCities = async () => {
   const response = await axios.get(url + "/cities");
@@ -107,3 +103,9 @@ export const adupload = async (formdata) => {
   const response = await axios.post(url + "/workers/adupload", formdata);
   return response;
 };
+/*export const getSelectedSubcateg = async ({ queryKey }) => {
+  console.log("getselectedsubcateg",queryKey)
+  const [_, id] = queryKey;
+  const response = await axios.get(url+ `/cities/selectedsubcateg/${id}`);
+  return response;
+};*/
