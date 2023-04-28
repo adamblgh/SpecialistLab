@@ -271,13 +271,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                 </div>
               </div>
 
-              <div className="col-md-2 mt-2 jobb">
-                <img
-                  className="img-fluid cegkep cegavatarlogo"
-                  src={logo}
-                  alt=""
-                />
-              </div>
+
 
               <div className="row mt-3">
                 <div className="col-md-8 align-items-center">

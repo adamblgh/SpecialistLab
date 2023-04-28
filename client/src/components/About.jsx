@@ -161,9 +161,7 @@ export const About = ({ loggedInUser, setLoggedInUser }) => {
               <span> Kecskemét</span>
             </p>
             <div className="col-md-8">
-              <p className="hirdetoszoveg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequuntur, beatae eligendi maiores molestiae vel ratione aliquid dolor iste minus qui ut atque consequatur quis blanditiis a sequi velit quam?
-              </p>
+              <p className="hirdetoszoveg">Balogh Ádám vagyok 20 éves. Mindig is sportoltam valamit de legkiemelkedőbben a vízilabdát csináltam 8 éven át versenyszerűen azonban egy új edző miatt a fél csapat abbakényszerült hagyni a sportot vagy aki tehette eligazolt. Manapság a szoftverfejlesztés ami érdekel és ebben látom magam a jövőben is.</p>
             </div>
             <div className="col-md-4 aboutkepek">
               <img className="img-fluid kepek" src="adam.jpg" alt="Ádám" />
