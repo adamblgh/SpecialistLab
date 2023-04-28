@@ -48,7 +48,7 @@ export const delCategory=(request,response)=>{
 
 export const delUser=(request,response)=>{
     const {id} = request.params
-    db.query('delete from workers where id=?',[id],(error,results)=>{
+    db.query('delete from workers where user_id=?',[id],(error,results)=>{
         if (error)
             console.log(error)
         else
