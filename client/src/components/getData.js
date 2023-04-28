@@ -78,7 +78,8 @@ export const getUsers = async () =>{
 }
 
 export const delUser = async (id) => {
-  const response = await axios.delete(url+'/admin/delete/'+id);
+  console.log("delUser",id)
+  const response = await axios.get(url+'/admin/delete/'+id);
   return response;
 };
 
