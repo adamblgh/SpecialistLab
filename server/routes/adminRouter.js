@@ -10,5 +10,5 @@ export const adminRouter=express.Router();
 adminRouter.route('/').get(getUsers);
 adminRouter.route('/addCategory').post(addCategory);
 adminRouter.route('/delCategory/:id').delete(delCategory);
-adminRouter.route('/delete/:id').delete(delUser);
+adminRouter.route('/delUser/:id').get(delUser);
 adminRouter.route('/update').post(updateUser);
