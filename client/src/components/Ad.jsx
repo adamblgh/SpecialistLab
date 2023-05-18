@@ -200,12 +200,9 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
-                  {statusCounted == "success" &&
-                    selCity.id != 0 &&
-                    selSubCateg != 0 &&
-                    dataCounted.data[0].nr}
-                </span>{" "}
-                {selCity.id != 0 && selSubCateg != 0 ? "találat" : "Válasszon"}
+                {statusAds=='success' ? dataAds.data.length+" találat" : "Válasszon"}
+                </span>
+                
               </h5>
             </div>
             <div className="col-md-4 talalat bg-white rounded-pill p-1 text-black">

@@ -3,11 +3,10 @@ import { NavLink } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { adupload, getCities } from "./getData.js";
+import { adupload, getCities, insertads } from "./getData.js";
 import { getSubCateg } from "./getData.js";
 import { useQuery } from "react-query";
 import { Modaladup } from "./Modaladup";
-
 import {
   Collapse,
   Navbar,
@@ -88,6 +87,17 @@ export const NewAdComp = ({
   const backClick = () => {
     navigate("/hirdetes-feladas");
   };
+
+  const handleinsert = () => {
+    console.log('handleinsert: ',about,selCity.id,selSubCateg,loggedInUser.id)
+    const formdata=new FormData()
+    formdata.append('description',about)
+    formdata.append('user_id',loggedInUser.id)
+    formdata.append('subcateg_id',selSubCateg)
+    formdata.append('city_id',selCity.id)
+    insertads(formdata)
+    setAdModal(true)
+  }
 
   const navigate = useNavigate();
   return (
@@ -234,15 +244,6 @@ export const NewAdComp = ({
                     ))}
               </Input>
             </FormGroup>
-            <FormGroup>
-              <Label >Cég elérhetősége</Label>
-              <Input
-                type="textarea"
-                
-                value={contact}
-                onChange={(event)=>setContact(event.target.value)}
-              ></Input>
-            </FormGroup>
 
             <FormGroup>
               <Label>Leírás</Label>
@@ -260,7 +261,7 @@ export const NewAdComp = ({
                     type="button"
                     value="Feltöltés"
                     data-toggle="modal"
-                    onClick={toggleAdModal}
+                    onClick={handleinsert}
                     className="btn btn-primary bejelentkezes"
                   />
             <input 

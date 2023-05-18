@@ -112,3 +112,9 @@ export const getAds = async ({queryKey}) =>{
   const response = await axios.get(url2)
   return response;
 }
+
+export const insertads = async (formdata) => {
+  console.log(formdata)
+  const response = await axios.post(url + "/workers/adupload", formdata);
+  return response;
+};
