@@ -64,7 +64,8 @@ export const getSubCateg = (request, response) => {
 
 export const getOnclickSubCateg = (request, response) => {
   const { id } = request.params;
-  db.query("SELECT subcategory.description FROM subcategory,category WHERE category.id=subcategory.categ_id AND categ_id=?",[id],(error, results) => {
+  console.log('id: ',id)
+  db.query("SELECT subcategory.description,subcategory.id FROM subcategory,category WHERE category.id=subcategory.categ_id AND categ_id=?",[id],(error, results) => {
       if (error) {
         console.log("Hiba!", error);
       } else {
@@ -88,7 +89,7 @@ export const getDateFromSubCateg = (request,response) => {
 export const ads = (request,response) => {
   const { cityid,subcategid } = request.params
   console.log(cityid,subcategid)
-  db.query("SELECT description,id FROM workers WHERE city_id=? and subcateg_id=?;",[cityid,subcategid],(error,results)=>{
+  db.query("SELECT description,id FROM workers WHERE city_id=? and subcateg_id=(select id from subcategory where description=?);",[cityid,subcategid],(error,results)=>{
     if(error){
       console.log("Hiba!",error)
     }

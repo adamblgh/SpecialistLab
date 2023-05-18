@@ -43,6 +43,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
 
 
       console.log("Kérés a szerverhez")
+      console.log("kiiratás: ",selSubCateg)
       const { data: dataAds, status: statusAds } = useQuery(
         ["ads",selCity.id,selSubCateg],
         getAds
@@ -60,10 +61,10 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
     getCountId
   );
   //statusCounted == "success" && console.log(dataCounted.data[0].nr);
-  console.log(selCity, "a kiválasztott város");
+  console.log(selCity, "a kiválasztott város",selSubCateg);
 
   const { data: dataSelectedCateg, status: statusSelectedCateg } = useQuery(
-    ["selectedCateg", selectedCategId],
+    ["selectedCateg", selectedCategId,selSubCateg],
     getOnclickSubCateg
   );
   statusSelectedCateg == "success" && console.log("Ok", dataSelectedCateg.data);
@@ -95,6 +96,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
   statusSelectedSubcateg == "success" && console.log("Ok",dataSelectedSubcateg.data); */}
 
   const handleSelectSubCateg = (event) => {
+    console.log("handleselectsubcateg2222:",event.target.id)
     setSelSubCateg(event.target.value);
     console.log("handleselectsubcateg",event.target.value);
   };
@@ -242,16 +244,15 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                   ? dataSelectedCateg.data.map((obj) => (
                       <option
                         key={obj.id}
-                        id={obj.id}
                         data-datum={obj.datum}
-                        value={obj.description}
+                        value={obj.id}
                       >
                         {obj.description}
                       </option>
                     ))
                   : statusSubCateg == "success" &&
                     dataSubCateg.data.map((obj) => (
-                      <option key={obj.id} id={obj.id} value={obj.description}>
+                      <option key={obj.id} value={obj.id}>
                         {obj.description}
                       </option>
                     ))}

@@ -107,7 +107,8 @@ export const adupload = async (formdata) => {
 
 export const getAds = async ({queryKey}) =>{
   const [_, cityid,subcategid] = queryKey;
-  console.log('GETDATA: ',cityid,subcategid)
-  const response = await axios.get(url+'/cities/ads/'+cityid+'/'+subcategid)
+  let url2=url+'/cities/ads/'+cityid+'/'+subcategid
+  console.log('GETDATA: ',cityid,subcategid,url2)
+  const response = await axios.get(url2)
   return response;
 }
