@@ -104,9 +104,10 @@ export const adupload = async (formdata) => {
   const response = await axios.post(url + "/workers/adupload", formdata);
   return response;
 };
-/*export const getSelectedSubcateg = async ({ queryKey }) => {
-  console.log("getselectedsubcateg",queryKey)
-  const [_, id] = queryKey;
-  const response = await axios.get(url+ `/cities/selectedsubcateg/${id}`);
+
+export const getAds = async ({queryKey}) =>{
+  const [_, cityid,subcategid] = queryKey;
+  console.log('GETDATA: ',cityid,subcategid)
+  const response = await axios.get(url+'/cities/ads/'+cityid+'/'+subcategid)
   return response;
-};*/
+}

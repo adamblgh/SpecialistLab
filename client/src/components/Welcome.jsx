@@ -1,20 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { useMutation } from "react-query";
-import { Register } from "./Register";
-import {Login} from "./Login"
-import { validate } from "react-email-validator";
-import {
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  FormFeedback,
-  Button,
-} from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import bg from "../components/background/bg.mp4";
-import logo from "../components/image/slab_logo.png";
+import { Title } from "./Title";
 
 export const Welcome = ({ setLoggedInUser }) => {
   const navigate = useNavigate();
@@ -33,10 +21,7 @@ export const Welcome = ({ setLoggedInUser }) => {
       </video>
       <div className="panelek" >
         {/*CÍM*/}
-        <div className="title">
-          <h1 className="mt-2 titleh1 lineUp">SPECIALIST LAB™</h1>
-          <h6 className="mt-2 lineUp">Minden szakember egy helyen!</h6>
-        </div>
+        <Title/>
         {/*PANELEK*/}
         <div className="loginregister">
             {/*BEJELENTKEZÉS*/}

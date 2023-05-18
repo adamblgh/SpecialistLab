@@ -27,6 +27,7 @@ import { getSubCateg } from "./getData.js";
 import { getOnclickSubCateg } from "./getData.js";
 /*import { getSelectedSubcateg } from "./getData.js";*/
 import { PopUpModal } from "./PopUpModal";
+import { getAds } from "./getData.js";
 
 export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
   console.log("Kiválasztott kategória idje", selectedCategId);
@@ -39,6 +40,14 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
   const toggle = () => setIsOpen(!isOpen);
+
+
+      console.log("Kérés a szerverhez")
+      const { data: dataAds, status: statusAds } = useQuery(
+        ["ads",selCity.id,selSubCateg],
+        getAds
+      );
+      statusAds=='success' && console.log(dataAds)
 
   const { data: dataCities, status: statusCities } = useQuery(
     "cities",
