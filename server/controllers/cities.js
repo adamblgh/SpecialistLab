@@ -85,9 +85,10 @@ export const getDateFromSubCateg = (request,response) => {
   })
 }
 
-/*export const getSelectedSubcateg = (request,response) =>{
-  const { id } = request.params
-  db.query("SELECT cities.name,description FROM cities,subcategory WHERE cities.id=subcategory.city_id AND cities.id=?",[id],(error,results)=>{
+export const ads = (request,response) => {
+  const { cityid,subcategid } = request.params
+  console.log(cityid,subcategid)
+  db.query("SELECT description,id FROM workers WHERE city_id=? and subcateg_id=?;",[cityid,subcategid],(error,results)=>{
     if(error){
       console.log("Hiba!",error)
     }
@@ -95,4 +96,4 @@ export const getDateFromSubCateg = (request,response) => {
       response.send(results)
     }
   })
-}*/
+}
