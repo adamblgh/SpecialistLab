@@ -48,7 +48,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
         ["ads",selCity.id,selSubCateg],
         getAds
       );
-      statusAds=='success' && console.log(dataAds)
+      statusAds=='success' && console.log(dataAds.data)
 
   const { data: dataCities, status: statusCities } = useQuery(
     "cities",
@@ -261,23 +261,25 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
           </div>
 
           {/*KÁRTYA*/}
-          {selCity.id != 0 && selSubCateg != 0 && (
+          {statusAds=='success' && dataAds.data.map(obj=> (
+            
             <div className="row ad mt-5">
               <div className="col-md-10 bal-ad">
                 <h4 className="bg-primary p-2 adtitle">
-                  <span className="munka">{selSubCateg}&nbsp;</span>
+                  <span className="munka">{obj.subdescription}</span>
                 </h4>
                 <p className="mt-4">
                   <i class="fa-solid fa-location-dot"></i>
                   <span> {selCity.id !=0 && selCity.name}</span>
                 </p>
                 <div className="col-md-8">
-                  <p className="hirdetoszoveg">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Tempora laudantium deleniti dolor officiis, maiores
-                    excepturi id vel doloremque fugit aut magni quibusdam est,
-                    suscipit maxime? Alias qui quae a adipisci.
-                  </p>
+                  
+                    
+                      <p className="hirdetoszoveg">
+                        {obj.description}
+                      </p>
+                    
+                  
                 </div>
               </div>
 
@@ -298,7 +300,8 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
                 </div>
               </div>
             </div>
-          )}
+
+          ))}
 
           {/*KÁRTYA*/}
         </div>

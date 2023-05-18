@@ -89,7 +89,7 @@ export const getDateFromSubCateg = (request,response) => {
 export const ads = (request,response) => {
   const { cityid,subcategid } = request.params
   console.log(cityid,subcategid)
-  db.query("SELECT description,id FROM workers WHERE city_id=? and subcateg_id=?;",[cityid,subcategid],(error,results)=>{
+  db.query("SELECT workers.description,subcategory.description subdescription FROM workers,subcategory WHERE workers.subcateg_id=subcategory.id and workers.city_id=? and workers.subcateg_id=?;",[cityid,subcategid],(error,results)=>{
     if(error){
       console.log("Hiba!",error)
     }
