@@ -26,7 +26,7 @@ import {
   FormFeedback,
 } from "reactstrap";
 
-export const NewAdComp = ({
+export const NewAdPers = ({
   loggedInUser,
   setLoggedInUser,
   selectedCategId,
