@@ -260,7 +260,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
           {/*KÁRTYA*/}
           {statusAds=='success' && dataAds.data.map(obj=> (
             
-            <div className="row ad mt-5">
+            <div className="row ad mt-5 mb-5">
               <div className="col-md-10 bal-ad">
                 <h4 className="bg-primary p-2 adtitle">
                   <span className="munka">{obj.subdescription}</span>
