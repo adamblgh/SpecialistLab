@@ -196,7 +196,7 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
         <div className="tartalom">
           <h1 className="sitetitle p-3 aboutcim text-white text-center">Hirdetések</h1>
           <br />
-          <div className="row hirdetesigazit">
+          <div className="row hirdetesigazit mb-5">
             <div className="col-md-3 talalat bg-white rounded-pill p-1 text-black">
               <h5 className="ml-3 mt-1 text-center">
                 <span className="szam">
@@ -257,48 +257,48 @@ export const Ad = ({ loggedInUser, setLoggedInUser, selectedCategId }) => {
             </div>
           </div>
 
-          {/*KÁRTYA*/}
-          {statusAds=='success' && dataAds.data.map(obj=> (
+          {/*KÁRTYA*/}<div className="hcard-holder">{statusAds=='success' && dataAds.data.map(obj=> (
             
-            <div className="row ad mt-5 mb-5">
-              <div className="col-md-10 bal-ad">
-                <h4 className="bg-primary p-2 adtitle">
-                  <span className="munka">{obj.subdescription}</span>
-                </h4>
-                <p className="mt-4">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <span> {selCity.id !=0 && selCity.name}</span>
-                </p>
-                <div className="col-md-8">
+            <div className="row ad mb-5">
+            <div className="col-md-10 bal-ad">
+              <h4 className="bg-primary p-2 adtitle">
+                <span className="munka">{obj.subdescription}</span>
+              </h4>
+              <p className="mt-4">
+                <i class="fa-solid fa-location-dot"></i>
+                <span> {selCity.id !=0 && selCity.name}</span>
+              </p>
+              <div className="col-md-8">
+                
                   
-                    
-                      <p className="hirdetoszoveg">
-                        {obj.description}
-                      </p>
-                    
+                    <p className="hirdetoszoveg">
+                      {obj.description}
+                    </p>
                   
-                </div>
-              </div>
-
-
-
-              <div className="row mt-3">
-                <div className="col-md-8 align-items-center">
-                  <input
-                    type="button"
-                    value="Jelentkezés"
-                    data-toggle="modal"
-                    onClick={toggleModal}
-                    className="btn btn-primary"
-                  />
-                </div>
-                <div className="col-md-4">
-                  <p className="datum mt-2">&nbsp;</p>
-                </div>
+                
               </div>
             </div>
 
-          ))}
+
+
+            <div className="row mt-3">
+              <div className="col-md-8 align-items-center">
+                <input
+                  type="button"
+                  value="Jelentkezés"
+                  data-toggle="modal"
+                  onClick={toggleModal}
+                  className="btn btn-primary"
+                />
+              </div>
+              <div className="col-md-4">
+                <p className="datum mt-2">&nbsp;</p>
+              </div>
+            </div>
+          </div>
+
+        ))}</div>
+          
 
           {/*KÁRTYA*/}
         </div>
